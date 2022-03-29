@@ -18,8 +18,15 @@ import { CardActionArea, OutlinedInput, Stack } from "@mui/material";
 import BookmarkSharpIcon from "@mui/icons-material/BookmarkSharp";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import PauseIcon from "@mui/icons-material/Pause";
 
-export default function MediaControlCard(content: any) {
+export default function MediaControlCard({
+  content,
+  setAudioUrl,
+  audioUrl,
+  onPlay,
+  setOnPlay,
+}: any) {
   const [showButton, setShowButton] = useState(false);
 
   const theme = useTheme();
@@ -48,12 +55,12 @@ export default function MediaControlCard(content: any) {
             transition: "0.2s",
             "&:hover": {
               width: 400,
-              backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.content.id}/maxresdefault.jpg)`,
+              backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
               // borderTopRightRadius: 15,
               borderBottomRightRadius: 50,
               // transition: "0.2s",
             },
-            backgroundImage: `url(https://img.youtube.com/vi/${content.content.id}/maxresdefault.jpg)`,
+            backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           }}
           onMouseOver={() => {
             setShowButton(true);
@@ -71,8 +78,38 @@ export default function MediaControlCard(content: any) {
               justifyContent: "center",
               borderBottomRightRadius: 50,
             }}
+            onClick={() => {
+              setAudioUrl(content.youtubeId);
+              if (audioUrl == content.youtubeId && onPlay) {
+                setOnPlay(false);
+              } else {
+                setOnPlay(true);
+              }
+            }}
           >
-            {showButton ? (
+            {audioUrl == content.youtubeId ? (
+              onPlay ? (
+                showButton ? (
+                  <PauseIcon
+                    sx={{
+                      fontSize: 100,
+                      color: "white",
+                    }}
+                  />
+                ) : (
+                  <></>
+                )
+              ) : showButton ? (
+                <PlayArrowOutlinedIcon
+                  sx={{
+                    fontSize: 100,
+                    color: "white",
+                  }}
+                />
+              ) : (
+                <></>
+              )
+            ) : showButton ? (
               <PlayArrowOutlinedIcon
                 sx={{
                   fontSize: 100,
@@ -108,7 +145,7 @@ export default function MediaControlCard(content: any) {
             fontWeight={300}
             mb="5px"
           >
-            Name:&nbsp;{content.content.name}
+            Name:&nbsp;{content.name}
           </Typography>
           <Typography
             variant="subtitle1"
@@ -119,7 +156,7 @@ export default function MediaControlCard(content: any) {
             fontSize="18px"
             lineHeight="25px"
           >
-            Artist:&nbsp;{content.content.artist}
+            Artist:&nbsp;{content.artist}
           </Typography>
           <Typography
             variant="subtitle1"
@@ -130,7 +167,7 @@ export default function MediaControlCard(content: any) {
             fontSize="18px"
             lineHeight="25px"
           >
-            Style:&nbsp;{content.content.style}
+            Style:&nbsp;{content.style}
           </Typography>
           <Typography
             variant="subtitle1"
@@ -141,7 +178,7 @@ export default function MediaControlCard(content: any) {
             fontSize="18px"
             lineHeight="25px"
           >
-            Requirement:&nbsp;{content.content.requirement}
+            Requirement:&nbsp;{content.requirement}
           </Typography>
           {/* <OutlinedInput
             placeholder="add your comment..."

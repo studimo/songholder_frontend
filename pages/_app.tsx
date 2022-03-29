@@ -9,6 +9,8 @@ import "../styles/globals.css";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { height } from "@mui/system";
 import MediaPlayer from "../components/MediaPlayer";
+import { ApolloProvider } from "@apollo/client";
+import apolloClient from "../lib/ApolloClient";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -16,13 +18,15 @@ const MyApp = (props: any) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        <ResponsiveAppBar />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+    <ApolloProvider client={apolloClient}>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          <ResponsiveAppBar />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
+    </ApolloProvider>
   );
 };
 
