@@ -50,7 +50,12 @@ export default function landingPage() {
     }
   }, data);
   if (loading) {
-    return <h1>Loading</h1>;
+    return (
+      <>
+        <h1>Loading</h1>
+        <h1>Loading</h1>
+      </>
+    );
   }
   var refCard: any;
   var checkOdd = false;
