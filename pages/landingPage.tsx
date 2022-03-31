@@ -94,7 +94,7 @@ export default function landingPage() {
       >
         <Box
           component={motion.div}
-          drag
+          // drag
           dragConstraints={contentRef}
           id="boxtest"
           sx={{
@@ -104,8 +104,8 @@ export default function landingPage() {
             justifyContent: "center",
             flexDirection: "column",
             position: "fixed",
-            top: "67%",
-            left: "77%",
+            top: "57%",
+            left: "70%",
             width: "350px",
             height: "250px",
             paddingBottom: "30px",
