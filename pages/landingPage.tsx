@@ -17,6 +17,7 @@ import MusicPlayer from "../components/MusicPlayer";
 import RecommendedCard from "../components/RecommendedCard";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { gql, useQuery } from "@apollo/client";
+import Marquee from "react-fast-marquee";
 
 const AllQuery = gql`
   query {
@@ -37,6 +38,7 @@ const getAudioUrl = gql`
 `;
 export default function landingPage() {
   const [allContents, setAllContents] = useState<any>([]);
+  const [songName, setSongName] = useState<any>();
   const [audioUrl, setAudioUrl] = useState("");
   const [onPlay, setOnPlay] = useState(false);
   const { data, error, loading } = useQuery(AllQuery);
@@ -44,9 +46,8 @@ export default function landingPage() {
 
   useEffect(() => {
     var newAllContents = new Array();
-    if (data) {
+    if (data && (!allContents || allContents.length == 0)) {
       setAllContents(data.demos);
-      console.log(data.demos);
     }
   }, data);
   if (loading) {
@@ -117,6 +118,7 @@ export default function landingPage() {
             audioUrl={audioUrl}
             onPlay={onPlay}
             setOnPlay={setOnPlay}
+            songName={songName}
           />
         </Box>
         <Typography
@@ -146,9 +148,37 @@ export default function landingPage() {
               setAudioUrl={setAudioUrl}
               onPlay={onPlay}
               setOnPlay={setOnPlay}
+              setSongName={setSongName}
             />
           ))}
         </Stack>
+        {/* <div id="test">
+          <Marquee
+            gradient={false}
+            style={{
+              background: "none",
+              width: "100vw",
+              // position: "",
+              // top: "20%",
+              // right: "13%",
+              fontSize: "28px",
+            }}
+            speed={30}
+            // pauseOnClick
+          >
+            {allContents.slice(0, 8).map((content: any) => (
+              <RecommendedCard
+                content={content}
+                audioUrl={audioUrl}
+                setAudioUrl={setAudioUrl}
+                onPlay={onPlay}
+                setOnPlay={setOnPlay}
+                setSongName={setSongName}
+              />
+            ))}
+            <Box style={{ width: "230px", height: "400px" }} /> 
+          </Marquee>
+        </div> */}
         <Typography
           fontWeight="400"
           lineHeight="67.84px"
@@ -172,6 +202,7 @@ export default function landingPage() {
                 setAudioUrl={setAudioUrl}
                 onPlay={onPlay}
                 setOnPlay={setOnPlay}
+                setSongName={setSongName}
               />
             );
           } else {

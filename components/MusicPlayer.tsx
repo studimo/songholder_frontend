@@ -7,20 +7,34 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import fs from "fs";
-import ytdl from "ytdl-core";
-import ReactAudioPlayer from "react-audio-player";
-import ReactPlayer from "react-player";
 import { Box } from "@mui/system";
-import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
+import ReactPlayer from "react-player";
 import PauseIcon from "@mui/icons-material/Pause";
 import { CircleSlider } from "react-circle-slider";
-export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
+import Marquee from "react-fast-marquee";
+import Stack from "@mui/material/Stack";
+import IconButton from "@mui/material/IconButton";
+import SkipPreviousOutlinedIcon from "@mui/icons-material/SkipPreviousOutlined";
+import SkipNextOutlinedIcon from "@mui/icons-material/SkipNextOutlined";
+import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
+import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
+import { motion } from "framer-motion";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+export default function MusicPlayer({
+  audioUrl,
+  onPlay,
+  setOnPlay,
+  songName,
+}: any) {
+  const variants = {
+    open: { scaleX: 1, x: 0, opacity: 1 },
+    closed: { scaleX: 0, x: "-50%", opacity: 0 },
+  };
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [showButton, setShowButton] = useState(false);
-
-  const player = useRef(null);
+  const player = useRef<any>(null);
   // let drag = false;
   // document.addEventListener("mousedown", () => (drag = false));
 
@@ -33,12 +47,6 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
   // async function setAudio() {
   //   // A1YWGXSD_IQ
   // }
-  const playAudio = () => {
-    setOnPlay(true);
-  };
-  const pauseAudio = () => {
-    setOnPlay(false);
-  };
   return (
     <Box
       sx={{
@@ -115,7 +123,7 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
                 }}
               >
                 <CircleSlider
-                  value={90}
+                  value={(currentTime / duration) * 100}
                   size={167}
                   // showTooltip={true}
                   knobRadius={0}
@@ -124,7 +132,19 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
                   progressWidth={10}
                   circleWidth={10}
                   circleColor="white"
-                  // onChange={}
+                  onChange={(e: any) => {
+                    if (player.current != null) {
+                      player.current.seekTo((e * duration) / 100, "seconds");
+                    }
+                    console.log(e);
+                  }}
+                  onEnded={() => {
+                    console.log("END");
+                    setOnPlay(false);
+                    if (player.current != null) {
+                      player.current.seekTo(0, "seconds");
+                    }
+                  }}
                 />
               </Box>
               {showButton ? (
@@ -163,6 +183,20 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
                   playing={onPlay}
                   style={{ zIndex: -1 }}
                   ref={player}
+                  onProgress={(e) => {
+                    setCurrentTime(e.playedSeconds);
+                  }}
+                  onDuration={(e) => {
+                    setDuration(e);
+                    console.log(duration);
+                  }}
+                  onEnded={() => {
+                    setOnPlay(false);
+                    if (player.current != null) {
+                      player.current.seekTo(0, "seconds");
+                    }
+                  }}
+
                   // light={true}
                 />
               </Box>
@@ -170,7 +204,7 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
           </Card>
           <Box
             sx={{
-              width: "335px",
+              width: "280px",
               height: "140px",
               // bgcolor: "yellow",
               ml: "-63.5px",
@@ -178,7 +212,7 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
               position: "relative",
               // outline: "solid 3px #000",
 
-              borderTopRightRadius: 50,
+              borderTopRightRadius: 60,
               borderBottomRightRadius: 10,
               ":before": {
                 position: "absolute",
@@ -188,16 +222,76 @@ export default function MusicPlayer({ audioUrl, onPlay, setOnPlay }: any) {
                 marginLeft: "-84px",
                 marginTop: "-18px",
                 borderRadius: "50%",
-                // background:
-                //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                // boxShadow: "0 0 0 20px #b53",
                 boxShadow: `
                 100px 0px 80px rgba(193, 246, 248, 1),
                   180px 0px 80px rgba(222, 206, 250, 1),
                   290px 0px 80px rgba(222, 206, 250, 1)`,
               },
+              zIndex: -2,
             }}
-          />
+            component={motion.div}
+            animate={onPlay ? "open" : "closed"}
+            variants={variants}
+          >
+            {/* <Stack></Stack> */}
+
+            <Marquee
+              gradient={false}
+              style={{
+                background: "none",
+                width: "150px",
+                position: "absolute",
+                top: "20%",
+                right: "13%",
+                fontSize: "28px",
+              }}
+              speed={20}
+              delay={3}
+              pauseOnHover
+            >
+              {songName}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+            </Marquee>
+            <IconButton
+              style={{
+                position: "absolute",
+                top: "52%",
+                left: "33%",
+              }}
+            >
+              <SkipPreviousOutlinedIcon fontSize="large" />
+            </IconButton>
+            <IconButton
+              style={{
+                position: "absolute",
+                top: "52%",
+                left: "50%",
+              }}
+              onClick={() => {
+                // if (!drag) {
+                onPlay ? setOnPlay(false) : setOnPlay(true);
+                // }
+              }}
+            >
+              {onPlay ? (
+                <PauseRoundedIcon fontSize="large" />
+              ) : (
+                <PlayArrowOutlinedIcon
+                  fontSize="large"
+                  sx={{ transform: "scale(1.3)" }}
+                />
+              )}
+            </IconButton>
+
+            <IconButton
+              style={{
+                position: "absolute",
+                top: "52%",
+                right: "13%",
+              }}
+            >
+              <SkipNextOutlinedIcon fontSize="large" />
+            </IconButton>
+          </Box>
         </>
       ) : (
         <Box

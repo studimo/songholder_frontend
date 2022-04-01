@@ -19,9 +19,10 @@ export default function RecommendedCard({
   audioUrl,
   onPlay,
   setOnPlay,
+  setSongName,
 }: any) {
   const [showButton, setShowButton] = useState(false);
-  console.log(content);
+  // console.log(content);
   return (
     <Stack
       sx={{
@@ -75,6 +76,7 @@ export default function RecommendedCard({
             }}
             onClick={() => {
               setAudioUrl(content.youtubeId);
+              setSongName(content.name);
               if (audioUrl == content.youtubeId && onPlay) {
                 setOnPlay(false);
               } else {

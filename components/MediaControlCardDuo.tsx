@@ -9,6 +9,7 @@ export default function MediaControlCardDuo({
   setAudioUrl,
   onPlay,
   setOnPlay,
+  setSongName,
 }: any) {
   return (
     <Stack sx={{ display: "flex", flexDirection: "row" }}>
@@ -18,6 +19,7 @@ export default function MediaControlCardDuo({
         setAudioUrl={setAudioUrl}
         onPlay={onPlay}
         setOnPlay={setOnPlay}
+        setSongName={setSongName}
       />
       <MediaControlCard
         content={content2}
@@ -25,6 +27,7 @@ export default function MediaControlCardDuo({
         setAudioUrl={setAudioUrl}
         onPlay={onPlay}
         setOnPlay={setOnPlay}
+        setSongName={setSongName}
       />
     </Stack>
   );

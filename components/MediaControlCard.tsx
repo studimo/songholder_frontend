@@ -26,6 +26,7 @@ export default function MediaControlCard({
   audioUrl,
   onPlay,
   setOnPlay,
+  setSongName,
 }: any) {
   const [showButton, setShowButton] = useState(false);
 
@@ -80,6 +81,7 @@ export default function MediaControlCard({
             }}
             onClick={() => {
               setAudioUrl(content.youtubeId);
+              setSongName(content.name);
               if (audioUrl == content.youtubeId && onPlay) {
                 setOnPlay(false);
               } else {
