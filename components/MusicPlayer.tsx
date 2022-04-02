@@ -21,24 +21,37 @@ import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 import { motion } from "framer-motion";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import CircularSlider from "advanced-react-circular-slider";
 export default function MusicPlayer({
   audioUrl,
   onPlay,
   setOnPlay,
   songName,
+  setDragAble,
 }: any) {
   const variants = {
-    open: { scaleX: 1, x: 0, opacity: 1 },
-    closed: { scaleX: 0, x: "-50%", opacity: 0 },
+    open: { scale: 1, x: 0, opacity: 1 },
+    closed: { scale: 0, x: "-50%", opacity: 0 },
   };
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showButton, setShowButton] = useState(false);
   const player = useRef<any>(null);
-  // let drag = false;
-  // document.addEventListener("mousedown", () => (drag = false));
+  const [drag, SetDrag] = useState(false);
 
-  // document.addEventListener("mousemove", () => (drag = true));
+  document.addEventListener("mousedown", () => SetDrag(false));
+  document.addEventListener("mousemove", () => SetDrag(true));
+  // const [pointerEventForDrawer, SetPointerEventForDrawer] = useState("auto");
+
+  // useEffect(() => {
+  //   console.log(onPlay);
+  //   if (onPlay) {
+  //     SetPointerEventForDrawer("auto");
+  //   } else {
+  //     SetPointerEventForDrawer("none");
+  //   }
+  // }, [onPlay]);
+
   // console.log(audioUrl);
   // useEffect(() => {
   //   setAudio();
@@ -55,6 +68,7 @@ export default function MusicPlayer({
         alignItems: "flex-start",
         justifyContent: "center",
         flexDirection: "row",
+        pointerEvents: "none",
         // width: "500px",
         // height: "200px",
         // top: "50%",
@@ -67,21 +81,24 @@ export default function MusicPlayer({
       {audioUrl ? (
         <>
           <Card
+            id="mainMuicCard"
             sx={{
               backgroundColor: "rgba(0, 0, 0, 0)",
               width: "130px",
               height: "130px",
               borderRadius: "100%",
+              pointerEvents: "auto",
             }}
           >
             <CardActionArea
               onClick={() => {
-                // if (!drag) {
-                onPlay ? setOnPlay(false) : setOnPlay(true);
-                // }
+                if (!drag) {
+                  onPlay ? setOnPlay(false) : setOnPlay(true);
+                }
               }}
               onMouseOver={() => {
                 setShowButton(true);
+                setDragAble(true);
               }}
               onMouseLeave={() => {
                 setShowButton(false);
@@ -98,7 +115,7 @@ export default function MusicPlayer({
                   zIndex: 3,
                   position: "fixed",
                 }}
-              ></Box>
+              />
             </CardActionArea>
 
             <Box
@@ -122,30 +139,37 @@ export default function MusicPlayer({
                   mt: "20px",
                 }}
               >
-                <CircleSlider
-                  value={(currentTime / duration) * 100}
-                  size={167}
-                  // showTooltip={true}
-                  knobRadius={0}
-                  gradientColorFrom="#67BFC2"
-                  gradientColorTo="#8062B7"
-                  progressWidth={10}
-                  circleWidth={10}
-                  circleColor="white"
-                  onChange={(e: any) => {
-                    if (player.current != null) {
-                      player.current.seekTo((e * duration) / 100, "seconds");
-                    }
-                    console.log(e);
+                <div
+                  onMouseLeave={() => {
+                    setDragAble(true);
                   }}
-                  onEnded={() => {
-                    console.log("END");
-                    setOnPlay(false);
-                    if (player.current != null) {
-                      player.current.seekTo(0, "seconds");
-                    }
-                  }}
-                />
+                >
+                  <CircleSlider
+                    value={(currentTime / duration) * 100}
+                    size={167}
+                    // showTooltip={true}
+                    knobRadius={0}
+                    gradientColorFrom="#67BFC2"
+                    gradientColorTo="#8062B7"
+                    progressWidth={10}
+                    circleWidth={10}
+                    circleColor="white"
+                    onChange={(e: any) => {
+                      setDragAble(false);
+                      if (player.current != null) {
+                        player.current.seekTo((e * duration) / 100, "seconds");
+                      }
+                      console.log(e);
+                    }}
+                    onEnded={() => {
+                      console.log("END");
+                      setOnPlay(false);
+                      if (player.current != null) {
+                        player.current.seekTo(0, "seconds");
+                      }
+                    }}
+                  />
+                </div>
               </Box>
               {showButton ? (
                 onPlay ? (
@@ -203,7 +227,9 @@ export default function MusicPlayer({
             </Box>
           </Card>
           <Box
+            id="drawer"
             sx={{
+              // width: "280px",
               width: "280px",
               height: "140px",
               // bgcolor: "yellow",
@@ -228,6 +254,8 @@ export default function MusicPlayer({
                   290px 0px 80px rgba(222, 206, 250, 1)`,
               },
               zIndex: -2,
+              // pointerEvents: { pointerEventForDrawer },
+              pointerEvents: "auto",
             }}
             component={motion.div}
             animate={onPlay ? "open" : "closed"}
@@ -294,16 +322,19 @@ export default function MusicPlayer({
           </Box>
         </>
       ) : (
-        <Box
-          sx={{
-            height: 50,
-            width: 50,
-            bgcolor: "yellow",
-            borderRadius: "30px",
-            background:
-              "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-          }}
-        ></Box>
+        <>
+          {/* <Box
+            sx={{
+              height: 50,
+              width: 50,
+              bgcolor: "yellow",
+              borderRadius: "30px",
+              background:
+                "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+              pointerEvents: "auto",
+            }}
+          /> */}
+        </>
       )}
     </Box>
   );

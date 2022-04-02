@@ -17,6 +17,7 @@
     "@fontsource/roboto": "^4.5.3",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
+    "advanced-react-circular-slider": "^1.6.4",
     "firebase": "^9.6.10",
     "firebase-admin": "^10.0.2",
     "framer": "^2.1.0",

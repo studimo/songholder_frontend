@@ -8,10 +8,10 @@ import lightTheme from "styles/theme/lightTheme";
 import "styles/globals.css";
 import ResponsiveAppBar from "components/ResponsiveAppBar";
 import { height } from "@mui/system";
-import MediaPlayer from "components/MediaPlayer";
 import { ApolloProvider } from "@apollo/client";
 import apolloClient from "lib/ApolloClient";
 import initAuth from "utility/firebase";
+import Footer from "components/Footer";
 
 const clientSideEmotionCache = createEmotionCache();
 initAuth();

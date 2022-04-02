@@ -12,12 +12,13 @@ import { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import MediaControlCard from "../components/MediaControlCard";
 import MediaControlCardDuo from "../components/MediaControlCardDuo";
-import MediaPlayer from "../components/MediaPlayer";
 import MusicPlayer from "../components/MusicPlayer";
 import RecommendedCard from "../components/RecommendedCard";
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { gql, useQuery } from "@apollo/client";
 import Marquee from "react-fast-marquee";
+import Footer from "components/Footer";
+import CircularSlider from "advanced-react-circular-slider";
 
 const AllQuery = gql`
   query {
@@ -37,6 +38,7 @@ const getAudioUrl = gql`
   }
 `;
 export default function landingPage() {
+  const [dragAble, setDragAble] = useState(true);
   const [allContents, setAllContents] = useState<any>([]);
   const [songName, setSongName] = useState<any>();
   const [audioUrl, setAudioUrl] = useState("");
@@ -45,7 +47,6 @@ export default function landingPage() {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    var newAllContents = new Array();
     if (data && (!allContents || allContents.length == 0)) {
       setAllContents(data.demos);
     }
@@ -53,7 +54,7 @@ export default function landingPage() {
   if (loading) {
     return (
       <>
-        <h1>Loading</h1>
+        <div style={{ marginTop: "90px" }}></div>
         <h1>Loading</h1>
       </>
     );
@@ -70,18 +71,66 @@ export default function landingPage() {
         background:
           "radial-gradient(61.36% 61.36% at 32.88% 35.63%, #E6F9FF 0%, #F8F3FD 100%)",
         width: "100%",
+        height: "auto",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         overflow: "hidden",
-        zIndex: 0,
       }}
     >
-      <Box
-        sx={{
+      <div style={{ marginTop: "90px" }}></div>
+      <motion.div
+        ref={contentRef}
+        style={{
           position: "fixed",
           width: "100vw",
           height: "100vh",
+          // display: "flex",
+          alignItems: "center",
+          justifyItems: "flex-end",
+          overflow: "auto",
+          zIndex: "2",
+          pointerEvents: "none",
+        }}
+      >
+        <Box
+          component={motion.div}
+          drag={dragAble}
+          dragConstraints={contentRef}
+          id="boxtest"
+          sx={{
+            paddingBottom: "80px",
+            paddingLeft: "200px",
+            paddingRight: "200px",
+            paddingTop: "150px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            position: "fixed",
+            top: "57%",
+            left: "70%",
+            width: "auto",
+            height: "auto",
+            // bgcolor: "yellowgreen",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        >
+          <MusicPlayer
+            audioUrl={audioUrl}
+            onPlay={onPlay}
+            setOnPlay={setOnPlay}
+            songName={songName}
+            setDragAble={setDragAble}
+          />
+        </Box>
+      </motion.div>
+      {/* <Box
+        sx={{
+          position: "fixed",
+          width: "100vw",
+          height: "90vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -92,67 +141,40 @@ export default function landingPage() {
         // bgcolor="violet"
         component={motion.div}
         ref={contentRef}
+      > */}
+
+      <Typography
+        // sx={{ mt: "100px" }}
+        fontWeight="400"
+        lineHeight="67.84px"
+        color="#0E5379"
+        component={motion.div}
+        animate={{ fontSize: "32px" }}
+        // alignSelf="center"
       >
-        <Box
-          component={motion.div}
-          // drag
-          dragConstraints={contentRef}
-          id="boxtest"
-          sx={{
-            paddingTop: "100px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            position: "fixed",
-            top: "57%",
-            left: "70%",
-            width: "350px",
-            height: "250px",
-            paddingBottom: "30px",
-            // bgcolor: "yellowgreen",
-            zIndex: 2,
-          }}
-        >
-          <MusicPlayer
+        RECCOMMENDED SONGS
+      </Typography>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing="0.5"
+        // height="350px"
+        // sx={{ bgcolor: "yellow" }}
+        // sx={{ zIndex: 0 }}
+      >
+        {allContents.slice(0, 5).map((content: any) => (
+          <RecommendedCard
+            content={content}
             audioUrl={audioUrl}
+            setAudioUrl={setAudioUrl}
             onPlay={onPlay}
             setOnPlay={setOnPlay}
-            songName={songName}
+            setSongName={setSongName}
           />
-        </Box>
-        <Typography
-          sx={{ mt: "100px" }}
-          fontWeight="400"
-          lineHeight="67.84px"
-          color="#0E5379"
-          component={motion.div}
-          animate={{ fontSize: "32px" }}
-          // alignSelf="center"
-        >
-          RECCOMMENDED SONGS
-        </Typography>
-        <Stack
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          spacing="0.5"
-          // height="350px"
-          // sx={{ bgcolor: "yellow" }}
-          // sx={{ zIndex: 0 }}
-        >
-          {allContents.slice(0, 5).map((content: any) => (
-            <RecommendedCard
-              content={content}
-              audioUrl={audioUrl}
-              setAudioUrl={setAudioUrl}
-              onPlay={onPlay}
-              setOnPlay={setOnPlay}
-              setSongName={setSongName}
-            />
-          ))}
-        </Stack>
-        {/* <div id="test">
+        ))}
+      </Stack>
+      {/* <div id="test">
           <Marquee
             gradient={false}
             style={{
@@ -179,18 +201,19 @@ export default function landingPage() {
             <Box style={{ width: "230px", height: "400px" }} /> 
           </Marquee>
         </div> */}
-        <Typography
-          fontWeight="400"
-          lineHeight="67.84px"
-          color="#0E5379"
-          // marginTop="30px"
-          marginBottom="30px"
-          component={motion.div}
-          animate={{ fontSize: "32px" }}
-          // alignSelf="center"
-        >
-          SONG LIST
-        </Typography>
+      <Typography
+        fontWeight="400"
+        lineHeight="67.84px"
+        color="#0E5379"
+        // marginTop="30px"
+        marginBottom="30px"
+        component={motion.div}
+        animate={{ fontSize: "32px" }}
+        // alignSelf="center"
+      >
+        SONG LIST
+      </Typography>
+      <Stack>
         {allContents.map((content: any) => {
           if (checkOdd) {
             checkOdd = !checkOdd;
@@ -210,16 +233,9 @@ export default function landingPage() {
             refCard = content;
           }
         })}
-        {/* <MediaControlCardDuo
-        content1={allContents[0]}
-        content2={allContents[1]}
-      />
-      <MediaControlCardDuo
-        content1={allContents[0]}
-        content2={allContents[1]}
-      /> */}
-        {/* <MediaPlayer /> */}
-      </Box>
+      </Stack>
+      {/* </Box> */}
+      <Footer />
     </Container>
   );
 }
