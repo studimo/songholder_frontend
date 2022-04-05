@@ -16,6 +16,7 @@ import {
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import MailRoundedIcon from "@mui/icons-material/MailRounded";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function login() {
   return (
@@ -52,6 +53,7 @@ export default function login() {
           //   justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          mb: "80px",
         }}
       >
         <Stack
@@ -209,6 +211,44 @@ export default function login() {
           <IconButton>
             <MailRoundedIcon sx={{ color: "white", fontSize: "20px" }} />
           </IconButton>
+        </Stack>
+        <Stack
+          sx={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            mt: "35px",
+            ml: "10px",
+          }}
+        >
+          <Typography
+            sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
+          >
+            Not reigistered?
+          </Typography>
+          <Button sx={{ color: "white" }}>
+            <Typography
+              sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
+            >
+              Created an Account
+            </Typography>
+            <ArrowForwardIcon sx={{ fontSize: "15px", ml: "5px" }} />
+          </Button>
+        </Stack>
+        <Stack sx={{ flexDirection: "row", mt: "55px", ml: "20px" }}>
+          <Typography sx={{ mr: 0.75, display: { xs: "none", md: "flex" } }}>
+            <img src="/assets/images/logo.png" style={{ height: "30px" }} />
+          </Typography>
+          <Typography
+            sx={{
+              mr: 3,
+              fontSize: "15px",
+              display: { xs: "none", md: "flex" },
+              color: "white",
+            }}
+          >
+            MaTchA
+          </Typography>
         </Stack>
       </Box>
     </Container>
