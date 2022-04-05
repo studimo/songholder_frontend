@@ -24,7 +24,6 @@ const MyApp = (props: any) => {
       <CacheProvider value={emotionCache}>
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
-          <ResponsiveAppBar />
           <Component {...pageProps} />
         </ThemeProvider>
       </CacheProvider>

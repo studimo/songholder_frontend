@@ -223,6 +223,14 @@ const ResponsiveAppBar = () => {
               );
             })}
           </Box>
+          <Button
+            sx={{ color: "white" }}
+            onClick={() => {
+              location.href = "/login";
+            }}
+          >
+            LOGIN
+          </Button>
           <Search
             id="MaStEr"
             style={{ width: "max" }}
