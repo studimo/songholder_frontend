@@ -157,13 +157,21 @@ const ResponsiveAppBar = () => {
           >
             <img src="./assets/images/logo.png" style={{ height: "37.5px" }} />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              ml: "50px",
+            }}
+          >
             {pages.map((page) => {
               return page == "HOME" ? (
                 <>
                   <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => {
+                      location.href = "/";
+                    }}
                     sx={{
                       transition: "0.2s",
                       my: 2,
@@ -173,7 +181,8 @@ const ResponsiveAppBar = () => {
                       fontSize: "17px",
                       fontWeight: "200",
                       "&:hover": {
-                        fontSize: "25px",
+                        fontSize: "20px",
+                        textDecoration: "underline",
                         // background:
                         //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
                         // backgroundClip: "text",
@@ -199,7 +208,9 @@ const ResponsiveAppBar = () => {
                   />
                   <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => {
+                      location.href = `/${page.toLowerCase()}`;
+                    }}
                     sx={{
                       transition: "0.2s",
                       my: 2,
@@ -209,7 +220,8 @@ const ResponsiveAppBar = () => {
                       fontSize: "17px",
                       fontWeight: "200",
                       "&:hover": {
-                        fontSize: "25px",
+                        fontSize: "20px",
+                        textDecoration: "underline",
                         // background:
                         //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
                         // backgroundClip: "text",
@@ -223,20 +235,12 @@ const ResponsiveAppBar = () => {
               );
             })}
           </Box>
-          <Button
-            sx={{ color: "white" }}
-            onClick={() => {
-              location.href = "/login";
-            }}
-          >
-            LOGIN
-          </Button>
-          <Search
-            id="MaStEr"
+          {/* <Search
             style={{ width: "max" }}
             sx={{
               paddingRight: "10px",
-              mr: "25px",
+              mr: "120px",
+
               display: { xs: "none", md: "flex" },
             }}
           >
@@ -249,8 +253,8 @@ const ResponsiveAppBar = () => {
 
               // fullWidth
             />
-          </Search>
-          <IconButton
+          </Search> */}
+          {/* <IconButton
             sx={{
               // background: "white",
               mr: "40px",
@@ -262,12 +266,16 @@ const ResponsiveAppBar = () => {
             <Badge badgeContent={4} color="secondary">
               <AttachFileIcon fontSize="large" />
             </Badge>
-          </IconButton>
-          <Box sx={{ flexGrow: 0, mr: "15px" }}>
+          </IconButton> */}
+          {/* <Box sx={{ flexGrow: 0, mr: "15px" }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
+          <Avatar
+            alt="Remy Sharp"
+            src="/static/images/avatar/2.jpg"
+            sx={{ mr: "15px" }}
+          />
+          {/* </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
@@ -291,7 +299,7 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
           <Typography
             sx={{
               fontSize: "20px",

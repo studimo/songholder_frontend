@@ -12,12 +12,20 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Badge, CardMedia, Divider, Icon } from "@mui/material";
+import {
+  Badge,
+  CardMedia,
+  Divider,
+  Icon,
+  useScrollTrigger,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
+import { motion, useViewportScroll } from "framer-motion";
+// import "components/navbar.css";
 
-const pages = ["HOME", "INVESTED", "BOARD"];
+const pages = ["HOME", "DISCOVER", "INVESTED"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Search = styled("div")(({ theme }) => ({
@@ -52,15 +60,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     [theme.breakpoints.up("sm")]: {
-      width: "32ch",
+      width: "40ch",
       "&:focus": {
-        width: "40ch",
+        width: "45ch",
       },
     },
   },
 }));
 
 const ResponsiveAppBarForLandingPage = () => {
+  const { scrollYProgress, scrollY } = useViewportScroll();
+  // React.useEffect(() => {
+  //   console.log(scrollY);
+  //   console.log(scrollY.current > 550);
+  // }, [scrollYProgress]);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -75,24 +88,42 @@ const ResponsiveAppBarForLandingPage = () => {
     setAnchorElUser(event.currentTarget);
   };
 
+  const [positionY, setPositionY] = React.useState(0);
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const variants = {
+    gradient: { opacity: 1, x: 0 },
+    none: { opacity: 0, x: "-100%" },
   };
-
+  // React.useEffect(() => {
+  //   setPositionY(window.scrollY);
+  //   console.log(positionY);
+  // }, [window?.scrollY]);
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 460,
+  });
   return (
     <AppBar
+      className="navbar"
       // position="absolute"
-      sx={{
-        background: "none",
 
+      sx={{
+        background: trigger
+          ? "linear-gradient(92.42deg, #65C1C1 16.46%, #805FB6 80.52%)"
+          : "none",
+        // background: "none",
         // background: "linear-gradient(92.42deg, #65C1C1 16.46%, #805FB6 80.52%)",
         boxShadow: "none",
       }}
+      component={motion.div}
+      // animate={scrollY > 550 ? "none" : "gradient"}
+      variants={variants}
     >
+      {/* <h1>test</h1>
+      {scrollY.curent > 550 ? <h1>test</h1> : <></>} */}
       <Container maxWidth={false} style={{ padding: 0 }}>
         <Toolbar
           disableGutters
@@ -160,13 +191,21 @@ const ResponsiveAppBarForLandingPage = () => {
           >
             <img src="./assets/images/logo.png" style={{ height: "37.5px" }} />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              ml: "50px",
+            }}
+          >
             {pages.map((page) => {
               return page == "HOME" ? (
                 <>
                   <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => {
+                      location.href = "/";
+                    }}
                     sx={{
                       transition: "0.2s",
                       my: 2,
@@ -176,7 +215,8 @@ const ResponsiveAppBarForLandingPage = () => {
                       fontSize: "17px",
                       fontWeight: "200",
                       "&:hover": {
-                        fontSize: "25px",
+                        fontSize: "20px",
+                        textDecoration: "underline",
                         // background:
                         //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
                         // backgroundClip: "text",
@@ -202,7 +242,9 @@ const ResponsiveAppBarForLandingPage = () => {
                   />
                   <Button
                     key={page}
-                    onClick={handleCloseNavMenu}
+                    onClick={() => {
+                      location.href = `/${page.toLowerCase()}`;
+                    }}
                     sx={{
                       transition: "0.2s",
                       my: 2,
@@ -212,7 +254,8 @@ const ResponsiveAppBarForLandingPage = () => {
                       fontSize: "17px",
                       fontWeight: "200",
                       "&:hover": {
-                        fontSize: "25px",
+                        fontSize: "20px",
+                        textDecoration: "underline",
                         // background:
                         //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
                         // backgroundClip: "text",
@@ -226,20 +269,12 @@ const ResponsiveAppBarForLandingPage = () => {
               );
             })}
           </Box>
-          <Button
-            sx={{ color: "white" }}
-            onClick={() => {
-              location.href = "/login";
-            }}
-          >
-            LOGIN
-          </Button>
-          <Search
-            id="MaStEr"
+          {/* <Search
             style={{ width: "max" }}
             sx={{
               paddingRight: "10px",
-              mr: "25px",
+              mr: "120px",
+
               display: { xs: "none", md: "flex" },
             }}
           >
@@ -252,8 +287,8 @@ const ResponsiveAppBarForLandingPage = () => {
 
               // fullWidth
             />
-          </Search>
-          <IconButton
+          </Search> */}
+          {/* <IconButton
             sx={{
               // background: "white",
               mr: "40px",
@@ -265,12 +300,16 @@ const ResponsiveAppBarForLandingPage = () => {
             <Badge badgeContent={4} color="secondary">
               <AttachFileIcon fontSize="large" />
             </Badge>
-          </IconButton>
-          <Box sx={{ flexGrow: 0, mr: "15px" }}>
+          </IconButton> */}
+          {/* <Box sx={{ flexGrow: 0, mr: "15px" }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
+          <Avatar
+            alt="Remy Sharp"
+            src="/static/images/avatar/2.jpg"
+            sx={{ mr: "15px" }}
+          />
+          {/* </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
@@ -294,7 +333,7 @@ const ResponsiveAppBarForLandingPage = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
           <Typography
             sx={{
               fontSize: "20px",
