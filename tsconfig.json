@@ -20,7 +20,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/landingPage.tsx",
+    "pages/Discover.tsx",
     "components/player.js"
   ],
   "exclude": ["node_modules"]

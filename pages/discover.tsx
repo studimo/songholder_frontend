@@ -37,7 +37,7 @@ const getAudioUrl = gql`
     getAudioUrl(youtubeIdInput: "$id")
   }
 `;
-export default function landingPage() {
+export default function Discover() {
   const [dragAble, setDragAble] = useState(true);
   const [allContents, setAllContents] = useState<any>([]);
   const [songName, setSongName] = useState<any>();
