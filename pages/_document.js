@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
             href="https://fonts.googleapis.com/css2?family=NTR&display=swap"
             rel="stylesheet"
@@ -23,6 +23,20 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
             href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600&family=NTR&display=swap"
+            rel="stylesheet"
+          />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600&family=Mitr:wght@200;300;400;500;600;700&family=NTR&display=swap"
+            rel="stylesheet"
+          />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Kanit:wght@100;200;300;400;500;600&family=Mitr:wght@200;300;400;500;600;700&family=NTR&display=swap"
             rel="stylesheet"
           />
         </Head>
