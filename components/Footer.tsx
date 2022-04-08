@@ -43,7 +43,7 @@ export default function Footer() {
             <Typography
               sx={{ ml: 3, mr: 0.75, display: { xs: "none", md: "flex" } }}
             >
-              <img src="/assets/images/logo.png" style={{ height: "32px" }} />
+              <img src="./assets/images/logo.png" style={{ height: "32px" }} />
             </Typography>
             <Typography
               sx={{
@@ -129,7 +129,7 @@ export default function Footer() {
                 }}
               >
                 <img
-                  src="/assets/images/logo/logoInstagram.png"
+                  src="./assets/images/logo/logoInstagram.png"
                   style={{ height: "30px", marginLeft: 0 }}
                 />
               </Typography>

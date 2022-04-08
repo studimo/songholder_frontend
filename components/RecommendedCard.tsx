@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import MediaControlCard from "./MediaControlCard";
+import MediaControlCard from "components/MediaControlCard";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import PauseIcon from "@mui/icons-material/Pause";
 import { useRef, useState } from "react";

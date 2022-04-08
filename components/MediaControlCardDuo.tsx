@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Stack } from "@mui/material";
-import MediaControlCard from "./MediaControlCard";
+import MediaControlCard from "components/MediaControlCard";
 
 export default function MediaControlCardDuo({
   content1,

@@ -9,16 +9,12 @@ import {
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import ReactPlayer from "react-player";
-import MediaControlCard from "../components/MediaControlCard";
-import MediaControlCardDuo from "../components/MediaControlCardDuo";
-import MusicPlayer from "../components/MusicPlayer";
-import RecommendedCard from "../components/RecommendedCard";
-import ResponsiveAppBar from "../components/ResponsiveAppBar";
+import MediaControlCardDuo from "components/MediaControlCardDuo";
+import MusicPlayer from "components/MusicPlayer";
+import RecommendedCard from "components/RecommendedCard";
+import ResponsiveAppBar from "components/ResponsiveAppBar";
 import { gql, useQuery } from "@apollo/client";
-import Marquee from "react-fast-marquee";
 import Footer from "components/Footer";
-import CircularSlider from "advanced-react-circular-slider";
 
 const AllQuery = gql`
   query {

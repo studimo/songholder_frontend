@@ -27,7 +27,7 @@ export default function login() {
       sx={{
         // paddingTop: "80px",
         backgroundImage:
-          "linear-gradient(180deg, rgba(46, 153, 153, 0.4) 0%, rgba(124, 86, 186, 0.4) 100%),url(/assets/images/loginPageBackground.jpeg)",
+          "linear-gradient(180deg, rgba(46, 153, 153, 0.4) 0%, rgba(124, 86, 186, 0.4) 100%),url(./assets/images/loginPageBackground.jpeg)",
         backgroundSize: "cover",
         // backgroundPosition: "",
         // backdropFilter: "blur(8px)",
@@ -237,7 +237,7 @@ export default function login() {
         </Stack>
         <Stack sx={{ flexDirection: "row", mt: "55px", ml: "20px" }}>
           <Typography sx={{ mr: 0.75, display: { xs: "none", md: "flex" } }}>
-            <img src="/assets/images/logo.png" style={{ height: "30px" }} />
+            <img src="./assets/images/logo.png" style={{ height: "30px" }} />
           </Typography>
           <Typography
             sx={{

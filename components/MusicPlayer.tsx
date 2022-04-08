@@ -13,15 +13,12 @@ import ReactPlayer from "react-player";
 import PauseIcon from "@mui/icons-material/Pause";
 import { CircleSlider } from "react-circle-slider";
 import Marquee from "react-fast-marquee";
-import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import SkipPreviousOutlinedIcon from "@mui/icons-material/SkipPreviousOutlined";
 import SkipNextOutlinedIcon from "@mui/icons-material/SkipNextOutlined";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
 import { motion } from "framer-motion";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import CircularSlider from "advanced-react-circular-slider";
 export default function MusicPlayer({
   audioUrl,
   onPlay,

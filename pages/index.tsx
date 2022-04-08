@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ResponsiveAppBarForLandingPage from "../components/ResponsiveAppBarForLandingPage";
+import ResponsiveAppBarForLandingPage from "components/ResponsiveAppBarForLandingPage";
 export default function LandingPage() {
   return (
     <>
@@ -7,7 +7,7 @@ export default function LandingPage() {
       <Box
         sx={{
           backgroundImage:
-            "linear-gradient(123.57deg, rgba(14, 167, 167, 0.55) 35.86%, rgba(46, 0, 124, 0.55) 77.15%),url(/assets/images/LandingPageBackground_1.jpeg)",
+            "linear-gradient(123.57deg, rgba(14, 167, 167, 0.55) 35.86%, rgba(46, 0, 124, 0.55) 77.15%),url(./assets/images/LandingPageBackground_1.jpeg)",
           mixBlendMode: "multiply",
 
           // position: "absolute",

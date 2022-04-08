@@ -100,7 +100,7 @@ const ResponsiveAppBar = () => {
           }}
         >
           <Typography sx={{ mr: 0.75, display: { xs: "none", md: "flex" } }}>
-            <img src="/assets/images/logo.png" style={{ height: "37.5px" }} />
+            <img src="./assets/images/logo.png" style={{ height: "37.5px" }} />
           </Typography>
           <Typography
             sx={{
@@ -155,7 +155,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            <img src="/assets/images/logo.png" style={{ height: "37.5px" }} />
+            <img src="./assets/images/logo.png" style={{ height: "37.5px" }} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => {
