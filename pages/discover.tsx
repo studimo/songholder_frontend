@@ -50,6 +50,7 @@ export default function Discover() {
   if (loading) {
     return (
       <>
+        <ResponsiveAppBar />
         <div style={{ marginTop: "90px" }}></div>
         <h1>Loading</h1>
       </>
