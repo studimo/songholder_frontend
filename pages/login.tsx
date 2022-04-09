@@ -11,14 +11,47 @@ import {
   Button,
   Checkbox,
   FormControlLabel,
+  FormControl,
+  makeStyles,
 } from "@mui/material";
 
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import MailRoundedIcon from "@mui/icons-material/MailRounded";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useState } from "react";
+import { styled } from "@mui/system";
 
+const CssOutlinedInput = styled(OutlinedInput)({
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "red",
+    },
+    "&:hover fieldset": {
+      borderColor: "yellow",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "green",
+    },
+  },
+});
 export default function login() {
+  const [username, setUsername] = useState("");
+  const [usernameBlank, setUsernameBlank] = useState(true);
+  const [password, setPassword] = useState("");
+  const [passwordBlank, setPasswordBlank] = useState(true);
+
+  function handleSubmit() {
+    if (username == "") {
+      setUsernameBlank(true);
+    }
+    if (password == "") {
+      setPasswordBlank(true);
+    }
+    return false;
+    console.log(username);
+    console.log(password);
+  }
   return (
     <Container
       maxWidth={false}
@@ -89,7 +122,8 @@ export default function login() {
             }}
           />
         </Stack>
-        <OutlinedInput
+        <CssOutlinedInput
+          required
           id="outlined-textarea"
           placeholder="Username"
           sx={{
@@ -104,10 +138,15 @@ export default function login() {
           inputProps={{
             style: { color: "white", opacity: 1 },
           }}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          value={username}
         />
 
-        <OutlinedInput
-          id="outlined-textarea"
+        <CssOutlinedInput
+          required
+          id="outlined-textarea-password"
           placeholder="Password"
           sx={{
             width: "320px",
@@ -118,6 +157,10 @@ export default function login() {
             color: "white",
             mt: "22px",
           }}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          value={password}
         />
         <Button
           variant="outlined"
@@ -128,6 +171,10 @@ export default function login() {
             height: "29px",
             borderRadius: "20px",
             mt: "20px",
+          }}
+          type="submit"
+          onClick={() => {
+            handleSubmit();
           }}
         >
           SIGN IN
