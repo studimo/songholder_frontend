@@ -11,16 +11,20 @@ import {
   Button,
   Checkbox,
   FormControlLabel,
+  Snackbar,
+  Alert,
   FormControl,
   makeStyles,
-} from "@mui/material";
+} from "@mui/material"
 
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import MailRoundedIcon from "@mui/icons-material/MailRounded";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useState } from "react";
-import { styled } from "@mui/system";
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded"
+import TwitterIcon from "@mui/icons-material/Twitter"
+import MailRoundedIcon from "@mui/icons-material/MailRounded"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { useState } from "react"
+import { styled } from "@mui/system"
+import { useAuth } from "Providers/FirebaseAuthProvider"
+import { AuthErrorCodes } from "firebase/auth"
 
 const CssOutlinedInput = styled(OutlinedInput)({
   "& .MuiOutlinedInput-root": {
@@ -34,24 +38,69 @@ const CssOutlinedInput = styled(OutlinedInput)({
       borderColor: "green",
     },
   },
-});
+})
 export default function login() {
-  const [username, setUsername] = useState("");
-  const [usernameBlank, setUsernameBlank] = useState(true);
-  const [password, setPassword] = useState("");
-  const [passwordBlank, setPasswordBlank] = useState(true);
+  const [username, setUsername] = useState("")
+  const [usernameBlank, setUsernameBlank] = useState(true)
+  const [password, setPassword] = useState("")
+  const [passwordBlank, setPasswordBlank] = useState(true)
+  const { signInWithEmail, signUpWithEmail, authUser, loading } = useAuth()
+  const [errToast, setErrToast] = useState(false)
+  const [errToastMessage, setErrToastMessage] = useState("")
 
   function handleSubmit() {
+    signInWithEmail(username, password)
+      .then((user) => {
+        console.log(user)
+      })
+      .catch(SigninErrHandler)
     if (username == "") {
-      setUsernameBlank(true);
+      setUsernameBlank(true)
     }
     if (password == "") {
-      setPasswordBlank(true);
+      setPasswordBlank(true)
     }
-    return false;
-    console.log(username);
-    console.log(password);
+    return false
+    console.log(username)
+    console.log(password)
   }
+
+  const FirebaseErrPrefix = (errCode: string) => `Firebase: Error (${errCode}).`
+
+  const ErrorMsgHandler = (msg: string) => {
+    setErrToastMessage(msg)
+    setErrToast(true)
+    setTimeout(() => {
+      setErrToast(false)
+    }, 1500)
+  }
+
+  const SigninErrHandler = (err: Error) => {
+    console.log(err.message.includes(AuthErrorCodes.INVALID_EMAIL))
+    console.log(err.message)
+    switch (err.message) {
+      case FirebaseErrPrefix(AuthErrorCodes.INVALID_EMAIL):
+        return ErrorMsgHandler("INVALID EMAIL")
+
+      case FirebaseErrPrefix(AuthErrorCodes.USER_DELETED):
+        return ErrorMsgHandler("User not found")
+      default:
+        console.error(err)
+        return ErrorMsgHandler("Unknown error")
+    }
+  }
+
+  const handleCloseToast = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return
+    }
+
+    setErrToast(false)
+  }
+
   return (
     <Container
       maxWidth={false}
@@ -74,6 +123,19 @@ export default function login() {
         overflow: "hidden",
       }}
     >
+      <Snackbar
+        open={errToast}
+        autoHideDuration={6000}
+        onClose={handleCloseToast}
+      >
+        <Alert
+          onClose={handleCloseToast}
+          severity="error"
+          sx={{ width: "100%" }}
+        >
+          {errToastMessage}
+        </Alert>
+      </Snackbar>
       <Box
         sx={{
           width: "859px",
@@ -123,15 +185,17 @@ export default function login() {
           />
         </Stack>
         <CssOutlinedInput
+          type="email"
           required
           id="outlined-textarea"
           placeholder="Username"
+          autoComplete="email"
+          autoFocus
           sx={{
-            width: "320px",
-            height: "50px",
+            width: "340px",
+            height: "60px",
             background: "rgba(255, 255, 255, 0.3)",
             borderRadius: "50px",
-            paddingLeft: "30px",
             color: "white",
             mt: "30px",
           }}
@@ -139,26 +203,26 @@ export default function login() {
             style: { color: "white", opacity: 1 },
           }}
           onChange={(e) => {
-            setUsername(e.target.value);
+            setUsername(e.target.value)
           }}
           value={username}
         />
 
         <CssOutlinedInput
           required
+          type="password"
           id="outlined-textarea-password"
           placeholder="Password"
           sx={{
-            width: "320px",
-            height: "50px",
+            width: "340px",
+            height: "60px",
             background: "rgba(255, 255, 255, 0.3)",
             borderRadius: "50px",
-            paddingLeft: "30px",
             color: "white",
             mt: "22px",
           }}
           onChange={(e) => {
-            setPassword(e.target.value);
+            setPassword(e.target.value)
           }}
           value={password}
         />
@@ -174,7 +238,7 @@ export default function login() {
           }}
           type="submit"
           onClick={() => {
-            handleSubmit();
+            handleSubmit()
           }}
         >
           SIGN IN
@@ -299,5 +363,5 @@ export default function login() {
         </Stack>
       </Box>
     </Container>
-  );
+  )
 }

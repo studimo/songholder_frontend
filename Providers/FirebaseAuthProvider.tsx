@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from "react"
 import { createContext, useContext, Context } from "react"
 import useFirebaseAuth from "utility/UseFirebaseAuth"
+import { UserCredential } from "firebase/auth"
 
 // interface UserContextInterface {
 //   authUser: User | null
@@ -12,8 +13,10 @@ import useFirebaseAuth from "utility/UseFirebaseAuth"
 const userContext = {
   authUser: null,
   loading: true,
-  signInWithEmail: (email: string, password: string) => {},
-  signUpWithEmail: (email: string, password: string) => {},
+  signInWithEmail: (email: string, password: string): Promise<UserCredential> =>
+    new Promise(() => {}),
+  signUpWithEmail: (email: string, password: string): Promise<UserCredential> =>
+    new Promise(() => {}),
   signOut: () => {},
 }
 
