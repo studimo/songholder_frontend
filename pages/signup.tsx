@@ -8,6 +8,7 @@ import {
   InputLabel,
   InputBase,
   IconButton,
+  InputAdornment,
   Button,
   Checkbox,
   FormControlLabel,
@@ -17,10 +18,15 @@ import {
   makeStyles,
 } from "@mui/material"
 
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded"
-import TwitterIcon from "@mui/icons-material/Twitter"
-import MailRoundedIcon from "@mui/icons-material/MailRounded"
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import { useRouter } from "next/router"
+import {
+  FacebookRounded,
+  Twitter,
+  MailRounded,
+  ArrowForward,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material"
 import { useState } from "react"
 import { styled } from "@mui/system"
 import { useAuth } from "Providers/FirebaseAuthProvider"
@@ -37,6 +43,17 @@ const CssOutlinedInput = styled(OutlinedInput)({
     "&.Mui-focused fieldset": {
       borderColor: "green",
     },
+
+    "&:-webkit-autofill": {
+      WebkitBoxShadow: "0 0 0 1000px white inset",
+    },
+  },
+  input: {
+    "&:-internal-autofill-selected": {
+      color: "white!important",
+      transition: "background-color 5000s ease-in-out 0s",
+      textFillColor: "white !important",
+    },
   },
 })
 export default function login() {
@@ -44,12 +61,15 @@ export default function login() {
   const [usernameBlank, setUsernameBlank] = useState(true)
   const [password, setPassword] = useState("")
   const [passwordBlank, setPasswordBlank] = useState(true)
+  const [showPassword, setShowPassword] = useState(false)
   const { signInWithEmail, signUpWithEmail, authUser, loading } = useAuth()
   const [errToast, setErrToast] = useState(false)
   const [errToastMessage, setErrToastMessage] = useState("")
 
+  const router = useRouter()
+
   function handleSubmit() {
-    signInWithEmail(username, password)
+    signUpWithEmail(username, password)
       .then((user) => {
         console.log(user)
       })
@@ -82,8 +102,8 @@ export default function login() {
       case FirebaseErrPrefix(AuthErrorCodes.INVALID_EMAIL):
         return ErrorMsgHandler("INVALID EMAIL")
 
-      case FirebaseErrPrefix(AuthErrorCodes.USER_DELETED):
-        return ErrorMsgHandler("User not found")
+      case FirebaseErrPrefix(AuthErrorCodes.EMAIL_EXISTS):
+        return ErrorMsgHandler("Email already exists")
       default:
         console.error(err)
         return ErrorMsgHandler("Unknown error")
@@ -173,7 +193,7 @@ export default function login() {
             fontWeight={400}
             sx={{ m: "12px", mt: "-18px" }}
           >
-            LOGIN
+            Register
           </Typography>
           <Box
             sx={{
@@ -188,7 +208,7 @@ export default function login() {
           type="email"
           required
           id="outlined-textarea"
-          placeholder="Username"
+          placeholder="Email Address"
           autoComplete="email"
           autoFocus
           sx={{
@@ -200,7 +220,7 @@ export default function login() {
             mt: "30px",
           }}
           inputProps={{
-            style: { color: "white", opacity: 1 },
+            style: { color: "white !important", opacity: 1 },
           }}
           onChange={(e) => {
             setUsername(e.target.value)
@@ -210,8 +230,23 @@ export default function login() {
 
         <CssOutlinedInput
           required
-          type="password"
+          type={showPassword ? "text" : "password"}
           id="outlined-textarea-password"
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={() => setShowPassword(!showPassword)}
+                edge="end"
+              >
+                {showPassword ? (
+                  <VisibilityOff htmlColor="white" />
+                ) : (
+                  <Visibility htmlColor="white" />
+                )}
+              </IconButton>
+            </InputAdornment>
+          }
           placeholder="Password"
           sx={{
             width: "340px",
@@ -257,17 +292,10 @@ export default function login() {
                 }}
               />
             }
-            label="Remember me"
+            label="Accept Term of bla bla bla"
             sx={{ color: "white" }}
             // labelPlacement="start"
           />
-          <Button sx={{ color: "white" }}>
-            <Typography
-              sx={{ color: "white", fontSize: "15px", textTransform: "none" }}
-            >
-              Forgot password?
-            </Typography>
-          </Button>
         </Stack>
         <Stack
           sx={{
@@ -313,14 +341,14 @@ export default function login() {
           spacing={1}
         >
           <IconButton>
-            <FacebookRoundedIcon sx={{ color: "white", fontSize: "20px" }} />
+            <FacebookRounded sx={{ color: "white", fontSize: "20px" }} />
           </IconButton>
           <IconButton>
-            <TwitterIcon sx={{ color: "white", fontSize: "20px" }} />
+            <Twitter sx={{ color: "white", fontSize: "20px" }} />
           </IconButton>
 
           <IconButton>
-            <MailRoundedIcon sx={{ color: "white", fontSize: "20px" }} />
+            <MailRounded sx={{ color: "white", fontSize: "20px" }} />
           </IconButton>
         </Stack>
         <Stack
@@ -332,18 +360,16 @@ export default function login() {
             ml: "10px",
           }}
         >
-          <Typography
-            sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
+          <Button
+            onClick={() => router.push("/signin")}
+            sx={{ color: "white" }}
           >
-            Not reigistered?
-          </Typography>
-          <Button sx={{ color: "white" }}>
             <Typography
               sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
             >
-              Created an Account
+              Already have an Account? Signin
             </Typography>
-            <ArrowForwardIcon sx={{ fontSize: "15px", ml: "5px" }} />
+            <ArrowForward sx={{ fontSize: "15px", ml: "5px" }} />
           </Button>
         </Stack>
         <Stack sx={{ flexDirection: "row", mt: "55px", ml: "20px" }}>
