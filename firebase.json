@@ -7,9 +7,13 @@
         "source": "/discover",
         "destination": "/discover.html"
       },
+      // {
+      //   "source": "/login",
+      //   "destination": "/login.html"
+      // },
       {
-        "source": "/login",
-        "destination": "/login.html"
+        "source": "/signin",
+        "destination": "/signin.html"
       }
     ]
   }

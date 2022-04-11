@@ -153,7 +153,7 @@ export default function login() {
     >
       <Snackbar
         open={errToast}
-        autoHideDuration={6000}
+        autoHideDuration={10000}
         onClose={handleCloseToast}
       >
         <Alert
@@ -170,8 +170,8 @@ export default function login() {
           height: '401px',
           bgcolor: 'yellow',
           background:
-            'linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.025) 28.69%, rgba(255, 255, 255, 0.26) 50.51%, rgba(255, 255, 255, 0.025) 74.65%, rgba(255, 255, 255, 0) 94.8%)',
-          backdropFilter: 'blur(15px)',
+            'linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.1) 28.69%, rgba(255, 255, 255, 0.43) 50.51%, rgba(255, 255, 255, 0.1) 74.65%, rgba(255, 255, 255, 0) 94.8%)',
+          backdropFilter: 'blur(2px)',
           display: 'flex',
           //   justifyContent: "center",
           alignItems: 'center',
@@ -201,7 +201,7 @@ export default function login() {
             fontWeight={400}
             sx={{ m: '12px', mt: '-18px' }}
           >
-            SignIn
+            SIGN IN
           </Typography>
           <Box
             sx={{
@@ -246,6 +246,7 @@ export default function login() {
                 aria-label='toggle password visibility'
                 onClick={() => setShowPassword(!showPassword)}
                 edge='end'
+                sx={{ mr: '0px' }}
               >
                 {showPassword ? (
                   <VisibilityOff htmlColor='white' />
@@ -263,6 +264,7 @@ export default function login() {
             borderRadius: '50px',
             color: 'white',
             mt: '22px',
+            padding: '10px',
           }}
           onChange={e => {
             setPassword(e.target.value)
@@ -287,7 +289,33 @@ export default function login() {
           SIGN IN
         </Button>
         <Stack sx={{ flexDirection: 'row' }}>
-          <Button sx={{ color: 'white' }}>
+          {/* <FormControlLabel
+            control={
+              <Checkbox
+                sx={{
+                  color: "white",
+                  "&.Mui-checked": {
+                    color: "white",
+                  },
+                  fontSize: "15px",
+                }}
+              />
+            }
+            label="Remember me"
+            sx={{ color: "white" }}
+          /> */}
+          <Button
+            sx={{
+              color: 'white',
+              ml: '200px',
+              mt: '10px',
+              border: 'none',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                // borderColor: "#ffffff",
+              },
+            }}
+          >
             <Typography
               sx={{ color: 'white', fontSize: '15px', textTransform: 'none' }}
             >
@@ -346,6 +374,7 @@ export default function login() {
                 })
                 .catch(SigninErrHandler)
             }}
+            spacing={1}
           >
             <FacebookRounded sx={{ color: 'white', fontSize: '20px' }} />
           </IconButton>
@@ -370,6 +399,11 @@ export default function login() {
             ml: '10px',
           }}
         >
+          <Typography
+            sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+          >
+            Not reigistered?
+          </Typography>
           <Button
             onClick={() => router.push('/signup')}
             sx={{ color: 'white' }}
@@ -377,7 +411,7 @@ export default function login() {
             <Typography
               sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
             >
-              Not reigistered? SignUp
+              Created an Account
             </Typography>
             <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
           </Button>
