@@ -51,14 +51,20 @@ export default function login() {
   const [password, setPassword] = useState("");
   const [passwordBlank, setPasswordBlank] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const { signInWithEmail, signUpWithEmail, authUser, loading } = useAuth();
+  const {
+    signInWithEmail,
+    signInWithFacebook,
+    signInWithTwitter,
+    authUser,
+    loading,
+  } = useAuth();
   const [errToast, setErrToast] = useState(false);
   const [errToastMessage, setErrToastMessage] = useState("");
 
   const router = useRouter();
 
   function handleSubmit() {
-    signUpWithEmail(username, password)
+    signInWithEmail(username, password)
       .then((user) => {
         console.log(user);
       })
@@ -70,8 +76,6 @@ export default function login() {
       setPasswordBlank(true);
     }
     return false;
-    console.log(username);
-    console.log(password);
   }
 
   const FirebaseErrPrefix = (errCode: string) =>
@@ -91,9 +95,18 @@ export default function login() {
     switch (err.message) {
       case FirebaseErrPrefix(AuthErrorCodes.INVALID_EMAIL):
         return ErrorMsgHandler("INVALID EMAIL");
-
+      case FirebaseErrPrefix(AuthErrorCodes.USER_DELETED):
+        return ErrorMsgHandler("Email doesn't found");
       case FirebaseErrPrefix(AuthErrorCodes.EMAIL_EXISTS):
         return ErrorMsgHandler("Email already exists");
+      case FirebaseErrPrefix(AuthErrorCodes.POPUP_CLOSED_BY_USER):
+        return ErrorMsgHandler("Popup is closed by user");
+      case FirebaseErrPrefix(AuthErrorCodes.USER_CANCELLED):
+        return ErrorMsgHandler("Popup is closed by user");
+      case FirebaseErrPrefix(AuthErrorCodes.EXPIRED_POPUP_REQUEST):
+        return ErrorMsgHandler("Popup is closed by user");
+      case FirebaseErrPrefix(AuthErrorCodes.POPUP_BLOCKED):
+        return ErrorMsgHandler("Popup blocked by user");
       default:
         console.error(err);
         return ErrorMsgHandler("Unknown error");

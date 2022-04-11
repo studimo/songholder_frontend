@@ -17,6 +17,8 @@ const userContext = {
     new Promise(() => {}),
   signUpWithEmail: (email: string, password: string): Promise<UserCredential> =>
     new Promise(() => {}),
+  signInWithFacebook: (): Promise<UserCredential> => new Promise(() => {}),
+  signInWithTwitter: (): Promise<UserCredential> => new Promise(() => {}),
   signOut: () => {},
 }
 

@@ -4,6 +4,9 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  FacebookAuthProvider,
+  TwitterAuthProvider,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import Axios from "axios";
@@ -85,8 +88,11 @@ export default function useFirebaseAuth() {
   const signUpWithEmail = (email: string, password: string) =>
     createUserWithEmailAndPassword(auth, email, password);
 
-  const signOut = () => {
-    signOut();
+  const signInWithFacebook = () => signInWithPopup(auth, new FacebookAuthProvider())
+  const signInWithTwitter = () => signInWithPopup(auth, new TwitterAuthProvider())
+
+  const logout = () => {
+    signOut(auth);
     setAuthUser(null);
     setLoading(true);
   };
@@ -96,6 +102,8 @@ export default function useFirebaseAuth() {
     loading,
     signInWithEmail,
     signUpWithEmail,
-    signOut,
+    signInWithFacebook,
+    signInWithTwitter,
+    signOut: logout,
   };
 }
