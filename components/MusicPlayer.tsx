@@ -1,24 +1,17 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  CircularProgress,
-  Typography,
-} from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import { Box } from "@mui/system";
-import ReactPlayer from "react-player";
-import PauseIcon from "@mui/icons-material/Pause";
-import { CircleSlider } from "react-circle-slider";
-import Marquee from "react-fast-marquee";
-import IconButton from "@mui/material/IconButton";
-import SkipPreviousOutlinedIcon from "@mui/icons-material/SkipPreviousOutlined";
-import SkipNextOutlinedIcon from "@mui/icons-material/SkipNextOutlined";
-import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
-import PauseRoundedIcon from "@mui/icons-material/PauseRounded";
-import { motion } from "framer-motion";
+import { Card, CardActionArea } from '@mui/material'
+import { useRef, useState } from 'react'
+import { Box } from '@mui/system'
+import ReactPlayer from 'react-player'
+import PauseIcon from '@mui/icons-material/Pause'
+import { CircleSlider } from 'react-circle-slider'
+import Marquee from 'react-fast-marquee'
+import IconButton from '@mui/material/IconButton'
+import SkipPreviousOutlinedIcon from '@mui/icons-material/SkipPreviousOutlined'
+import SkipNextOutlinedIcon from '@mui/icons-material/SkipNextOutlined'
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
+import PauseRoundedIcon from '@mui/icons-material/PauseRounded'
+import { motion } from 'framer-motion'
+
 export default function MusicPlayer({
   audioUrl,
   onPlay,
@@ -26,18 +19,19 @@ export default function MusicPlayer({
   songName,
   setDragAble,
 }: any) {
+
   const variants = {
     open: { scale: 1, x: 0, opacity: 1 },
-    closed: { scale: 0, x: "-50%", opacity: 0 },
-  };
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [showButton, setShowButton] = useState(false);
-  const player = useRef<any>(null);
-  const [drag, SetDrag] = useState(false);
+    closed: { scale: 0, x: '-50%', opacity: 0 },
+  }
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [showButton, setShowButton] = useState(false)
+  const player = useRef<any>(null)
+  const [drag, SetDrag] = useState(false)
 
-  document.addEventListener("mousedown", () => SetDrag(false));
-  document.addEventListener("mousemove", () => SetDrag(true));
+  document.addEventListener('mousedown', () => SetDrag(false))
+  document.addEventListener('mousemove', () => SetDrag(true))
   // const [pointerEventForDrawer, SetPointerEventForDrawer] = useState("auto");
 
   // useEffect(() => {
@@ -60,12 +54,12 @@ export default function MusicPlayer({
   return (
     <Box
       sx={{
-        position: "fixed",
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        flexDirection: "row",
-        pointerEvents: "none",
+        position: 'fixed',
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        pointerEvents: 'none',
         // width: "500px",
         // height: "200px",
         // top: "50%",
@@ -78,67 +72,77 @@ export default function MusicPlayer({
       {audioUrl ? (
         <>
           <Card
-            id="mainMuicCard"
+            id='mainMuicCard'
             sx={{
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              width: "130px",
-              height: "130px",
-              borderRadius: "100%",
-              pointerEvents: "auto",
+              backgroundColor: 'rgba(0, 0, 0, 0)',
+              width: '130px',
+              height: '130px',
+              borderRadius: '100%',
+              pointerEvents: 'auto',
             }}
           >
             <CardActionArea
               onClick={() => {
+
                 if (!drag) {
-                  onPlay ? setOnPlay(false) : setOnPlay(true);
+
+                  onPlay ? setOnPlay(false) : setOnPlay(true)
+                
                 }
+              
               }}
               onMouseOver={() => {
-                setShowButton(true);
-                setDragAble(true);
+
+                setShowButton(true)
+                setDragAble(true)
+              
               }}
               onMouseLeave={() => {
-                setShowButton(false);
+
+                setShowButton(false)
+              
               }}
               sx={{
-                borderRadius: "50px",
+                borderRadius: '50px',
               }}
             >
               <Box
                 sx={{
-                  width: "130px",
-                  height: "130px",
-                  borderRadius: "100%",
+                  width: '130px',
+                  height: '130px',
+                  borderRadius: '100%',
                   zIndex: 3,
-                  position: "fixed",
+                  position: 'fixed',
                 }}
               />
             </CardActionArea>
 
             <Box
               sx={{
-                width: "130px",
-                height: "130px",
-                borderRadius: "100%",
-                overflow: "hidden",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                width: '130px',
+                height: '130px',
+                borderRadius: '100%',
+                overflow: 'hidden',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <Box
                 sx={{
                   fontSize: 50,
-                  color: "white",
-                  display: "block",
+                  color: 'white',
+                  display: 'block',
                   zIndex: 2,
-                  position: "fixed",
-                  mt: "20px",
+                  position: 'fixed',
+                  mt: '20px',
                 }}
               >
                 <div
                   onMouseLeave={() => {
-                    setDragAble(true);
+
+                    setDragAble(true)
+                  
                   }}
                 >
                   <CircleSlider
@@ -146,24 +150,32 @@ export default function MusicPlayer({
                     size={167}
                     // showTooltip={true}
                     knobRadius={0}
-                    gradientColorFrom="#67BFC2"
-                    gradientColorTo="#8062B7"
+                    gradientColorFrom='#67BFC2'
+                    gradientColorTo='#8062B7'
                     progressWidth={10}
                     circleWidth={10}
-                    circleColor="white"
+                    circleColor='white'
                     onChange={(e: any) => {
-                      setDragAble(false);
+
+                      setDragAble(false)
                       if (player.current != null) {
-                        player.current.seekTo((e * duration) / 100, "seconds");
+
+                        player.current.seekTo((e * duration) / 100, 'seconds')
+                      
                       }
-                      console.log(e);
+                      console.log(e)
+                    
                     }}
                     onEnded={() => {
-                      console.log("END");
-                      setOnPlay(false);
+
+                      console.log('END')
+                      setOnPlay(false)
                       if (player.current != null) {
-                        player.current.seekTo(0, "seconds");
+
+                        player.current.seekTo(0, 'seconds')
+                      
                       }
+                    
                     }}
                   />
                 </div>
@@ -173,20 +185,20 @@ export default function MusicPlayer({
                   <PauseIcon
                     sx={{
                       fontSize: 50,
-                      color: "white",
-                      display: "block",
+                      color: 'white',
+                      display: 'block',
                       zIndex: 2,
-                      position: "fixed",
+                      position: 'fixed',
                     }}
                   />
                 ) : (
                   <PlayArrowOutlinedIcon
                     sx={{
                       fontSize: 50,
-                      color: "white",
-                      display: "block",
+                      color: 'white',
+                      display: 'block',
                       zIndex: 2,
-                      position: "fixed",
+                      position: 'fixed',
                     }}
                   />
                 )
@@ -199,23 +211,31 @@ export default function MusicPlayer({
                 <ReactPlayer
                   url={`https://www.youtube.com/embed/${audioUrl}`}
                   // width="0px"
-                  height="1000px"
-                  width="300px"
+                  height='1000px'
+                  width='300px'
                   playing={onPlay}
                   style={{ zIndex: -1 }}
                   ref={player}
-                  onProgress={(e) => {
-                    setCurrentTime(e.playedSeconds);
+                  onProgress={e => {
+
+                    setCurrentTime(e.playedSeconds)
+                  
                   }}
-                  onDuration={(e) => {
-                    setDuration(e);
-                    console.log(duration);
+                  onDuration={e => {
+
+                    setDuration(e)
+                    console.log(duration)
+                  
                   }}
                   onEnded={() => {
-                    setOnPlay(false);
+
+                    setOnPlay(false)
                     if (player.current != null) {
-                      player.current.seekTo(0, "seconds");
+
+                      player.current.seekTo(0, 'seconds')
+                    
                     }
+                  
                   }}
 
                   // light={true}
@@ -224,27 +244,27 @@ export default function MusicPlayer({
             </Box>
           </Card>
           <Box
-            id="drawer"
+            id='drawer'
             sx={{
               // width: "280px",
-              width: "280px",
-              height: "140px",
+              width: '280px',
+              height: '140px',
               // bgcolor: "yellow",
-              ml: "-63.5px",
-              overflow: "hidden",
-              position: "relative",
+              ml: '-63.5px',
+              overflow: 'hidden',
+              position: 'relative',
               // outline: "solid 3px #000",
 
               borderTopRightRadius: 60,
               borderBottomRightRadius: 10,
-              ":before": {
-                position: "absolute",
-                padding: "83.5px",
+              ':before': {
+                position: 'absolute',
+                padding: '83.5px',
                 // background: "#f90",
                 content: '""',
-                marginLeft: "-84px",
-                marginTop: "-18px",
-                borderRadius: "50%",
+                marginLeft: '-84px',
+                marginTop: '-18px',
+                borderRadius: '50%',
                 boxShadow: `
                 100px 0px 80px rgba(193, 246, 248, 1),
                   180px 0px 80px rgba(222, 206, 250, 1),
@@ -252,10 +272,10 @@ export default function MusicPlayer({
               },
               zIndex: -2,
               // pointerEvents: { pointerEventForDrawer },
-              pointerEvents: "auto",
+              pointerEvents: 'auto',
             }}
             component={motion.div}
-            animate={onPlay ? "open" : "closed"}
+            animate={onPlay ? 'open' : 'closed'}
             variants={variants}
           >
             {/* <Stack></Stack> */}
@@ -263,12 +283,12 @@ export default function MusicPlayer({
             <Marquee
               gradient={false}
               style={{
-                background: "none",
-                width: "150px",
-                position: "absolute",
-                top: "20%",
-                right: "13%",
-                fontSize: "28px",
+                background: 'none',
+                width: '150px',
+                position: 'absolute',
+                top: '20%',
+                right: '13%',
+                fontSize: '28px',
               }}
               speed={20}
               delay={3}
@@ -278,43 +298,45 @@ export default function MusicPlayer({
             </Marquee>
             <IconButton
               style={{
-                position: "absolute",
-                top: "52%",
-                left: "33%",
+                position: 'absolute',
+                top: '52%',
+                left: '33%',
               }}
             >
-              <SkipPreviousOutlinedIcon fontSize="large" />
+              <SkipPreviousOutlinedIcon fontSize='large' />
             </IconButton>
             <IconButton
               style={{
-                position: "absolute",
-                top: "52%",
-                left: "50%",
+                position: 'absolute',
+                top: '52%',
+                left: '50%',
               }}
               onClick={() => {
+
                 // if (!drag) {
-                onPlay ? setOnPlay(false) : setOnPlay(true);
+                onPlay ? setOnPlay(false) : setOnPlay(true)
                 // }
+              
               }}
             >
               {onPlay ? (
-                <PauseRoundedIcon fontSize="large" />
+                <PauseRoundedIcon fontSize='large' />
               ) : (
                 <PlayArrowOutlinedIcon
-                  fontSize="large"
-                  sx={{ transform: "scale(1.3)" }}
+                  fontSize='large'
+                  sx={{ transform: 'scale(1.3)' }}
                 />
               )}
             </IconButton>
 
             <IconButton
               style={{
-                position: "absolute",
-                top: "52%",
-                right: "13%",
+                position: 'absolute',
+                top: '52%',
+                right: '13%',
               }}
             >
-              <SkipNextOutlinedIcon fontSize="large" />
+              <SkipNextOutlinedIcon fontSize='large' />
             </IconButton>
           </Box>
         </>
@@ -334,5 +356,6 @@ export default function MusicPlayer({
         </>
       )}
     </Box>
-  );
+  )
+
 }

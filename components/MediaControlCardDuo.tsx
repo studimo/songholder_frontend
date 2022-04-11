@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Stack } from "@mui/material";
-import MediaControlCard from "components/MediaControlCard";
+import * as React from 'react';
+import { Stack } from '@mui/material';
+import MediaControlCard from 'components/MediaControlCard';
 
 export default function MediaControlCardDuo({
   content1,
@@ -11,8 +11,9 @@ export default function MediaControlCardDuo({
   setOnPlay,
   setSongName,
 }: any) {
+
   return (
-    <Stack sx={{ display: "flex", flexDirection: "row" }}>
+    <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
       <MediaControlCard
         content={content1}
         audioUrl={audioUrl}
@@ -31,4 +32,5 @@ export default function MediaControlCardDuo({
       />
     </Stack>
   );
+
 }

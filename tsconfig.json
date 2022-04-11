@@ -21,7 +21,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/discover.tsx",
-    "components/player.js"
+    "components/player.js",
+    "pages/_document.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,16 +1,25 @@
-import React, { FC, useEffect } from "react"
-import { createContext, useContext, Context } from "react"
-import useFirebaseAuth from "utility/UseFirebaseAuth"
-import { UserCredential } from "firebase/auth"
+import React, { FC, useEffect } from 'react'
+import { createContext, useContext, Context } from 'react'
+import useFirebaseAuth, { CustomAuthUser } from 'utility/UseFirebaseAuth'
+import { UserCredential } from 'firebase/auth'
 
-// interface UserContextInterface {
-//   authUser: User | null
-//   loading: boolean
-//   signIn: (token: string) => void
-//   signOut: () => void
-// }
+interface UserContextInterface {
+  authUser: CustomAuthUser | null
+  loading: boolean
+  signInWithEmail: (
+    email: string,
+    password: string,
+  ) => Promise<UserCredential | void>
+  signUpWithEmail: (
+    email: string,
+    password: string,
+  ) => Promise<UserCredential | void>
+  signInWithFacebook: () => Promise<UserCredential | void>
+  signInWithTwitter: () => Promise<UserCredential | void>
+  signOut: () => void
+}
 
-const userContext = {
+const userContext: UserContextInterface = {
   authUser: null,
   loading: true,
   signInWithEmail: (email: string, password: string): Promise<UserCredential> =>

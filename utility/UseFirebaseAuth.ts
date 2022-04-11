@@ -8,14 +8,20 @@ import {
   TwitterAuthProvider,
   signInWithPopup,
   signOut,
+  ParsedToken,
+  User
 } from "firebase/auth";
 import Axios from "axios";
 
 const auth = getAuth(app);
 
+interface CustomClaims extends ParsedToken {
+  permission?: string;
+}
+
 const formatIdTokenResult = (
   token: any,
-  claims: { user_id: any; email: any; name: any; permission: any }
+  claims: CustomClaims
 ) => ({
   uid: claims.user_id,
   email: claims.email,
@@ -24,50 +30,68 @@ const formatIdTokenResult = (
   permission: claims.permission,
 });
 
+export interface CustomAuthUser {
+  uid: string | null;
+  email: string | null;
+  name: string | null;
+  photoURL: string | null;
+  token: string | null;
+  claims: CustomClaims| null;
+}
+
+const formatUser = (authUser: User, claims: CustomClaims, token: string): CustomAuthUser => ({
+  uid: authUser.uid || null,
+  email: authUser.email|| null,
+  name: authUser.displayName|| null,
+  photoURL: authUser.photoURL|| null,
+  token: token|| null,
+  claims: claims || null
+})
+
 export default function useFirebaseAuth() {
-  const [authUser, setAuthUser] = useState<any>(null);
+  const [authUser, setAuthUser] = useState<CustomAuthUser | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const authStateChanged = async (authState: any) => {
-    if (!authState) {
+  const authStateChanged = async (authUser: User | null) => {
+    if (!authUser) {
       setAuthUser(null);
       setLoading(false);
       return;
     }
 
     setLoading(true);
-    // var formattedUser = formatAuthUser(authState)
-    const formatIdToken = await authState.auth.currentUser.getIdTokenResult();
-    var formattedUser = formatIdTokenResult(
-      formatIdToken.token,
-      formatIdToken.claims
-    );
+    // const formattedUser2 = await authState.auth.currentUser.getAdditionalUserInfo();
+    const {claims, token} = await authUser.getIdTokenResult();
+    console.log('dfdf',authUser)
+    // var formattedUser = formatIdTokenResult(
+    //   formatIdToken.token,
+    //   formatIdToken.claims
+    // );
+    const formattedUser = formatUser(authUser, claims, token);
     // console.log(await authState.auth.currentUser.getIdTokenResult())
     // console.log(formattedUser)
     setAuthUser(formattedUser);
     setLoading(false);
   };
 
-  const IdTokenChanged = async (authState: any) => {
-    if (!authState) {
+  const IdTokenChanged = async (authUser: User | null) => {
+    if (!authUser) {
       setAuthUser(null);
       setLoading(false);
       return;
     }
+    const {claims, token} = await authUser.getIdTokenResult();
     Axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_ENDPOINT;
     Axios.defaults.headers.common[
       "Authorization"
-    ] = `Bearer ${authState.accessToken}`;
+    ] = `Bearer ${token}`;
     Axios.defaults.headers.common["Content-Type"] = "application/json";
     Axios.defaults.headers.common["Accept"] = "application/json";
     Axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
     setLoading(true);
-    const formatIdToken = await authState.auth.currentUser.getIdTokenResult();
-    var formattedUser = formatIdTokenResult(
-      formatIdToken.token,
-      formatIdToken.claims
-    );
+    const formatIdToken = await authUser.getIdTokenResult();
+    const formattedUser = formatUser(authUser, claims, token);
     setAuthUser(formattedUser);
     setLoading(false);
   };
