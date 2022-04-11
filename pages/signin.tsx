@@ -19,7 +19,7 @@ import {
   Visibility,
   VisibilityOff,
 } from '@mui/icons-material'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { styled } from '@mui/system'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { AuthErrorCodes } from 'firebase/auth'
@@ -68,6 +68,11 @@ export default function login() {
   const [errToastMessage, setErrToastMessage] = useState('')
 
   const router = useRouter()
+
+  useEffect(() => {
+    if (loading) return
+    if (authUser) return router.push('/discover')
+  }, [authUser, loading])
 
   function handleSubmit() {
     signInWithEmail(username, password)
