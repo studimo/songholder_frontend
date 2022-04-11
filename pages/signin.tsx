@@ -70,8 +70,8 @@ export default function login() {
   const router = useRouter()
 
   useEffect(() => {
-    if (loading) return
-    if (authUser) return router.push('/discover')
+    if (!loading && authUser) return router.push('/discover')
+    return
   }, [authUser, loading])
 
   function handleSubmit() {
