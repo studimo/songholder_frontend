@@ -16,9 +16,9 @@ import {
   Alert,
   FormControl,
   makeStyles,
-} from "@mui/material"
+} from "@mui/material";
 
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import {
   FacebookRounded,
   Twitter,
@@ -26,27 +26,16 @@ import {
   ArrowForward,
   Visibility,
   VisibilityOff,
-} from "@mui/icons-material"
-import { useState } from "react"
-import { styled } from "@mui/system"
-import { useAuth } from "Providers/FirebaseAuthProvider"
-import { AuthErrorCodes } from "firebase/auth"
+} from "@mui/icons-material";
+import { useState } from "react";
+import { styled } from "@mui/system";
+import { useAuth } from "Providers/FirebaseAuthProvider";
+import { AuthErrorCodes } from "firebase/auth";
 
 const CssOutlinedInput = styled(OutlinedInput)({
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "red",
-    },
-    "&:hover fieldset": {
-      borderColor: "yellow",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "green",
-    },
-
-    "&:-webkit-autofill": {
-      WebkitBoxShadow: "0 0 0 1000px white inset",
-    },
+  ".MuiOutlinedInput-notchedOutline": {
+    // borderColor: "red",
+    // borderWidth: "1px",
   },
   input: {
     "&:-internal-autofill-selected": {
@@ -55,71 +44,72 @@ const CssOutlinedInput = styled(OutlinedInput)({
       textFillColor: "white !important",
     },
   },
-})
+});
 export default function login() {
-  const [username, setUsername] = useState("")
-  const [usernameBlank, setUsernameBlank] = useState(true)
-  const [password, setPassword] = useState("")
-  const [passwordBlank, setPasswordBlank] = useState(true)
-  const [showPassword, setShowPassword] = useState(false)
-  const { signInWithEmail, signUpWithEmail, authUser, loading } = useAuth()
-  const [errToast, setErrToast] = useState(false)
-  const [errToastMessage, setErrToastMessage] = useState("")
+  const [username, setUsername] = useState("");
+  const [usernameBlank, setUsernameBlank] = useState(true);
+  const [password, setPassword] = useState("");
+  const [passwordBlank, setPasswordBlank] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const { signInWithEmail, signUpWithEmail, authUser, loading } = useAuth();
+  const [errToast, setErrToast] = useState(false);
+  const [errToastMessage, setErrToastMessage] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   function handleSubmit() {
     signUpWithEmail(username, password)
       .then((user) => {
-        console.log(user)
+        console.log(user);
       })
-      .catch(SigninErrHandler)
+      .catch(SigninErrHandler);
     if (username == "") {
-      setUsernameBlank(true)
+      setUsernameBlank(true);
     }
     if (password == "") {
-      setPasswordBlank(true)
+      setPasswordBlank(true);
     }
-    return false
-    console.log(username)
-    console.log(password)
+    return false;
+    console.log(username);
+    console.log(password);
   }
 
-  const FirebaseErrPrefix = (errCode: string) => `Firebase: Error (${errCode}).`
+  const FirebaseErrPrefix = (errCode: string) =>
+    `Firebase: Error (${errCode}).`;
 
   const ErrorMsgHandler = (msg: string) => {
-    setErrToastMessage(msg)
-    setErrToast(true)
+    setErrToastMessage(msg);
+    setErrToast(true);
     setTimeout(() => {
-      setErrToast(false)
-    }, 1500)
-  }
+      setErrToast(false);
+    }, 1500);
+  };
 
   const SigninErrHandler = (err: Error) => {
-    console.log(err.message.includes(AuthErrorCodes.INVALID_EMAIL))
-    console.log(err.message)
+    console.log(err.message.includes(AuthErrorCodes.INVALID_EMAIL));
+    console.log(err.message);
     switch (err.message) {
       case FirebaseErrPrefix(AuthErrorCodes.INVALID_EMAIL):
-        return ErrorMsgHandler("INVALID EMAIL")
+        return ErrorMsgHandler("INVALID EMAIL");
 
       case FirebaseErrPrefix(AuthErrorCodes.EMAIL_EXISTS):
-        return ErrorMsgHandler("Email already exists")
+        return ErrorMsgHandler("Email already exists");
       default:
-        console.error(err)
-        return ErrorMsgHandler("Unknown error")
+        console.error(err);
+        return ErrorMsgHandler("Unknown error");
     }
-  }
+  };
 
   const handleCloseToast = (
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
     if (reason === "clickaway") {
-      return
+      return;
     }
 
-    setErrToast(false)
-  }
+    setErrToast(false);
+  };
 
   return (
     <Container
@@ -145,7 +135,7 @@ export default function login() {
     >
       <Snackbar
         open={errToast}
-        autoHideDuration={6000}
+        autoHideDuration={10000}
         onClose={handleCloseToast}
       >
         <Alert
@@ -162,8 +152,8 @@ export default function login() {
           height: "401px",
           bgcolor: "yellow",
           background:
-            "linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.025) 28.69%, rgba(255, 255, 255, 0.26) 50.51%, rgba(255, 255, 255, 0.025) 74.65%, rgba(255, 255, 255, 0) 94.8%)",
-          backdropFilter: "blur(15px)",
+            "linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.1) 28.69%, rgba(255, 255, 255, 0.43) 50.51%, rgba(255, 255, 255, 0.1) 74.65%, rgba(255, 255, 255, 0) 94.8%)",
+          backdropFilter: "blur(2px)",
           display: "flex",
           //   justifyContent: "center",
           alignItems: "center",
@@ -193,7 +183,7 @@ export default function login() {
             fontWeight={400}
             sx={{ m: "12px", mt: "-18px" }}
           >
-            SignIn
+            SIGN IN
           </Typography>
           <Box
             sx={{
@@ -218,12 +208,17 @@ export default function login() {
             borderRadius: "50px",
             color: "white",
             mt: "30px",
+            padding: "10px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              // borderColor: "rgba(255, 255, 255, 0)",
+            },
           }}
           inputProps={{
             style: { color: "white !important", opacity: 1 },
           }}
           onChange={(e) => {
-            setUsername(e.target.value)
+            setUsername(e.target.value);
           }}
           value={username}
         />
@@ -238,6 +233,7 @@ export default function login() {
                 aria-label="toggle password visibility"
                 onClick={() => setShowPassword(!showPassword)}
                 edge="end"
+                sx={{ mr: "0px" }}
               >
                 {showPassword ? (
                   <VisibilityOff htmlColor="white" />
@@ -255,9 +251,10 @@ export default function login() {
             borderRadius: "50px",
             color: "white",
             mt: "22px",
+            padding: "10px",
           }}
           onChange={(e) => {
-            setPassword(e.target.value)
+            setPassword(e.target.value);
           }}
           value={password}
         />
@@ -270,16 +267,47 @@ export default function login() {
             height: "29px",
             borderRadius: "20px",
             mt: "20px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderColor: "rgba(255, 255, 255, 0)",
+              borderWidth: "0px",
+            },
           }}
           type="submit"
           onClick={() => {
-            handleSubmit()
+            handleSubmit();
           }}
         >
           SIGN IN
         </Button>
         <Stack sx={{ flexDirection: "row" }}>
-          <Button sx={{ color: "white" }}>
+          {/* <FormControlLabel
+            control={
+              <Checkbox
+                sx={{
+                  color: "white",
+                  "&.Mui-checked": {
+                    color: "white",
+                  },
+                  fontSize: "15px",
+                }}
+              />
+            }
+            label="Remember me"
+            sx={{ color: "white" }}
+          /> */}
+          <Button
+            sx={{
+              color: "white",
+              ml: "200px",
+              mt: "10px",
+              border: "none",
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                // borderColor: "#ffffff",
+              },
+            }}
+          >
             <Typography
               sx={{ color: "white", fontSize: "15px", textTransform: "none" }}
             >
@@ -319,27 +347,52 @@ export default function login() {
             }}
           />
         </Stack>
-        <Stack
-          direction="row"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mt: "15px",
-            // padding: "50px",
-          }}
-          spacing={1}
-        >
-          <IconButton>
-            <FacebookRounded sx={{ color: "white", fontSize: "20px" }} />
-          </IconButton>
-          <IconButton>
-            <Twitter sx={{ color: "white", fontSize: "20px" }} />
-          </IconButton>
+        <Stack flexDirection="column">
+          <Stack
+            direction="row"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: "15px",
+              // padding: "50px",
+            }}
+            spacing={1}
+          >
+            <IconButton>
+              <FacebookRounded sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+            <IconButton>
+              <Twitter sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
 
-          <IconButton>
-            <MailRounded sx={{ color: "white", fontSize: "20px" }} />
-          </IconButton>
+            <IconButton>
+              <MailRounded sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+          </Stack>
+          <svg
+            width="700"
+            height="2"
+            viewBox="0 0 700 2"
+            fill="none"
+            style={{ marginTop: "1px" }}
+          >
+            <path d="M0 1L700 1" stroke="url(#paint0_linear_315_6849)" />
+            <defs>
+              <linearGradient
+                id="paint0_linear_315_6849"
+                x1="671.557"
+                y1="1"
+                x2="3.9153e-08"
+                y2="0.994872"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" stop-opacity="0" />
+                <stop offset="0.53125" stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
         </Stack>
         <Stack
           sx={{
@@ -350,14 +403,31 @@ export default function login() {
             ml: "10px",
           }}
         >
+          <Typography
+            sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
+          >
+            Not reigistered?
+          </Typography>
           <Button
-            onClick={() => router.push("/signup")}
-            sx={{ color: "white" }}
+            onClick={() => router.push("/register")}
+            sx={{
+              color: "white",
+              "&:hover": {
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                // borderColor: "#ffffff",
+              },
+              ml: "10px",
+            }}
           >
             <Typography
-              sx={{ color: "white", fontSize: "17px", textTransform: "none" }}
+              sx={{
+                color: "white",
+                fontSize: "17px",
+                fontWeight: 500,
+                textTransform: "none",
+              }}
             >
-              Not reigistered? SignUp
+              Created an Account
             </Typography>
             <ArrowForward sx={{ fontSize: "15px", ml: "5px" }} />
           </Button>
@@ -379,5 +449,5 @@ export default function login() {
         </Stack>
       </Box>
     </Container>
-  )
+  );
 }
