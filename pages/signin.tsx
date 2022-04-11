@@ -374,7 +374,6 @@ export default function login() {
                 })
                 .catch(SigninErrHandler)
             }}
-            spacing={1}
           >
             <FacebookRounded sx={{ color: 'white', fontSize: '20px' }} />
           </IconButton>
