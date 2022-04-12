@@ -1,5 +1,5 @@
 import { Card, CardActionArea } from '@mui/material'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Box } from '@mui/system'
 import ReactPlayer from 'react-player'
 import PauseIcon from '@mui/icons-material/Pause'
@@ -31,6 +31,11 @@ export default function MusicPlayer({
   const [drag, SetDrag] = useState(false)
   const [loading, SetLoading] = useState(true)
 
+  useEffect(() => {
+    console.log("url change")
+    SetLoading(true)
+  },[audioUrl])
+  
   document.addEventListener('mousedown', () => SetDrag(false))
   document.addEventListener('mousemove', () => SetDrag(true))
   // const [pointerEventForDrawer, SetPointerEventForDrawer] = useState("auto");
@@ -238,7 +243,10 @@ export default function MusicPlayer({
                     }
                   
                   }}
-                  onReady={()=>{SetLoading(false)}}
+                  onReady={()=>{
+                    SetLoading(false)
+                    console.log("ready")
+                  }}
 
                   // light={true}
                 />
