@@ -29,6 +29,7 @@ export default function MusicPlayer({
   const [showButton, setShowButton] = useState(false)
   const player = useRef<any>(null)
   const [drag, SetDrag] = useState(false)
+  const [loading, SetLoading] = useState(true)
 
   document.addEventListener('mousedown', () => SetDrag(false))
   document.addEventListener('mousemove', () => SetDrag(true))
@@ -84,7 +85,7 @@ export default function MusicPlayer({
             <CardActionArea
               onClick={() => {
 
-                if (!drag) {
+                if (!drag && !loading) {
 
                   onPlay ? setOnPlay(false) : setOnPlay(true)
                 
@@ -237,6 +238,7 @@ export default function MusicPlayer({
                     }
                   
                   }}
+                  onReady={()=>{SetLoading(false)}}
 
                   // light={true}
                 />
@@ -313,9 +315,9 @@ export default function MusicPlayer({
               }}
               onClick={() => {
 
-                // if (!drag) {
+                if (!drag && !loading) {
                 onPlay ? setOnPlay(false) : setOnPlay(true)
-                // }
+                }
               
               }}
             >
