@@ -19,16 +19,16 @@ function MyApp(props: any) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
   const router = useRouter()
 
-  const appBarBackground = () => {
-    switch (router.pathname) {
-      case '/':
-        return 'auto'
-      case '/signin':
-        return 'transparent'
-      default:
-        return 'gradient'
-    }
-  }
+  // const appBarBackground = () => {
+  //   switch (router.pathname) {
+  //     case '/':
+  //       return 'auto'
+  //     case '/signin':
+  //       return 'transparent'
+  //     default:
+  //       return 'gradient'
+  //   }
+  // }
 
   return (
     <ApolloProvider client={apolloClient}>
@@ -36,7 +36,6 @@ function MyApp(props: any) {
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <AuthUserProvider>
-            <ResponsiveAppBar background={appBarBackground()} />
             <Component {...pageProps} />
           </AuthUserProvider>
         </ThemeProvider>

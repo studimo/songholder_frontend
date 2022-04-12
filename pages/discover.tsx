@@ -7,6 +7,7 @@ import MusicPlayer from 'components/MusicPlayer'
 import RecommendedCard from 'components/RecommendedCard'
 import { gql, useQuery } from '@apollo/client'
 import Footer from 'components/Footer'
+import ResponsiveAppBar from 'components/ResponsiveAppBar'
 
 const AllQuery = gql`
   query {
@@ -42,6 +43,7 @@ export default function Discover() {
   if (loading) {
     return (
       <>
+      <ResponsiveAppBar background={'gradient'} />
         <div style={{ marginTop: '90px' }} />
         <h1>Loading</h1>
       </>
@@ -66,6 +68,7 @@ export default function Discover() {
         overflow: 'hidden',
       }}
     >
+    <ResponsiveAppBar background={'gradient'} />
       <div style={{ marginTop: '90px' }} />
       <motion.div
         ref={contentRef}

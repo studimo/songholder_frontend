@@ -18,6 +18,7 @@ import {
   ArrowForward,
   Visibility,
   VisibilityOff,
+  MailRounded,
 } from '@mui/icons-material'
 import { useState, useEffect } from 'react'
 import { styled } from '@mui/system'
@@ -25,22 +26,10 @@ import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { AuthErrorCodes } from 'firebase/auth'
 
 const CssOutlinedInput = styled(OutlinedInput)({
-  // '& .MuiOutlinedInput-root': {
-  //   '& fieldset': {
-  //     borderColor: 'red',
-  //   },
-  //   '&:hover fieldset': {
-  //     borderColor: 'yellow',
-  //   },
-  //   '&.Mui-focused fieldset': {
-  //     borderColor: 'green',
-  //   },
-
-  //   '&:-webkit-autofill': {
-  //     WebkitBoxShadow: '0 0 0 1000px white inset',
-  //   },
-  // },
   '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white',
+  },
+  '&:focus .MuiOutlinedInput-notchedOutline': {
     borderColor: 'white',
   },
   input: {
@@ -173,10 +162,9 @@ export default function login() {
         sx={{
           width: '859px',
           height: '401px',
-          bgcolor: 'yellow',
           background:
-            'linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.1) 28.69%, rgba(255, 255, 255, 0.43) 50.51%, rgba(255, 255, 255, 0.1) 74.65%, rgba(255, 255, 255, 0) 94.8%)',
-          backdropFilter: 'blur(2px)',
+          'linear-gradient(89.53deg, rgba(255, 255, 255, 0) 5.66%, rgba(255, 255, 255, 0.025) 28.69%, rgba(255, 255, 255, 0.26) 50.51%, rgba(255, 255, 255, 0.025) 74.65%, rgba(255, 255, 255, 0) 94.8%)',
+          backdropFilter: 'blur(15px)',
           display: 'flex',
           //   justifyContent: "center",
           alignItems: 'center',
@@ -231,6 +219,11 @@ export default function login() {
             borderRadius: '50px',
             color: 'white',
             mt: '30px',
+            padding: "10px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              // borderColor: "rgba(255, 255, 255, 0)",
+            },
           }}
           inputProps={{
             style: { color: 'white !important', opacity: 1 },
@@ -251,7 +244,13 @@ export default function login() {
                 aria-label='toggle password visibility'
                 onClick={() => setShowPassword(!showPassword)}
                 edge='end'
-                sx={{ mr: '0px' }}
+                sx={{ mr: '0px',
+                
+            padding: "10px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              // borderColor: "rgba(255, 255, 255, 0)",
+            }, }}
               >
                 {showPassword ? (
                   <VisibilityOff htmlColor='white' />
@@ -284,7 +283,12 @@ export default function login() {
             width: '320px',
             height: '29px',
             borderRadius: '20px',
-            mt: '20px',
+            mt: '20px', 
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderColor: "rgba(255, 255, 255, 0)",
+              borderWidth: "0px",
+            },
           }}
           type='submit'
           onClick={() => {
@@ -333,7 +337,7 @@ export default function login() {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'row',
-            mt: '35px',
+            mt: '15px',
           }}
         >
           <Box
@@ -360,39 +364,69 @@ export default function login() {
             }}
           />
         </Stack>
-        <Stack
-          direction='row'
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            mt: '15px',
-            // padding: "50px",
-          }}
-          spacing={1}
-        >
-          <IconButton
-            onClick={() => {
+        <Stack flexDirection="column">
+          <Stack
+            direction="row"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: "15px",
+              // padding: "50px",
+            }}
+            spacing={1}
+          >
+            <IconButton onClick={() => {
               signInWithFacebook()
                 .then(user => {
+
                   console.log(user)
+                
                 })
                 .catch(SigninErrHandler)
-            }}
+
+              }}>
+              <FacebookRounded sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+            <IconButton onClick={() => {
+            signInWithTwitter()
+              .then(user => {
+
+                console.log(user)
+              
+              })
+              .catch(SigninErrHandler)
+
+            }}>
+              <Twitter sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+            <IconButton>
+              <MailRounded sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+          </Stack>
+          <svg
+            width="700"
+            height="2"
+            viewBox="0 0 700 2"
+            fill="none"
+            style={{ marginTop: "21px" }}
           >
-            <FacebookRounded sx={{ color: 'white', fontSize: '20px' }} />
-          </IconButton>
-          <IconButton
-            onClick={() => {
-              signInWithTwitter()
-                .then(user => {
-                  console.log(user)
-                })
-                .catch(SigninErrHandler)
-            }}
-          >
-            <Twitter sx={{ color: 'white', fontSize: '20px' }} />
-          </IconButton>
+            <path d="M0 1L700 1" stroke="url(#paint0_linear_315_6849)" />
+            <defs>
+              <linearGradient
+                id="paint0_linear_315_6849"
+                x1="671.557"
+                y1="1"
+                x2="3.9153e-08"
+                y2="0.994872"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" stop-opacity="0" />
+                <stop offset="0.53125" stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
         </Stack>
         <Stack
           sx={{
@@ -404,13 +438,17 @@ export default function login() {
           }}
         >
           <Typography
-            sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+            sx={{ color: 'white', fontSize: '17px', textTransform: 'none',mr:"10px" }}
           >
             Not reigistered?
           </Typography>
           <Button
-            onClick={() => router.push('/signup')}
-            sx={{ color: 'white' }}
+            onClick={() => router.push('/register')}
+            sx={{ color: 'white', 
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              // borderColor: "#ffffff",
+            },}}
           >
             <Typography
               sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}

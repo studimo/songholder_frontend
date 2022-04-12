@@ -9,6 +9,7 @@ import {
 import LandingpageCard from 'components/LandingpageCard'
 import KeyboardDoubleArrowRightRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowRightRounded'
 import Footer from 'components/Footer'
+import ResponsiveAppBar from 'components/ResponsiveAppBar'
 
 export default function LandingPage() {
 
@@ -28,6 +29,7 @@ export default function LandingPage() {
         overflow: 'hidden',
       }}
     >
+    <ResponsiveAppBar background={'auto'} />
       <Stack className='first paragraph'>
         <Box
           sx={{

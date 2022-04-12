@@ -20,6 +20,7 @@ import {
   ArrowForward,
   Visibility,
   VisibilityOff,
+  MailRounded,
 } from '@mui/icons-material'
 import { useState } from 'react'
 import { styled } from '@mui/system'
@@ -27,20 +28,11 @@ import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { AuthErrorCodes } from 'firebase/auth'
 
 const CssOutlinedInput = styled(OutlinedInput)({
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: 'red',
-    },
-    '&:hover fieldset': {
-      borderColor: 'yellow',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: 'green',
-    },
-
-    '&:-webkit-autofill': {
-      WebkitBoxShadow: '0 0 0 1000px white inset',
-    },
+  '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white',
+  },
+  '&:focus .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white',
   },
   input: {
     '&:-internal-autofill-selected': {
@@ -223,7 +215,7 @@ export default function login() {
             fontWeight={400}
             sx={{ m: '12px', mt: '-18px' }}
           >
-            Register
+            REGISTER
           </Typography>
           <Box
             sx={{
@@ -248,6 +240,11 @@ export default function login() {
             borderRadius: '50px',
             color: 'white',
             mt: '30px',
+            padding: "10px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              // borderColor: "rgba(255, 255, 255, 0)",
+            },
           }}
           inputProps={{
             style: { color: 'white !important', opacity: 1 },
@@ -270,6 +267,9 @@ export default function login() {
                 aria-label='toggle password visibility'
                 onClick={() => setShowPassword(!showPassword)}
                 edge='end'
+                sx={{
+                  mr:"0px"
+                }}
               >
                 {showPassword ? (
                   <VisibilityOff htmlColor='white' />
@@ -287,6 +287,11 @@ export default function login() {
             borderRadius: '50px',
             color: 'white',
             mt: '22px',
+            padding: "10px",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              // borderColor: "rgba(255, 255, 255, 0)",
+            },
           }}
           onChange={e => {
 
@@ -304,6 +309,11 @@ export default function login() {
             height: '29px',
             borderRadius: '20px',
             mt: '20px',
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              borderColor: "rgba(255, 255, 255, 0)",
+              borderWidth: "0px",
+            },
           }}
           type='submit'
           onClick={() => {
@@ -312,9 +322,9 @@ export default function login() {
           
           }}
         >
-          SIGN IN
+          REGISTER
         </Button>
-        <Stack sx={{ flexDirection: 'row' }}>
+        <Stack sx={{ flexDirection: 'row',alignItems:"center" }}>
           <FormControlLabel
             // value="start"
             control={
@@ -324,21 +334,21 @@ export default function login() {
                   '&.Mui-checked': {
                     color: 'white',
                   },
-                  fontSize: '15px',
                 }}
               />
             }
-            label='Accept Term of bla bla bla'
+            label=''
             sx={{ color: 'white' }}
             // labelPlacement="start"
           />
+          <Typography sx={{color:"white",fontSize:"13px",ml:"-15px"}}>I agree to the Terms of Service and Privacy Policy</Typography>
         </Stack>
         <Stack
           sx={{
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'row',
-            mt: '35px',
+            mt: '25px',
           }}
         >
           <Box
@@ -365,18 +375,19 @@ export default function login() {
             }}
           />
         </Stack>
-        <Stack
-          direction='row'
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            mt: '15px',
-            // padding: "50px",
-          }}
-          spacing={1}
-        >
-          <IconButton
+        <Stack flexDirection="column">
+          <Stack
+            direction="row"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mt: "10px",
+              // padding: "50px",
+            }}
+            spacing={1}
+          >
+            <IconButton
             onClick={() => {
 
               signInWithFacebook()
@@ -406,6 +417,33 @@ export default function login() {
           >
             <Twitter sx={{ color: 'white', fontSize: '20px' }} />
           </IconButton>
+            <IconButton>
+              <MailRounded sx={{ color: "white", fontSize: "20px" }} />
+            </IconButton>
+          </Stack>
+          <svg
+            width="700"
+            height="2"
+            viewBox="0 0 700 2"
+            fill="none"
+            style={{ marginTop: "18px" }}
+          >
+            <path d="M0 1L700 1" stroke="url(#paint0_linear_315_6849)" />
+            <defs>
+              <linearGradient
+                id="paint0_linear_315_6849"
+                x1="671.557"
+                y1="1"
+                x2="3.9153e-08"
+                y2="0.994872"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" stop-opacity="0" />
+                <stop offset="0.53125" stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
         </Stack>
         <Stack
           sx={{
@@ -416,6 +454,11 @@ export default function login() {
             ml: '10px',
           }}
         >
+          <Typography
+              sx={{ color: 'white', fontSize: '17px', textTransform: 'none',mr:"10px" }}
+            >
+              Already have an Account?
+            </Typography>
           <Button
             onClick={() => router.push('/signin')}
             sx={{ color: 'white' }}
@@ -423,7 +466,7 @@ export default function login() {
             <Typography
               sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
             >
-              Already have an Account? Signin
+              Sign in
             </Typography>
             <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
           </Button>
