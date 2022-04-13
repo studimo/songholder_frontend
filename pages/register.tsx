@@ -42,7 +42,7 @@ const CssOutlinedInput = styled(OutlinedInput)({
     },
   },
 })
-export default function login() {
+export default function register() {
 
   const [username, setUsername] = useState('')
   const [usernameBlank, setUsernameBlank] = useState(true)

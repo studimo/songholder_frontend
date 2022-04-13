@@ -18,6 +18,7 @@ export default function MusicPlayer({
   setOnPlay,
   songName,
   setDragAble,
+  changeSong
 }: any) {
 
   const variants = {
@@ -32,7 +33,6 @@ export default function MusicPlayer({
   const [loading, SetLoading] = useState(true)
 
   useEffect(() => {
-    console.log("url change")
     SetLoading(true)
   },[audioUrl])
   
@@ -169,13 +169,13 @@ export default function MusicPlayer({
                         player.current.seekTo((e * duration) / 100, 'seconds')
                       
                       }
-                      console.log(e)
+                      // console.log(e)
                     
                     }}
                     onEnded={() => {
 
                       console.log('END')
-                      setOnPlay(false)
+                      // setOnPlay(false)
                       if (player.current != null) {
 
                         player.current.seekTo(0, 'seconds')
@@ -230,7 +230,7 @@ export default function MusicPlayer({
                   onDuration={e => {
 
                     setDuration(e)
-                    console.log(duration)
+                    // console.log(duration)
                   
                   }}
                   onEnded={() => {
@@ -245,7 +245,7 @@ export default function MusicPlayer({
                   }}
                   onReady={()=>{
                     SetLoading(false)
-                    console.log("ready")
+                    // console.log("ready")
                   }}
 
                   // light={true}
@@ -312,6 +312,7 @@ export default function MusicPlayer({
                 top: '52%',
                 left: '33%',
               }}
+              onClick={() => changeSong(-1)}
             >
               <SkipPreviousOutlinedIcon fontSize='large' />
             </IconButton>
@@ -345,6 +346,7 @@ export default function MusicPlayer({
                 top: '52%',
                 right: '13%',
               }}
+              onClick={() => changeSong(1)}
             >
               <SkipNextOutlinedIcon fontSize='large' />
             </IconButton>

@@ -33,13 +33,19 @@ export default function Discover() {
   const [audioUrl, setAudioUrl] = useState('')
   const [onPlay, setOnPlay] = useState(false)
   const { data, error, loading } = useQuery(AllQuery)
+  
+  const [musicId, setMusicId] = useState(0)
+  
   const contentRef = useRef(null)
-
   useEffect(() => {
     if (data && (!allContents || allContents.length == 0)) {
       setAllContents(data.demos)
     }
-  }, data)
+  }, [data])
+  // useEffect(() => {
+  //   console.log("musicId")
+  //   console.log(musicId)
+  // }, [musicId])
   if (loading) {
     return (
       <>
@@ -49,6 +55,20 @@ export default function Discover() {
       </>
     )
   }
+
+  function changeSong(indexChange:number){
+    var inx:number = musicId + indexChange
+    inx = inx < 0 ? allContents.length - 1 - (allContents.length%2) : inx
+    inx = inx > allContents.length- 1 - (allContents.length%2) ? 0 : inx
+    
+    console.log(inx)
+
+    setAudioUrl(allContents[inx].youtubeId)
+    setSongName(allContents[inx].name)
+    setMusicId(inx)
+    setOnPlay(true)
+  }
+  
   let refCard: any
   let checkOdd = false
   return (
@@ -114,6 +134,7 @@ export default function Discover() {
             setOnPlay={setOnPlay}
             songName={songName}
             setDragAble={setDragAble}
+            changeSong={changeSong}
           />
         </Box>
       </motion.div>
@@ -154,7 +175,8 @@ export default function Discover() {
         // sx={{ bgcolor: "yellow" }}
         // sx={{ zIndex: 0 }}
       >
-        {allContents.slice(0, 5).map((content: any) => (
+        {
+          allContents.slice(0, 5).map((content: any, index:number) => (
           <RecommendedCard
             key={content.name}
             content={content}
@@ -163,6 +185,9 @@ export default function Discover() {
             onPlay={onPlay}
             setOnPlay={setOnPlay}
             setSongName={setSongName}
+            setMusicId={setMusicId}
+            musicId={index}
+
           />
         ))}
       </Stack>
@@ -206,7 +231,7 @@ export default function Discover() {
         SONG LIST
       </Typography>
       <Stack>
-        {allContents.map((content: any) => {
+        {allContents.map((content: any,index:number) => {
           if (checkOdd) {
             checkOdd = !checkOdd
             return (
@@ -219,6 +244,9 @@ export default function Discover() {
                 onPlay={onPlay}
                 setOnPlay={setOnPlay}
                 setSongName={setSongName}
+                setMusicId={setMusicId}
+                musicId1={index-1}
+                musicId2={index}
               />
             )
           }

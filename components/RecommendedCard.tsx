@@ -17,6 +17,8 @@ export default function RecommendedCard({
   onPlay,
   setOnPlay,
   setSongName,
+  setMusicId,
+  musicId
 }: any) {
 
   const [showButton, setShowButton] = useState(false)
@@ -80,6 +82,7 @@ export default function RecommendedCard({
 
               setAudioUrl(content.youtubeId)
               setSongName(content.name)
+              setMusicId(musicId)
               if (audioUrl == content.youtubeId && onPlay) {
 
                 setOnPlay(false)

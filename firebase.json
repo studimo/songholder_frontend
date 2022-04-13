@@ -10,6 +10,10 @@
       {
         "source": "/signin",
         "destination": "/signin.html"
+      },
+      {
+        "source": "/invested",
+        "destination": "/invested.html"
       }
     ]
   }

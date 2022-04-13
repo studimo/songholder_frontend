@@ -10,6 +10,9 @@ export default function MediaControlCardDuo({
   onPlay,
   setOnPlay,
   setSongName,
+  setMusicId,
+  musicId1,
+  musicId2
 }: any) {
 
   return (
@@ -21,6 +24,8 @@ export default function MediaControlCardDuo({
         onPlay={onPlay}
         setOnPlay={setOnPlay}
         setSongName={setSongName}
+        setMusicId={setMusicId}
+        musicId={musicId1}
       />
       <MediaControlCard
         content={content2}
@@ -29,6 +34,8 @@ export default function MediaControlCardDuo({
         onPlay={onPlay}
         setOnPlay={setOnPlay}
         setSongName={setSongName}
+        setMusicId={setMusicId}
+        musicId={musicId2}
       />
     </Stack>
   );

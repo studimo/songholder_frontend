@@ -11,15 +11,16 @@ import Container from '@mui/material/Container'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import { Divider, useScrollTrigger } from '@mui/material'
+import { Divider, Stack, Tooltip, useScrollTrigger } from '@mui/material'
 import InputBase from '@mui/material/InputBase'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
+import { ArrowForward } from '@mui/icons-material'
 // import "components/navbar.css";
 
 const pages = ['HOME', 'DISCOVER', 'INVESTED']
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -72,7 +73,7 @@ function ResponsiveAppBar(props: AppBarProps) {
   //   console.log(scrollY.current > 550);
   // }, [scrollYProgress]);
   const { authUser, loading, signOut } = useAuth()
-  console.log(authUser)
+  // console.log(authUser)
   const router = useRouter()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
@@ -91,6 +92,10 @@ function ResponsiveAppBar(props: AppBarProps) {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   const variants = {
     gradient: { opacity: 1, x: 0 },
     none: { opacity: 0, x: '-100%' },
@@ -304,12 +309,28 @@ function ResponsiveAppBar(props: AppBarProps) {
               <AttachFileIcon fontSize="large" />
             </Badge>
           </IconButton> */}
-          {/* <Box sx={{ flexGrow: 0, mr: "15px" }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
-
-          {/* </IconButton>
-            </Tooltip>
+          {authUser ? (
+          <Box sx={{ flexGrow: 0, mr: "15px",flexDirection: "row" }}>
+            <Stack sx={{flexDirection:'row',justifyContent:'center',alignItems: 'center'}}>
+              <Tooltip title="Open settings" sx={{flexDirection:'row'}}>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      alt='Remy Sharp'
+                      src={authUser.photoURL || '/static/images/avatar/2.jpg'}
+                    />
+                  </IconButton>
+              </Tooltip>
+              <Typography
+                  sx={{
+                    fontSize: '20px',
+                    display: { xs: 'none', md: 'flex' },
+                    ml:"10px"
+                  }}
+                  fontWeight={10}
+                >
+                  {authUser.email || ''}
+              </Typography>
+            </Stack>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -326,14 +347,45 @@ function ResponsiveAppBar(props: AppBarProps) {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key="account"
+                onClick={handleCloseUserMenu}
+                disabled
+                >
+                  <Typography textAlign="center">account</Typography>
                 </MenuItem>
-              ))}
+                
+                <MenuItem key="dashboard"
+                onClick={handleCloseUserMenu}
+                disabled
+                >
+                  <Typography textAlign="center">dashboard</Typography>
+                </MenuItem>
+                
+                <MenuItem key="Logout"
+                onClick={signOut}
+                >
+                  <Typography textAlign="center" sx={{color:"darkred"}}>Logout</Typography>
+                </MenuItem>
             </Menu>
-          </Box> */}
-          {authUser ? (
+          </Box>) : (
+            <Button
+              onClick={() => router.push('/signin')}
+              sx={{ color: 'white', 
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  // borderColor: "#ffffff",
+                },
+              }}
+          >
+            <Typography
+              sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+            >
+              Sign In
+            </Typography>
+            <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
+          </Button>
+          )}
+          {/* {authUser ? (
             <>
               <Avatar
                 alt='Remy Sharp'
@@ -353,12 +405,21 @@ function ResponsiveAppBar(props: AppBarProps) {
             </>
           ) : (
             <Button
-              onClick={() => router.push('/signin')}
-              sx={{ color: 'black' }}
+            onClick={() => router.push('/signin')}
+            sx={{ color: 'white', 
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              // borderColor: "#ffffff",
+            },}}
+          >
+            <Typography
+              sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
             >
-              ทำปุ่มไปหน้าLogin
-            </Button>
-          )}
+              Sign In
+            </Typography>
+            <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
+          </Button>
+          )} */}
         </Toolbar>
       </Container>
     </AppBar>
