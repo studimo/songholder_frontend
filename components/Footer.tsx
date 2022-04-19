@@ -1,7 +1,8 @@
 import { Box, Divider, IconButton, Stack, Typography } from '@mui/material'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import MailRoundedIcon from '@mui/icons-material/MailRounded'
+import { FacebookRounded, Twitter, MailRounded } from '@mui/icons-material'
+// import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
+// import TwitterIcon from '@mui/icons-material/Twitter'
+// import MailRoundedIcon from '@mui/icons-material/MailRounded'
 
 export default function Footer() {
   return (
@@ -118,7 +119,7 @@ export default function Footer() {
             spacing={7}
           >
             <IconButton href='https://www.facebook.com/Songholder-104864228867080'>
-              <FacebookRoundedIcon sx={{ color: 'white', fontSize: '30px' }} />
+              <FacebookRounded sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
             <IconButton disabled>
               <Typography
@@ -135,11 +136,11 @@ export default function Footer() {
               </Typography>
             </IconButton>
             <IconButton disabled>
-              <TwitterIcon sx={{ color: 'white', fontSize: '30px' }} />
+              <Twitter sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
 
             <IconButton disabled>
-              <MailRoundedIcon sx={{ color: 'white', fontSize: '30px' }} />
+              <MailRounded sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
           </Stack>
           <Divider

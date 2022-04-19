@@ -1,28 +1,28 @@
 import * as React from 'react'
 import { styled, alpha } from '@mui/material/styles'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import MenuItem from '@mui/material/MenuItem'
+// import MenuIcon from '@mui/icons-material/Menu'
 import {
   CardMedia,
   Divider,
   Stack,
   Tooltip,
   useScrollTrigger,
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  MenuItem,
+  InputBase,
 } from '@mui/material'
-import InputBase from '@mui/material/InputBase'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
-import { ArrowForward } from '@mui/icons-material'
+import { ArrowForward, Menu as MenuIcon } from '@mui/icons-material'
 import { AppbarButton } from './AppbarButton'
 // import "components/navbar.css";
 
