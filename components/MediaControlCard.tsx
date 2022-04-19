@@ -1,14 +1,16 @@
 import * as React from 'react'
-import { useTheme } from '@mui/material/styles'
-
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
 import { useState } from 'react'
-import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
-import { CardActionArea, Stack } from '@mui/material'
-import PauseIcon from '@mui/icons-material/Pause'
+import { useTheme } from '@mui/material/styles'
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActionArea,
+  Stack,
+} from '@mui/material'
+import { PlayArrowOutlined, Pause } from '@mui/icons-material'
+// import PauseIcon from '@mui/icons-material/Pause'
 
 export default function MediaControlCard({
   content,
@@ -85,7 +87,7 @@ export default function MediaControlCard({
           {audioUrl == content.youtubeId ? (
             onPlay ? (
               showButton ? (
-                <PauseIcon
+                <Pause
                   sx={{
                     fontSize: 100,
                     color: 'white',
@@ -95,7 +97,7 @@ export default function MediaControlCard({
                 <></>
               )
             ) : showButton ? (
-              <PlayArrowOutlinedIcon
+              <PlayArrowOutlined
                 sx={{
                   fontSize: 100,
                   color: 'white',
@@ -105,7 +107,7 @@ export default function MediaControlCard({
               <></>
             )
           ) : showButton ? (
-            <PlayArrowOutlinedIcon
+            <PlayArrowOutlined
               sx={{
                 fontSize: 100,
                 color: 'white',
