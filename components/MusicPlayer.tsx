@@ -18,9 +18,8 @@ export default function MusicPlayer({
   setOnPlay,
   songName,
   setDragAble,
-  changeSong
+  changeSong,
 }: any) {
-
   const variants = {
     open: { scale: 1, x: 0, opacity: 1 },
     closed: { scale: 0, x: '-50%', opacity: 0 },
@@ -31,13 +30,17 @@ export default function MusicPlayer({
   const player = useRef<any>(null)
   const [drag, SetDrag] = useState(false)
   const [loading, SetLoading] = useState(true)
+  const [onOpenControl, setOnOpenControl] = useState(false)
+
+  const [controlTimeout, setControlTimeout] = useState<any>(null)
 
   useEffect(() => {
     SetLoading(true)
-  },[audioUrl])
-  
+  }, [audioUrl])
+
   document.addEventListener('mousedown', () => SetDrag(false))
   document.addEventListener('mousemove', () => SetDrag(true))
+
   // const [pointerEventForDrawer, SetPointerEventForDrawer] = useState("auto");
 
   // useEffect(() => {
@@ -89,24 +92,22 @@ export default function MusicPlayer({
           >
             <CardActionArea
               onClick={() => {
-
                 if (!drag && !loading) {
-
                   onPlay ? setOnPlay(false) : setOnPlay(true)
-                
                 }
-              
               }}
               onMouseOver={() => {
-
                 setShowButton(true)
                 setDragAble(true)
-              
+                setOnOpenControl(true)
+                clearTimeout(controlTimeout)
               }}
               onMouseLeave={() => {
-
                 setShowButton(false)
-              
+                const timeOut = setTimeout(() => {
+                  setOnOpenControl(false)
+                }, 3000)
+                setControlTimeout(timeOut)
               }}
               sx={{
                 borderRadius: '50px',
@@ -146,9 +147,7 @@ export default function MusicPlayer({
               >
                 <div
                   onMouseLeave={() => {
-
                     setDragAble(true)
-                  
                   }}
                 >
                   <CircleSlider
@@ -162,26 +161,18 @@ export default function MusicPlayer({
                     circleWidth={10}
                     circleColor='white'
                     onChange={(e: any) => {
-
                       setDragAble(false)
                       if (player.current != null) {
-
                         player.current.seekTo((e * duration) / 100, 'seconds')
-                      
                       }
                       // console.log(e)
-                    
                     }}
                     onEnded={() => {
-
                       console.log('END')
                       // setOnPlay(false)
                       if (player.current != null) {
-
                         player.current.seekTo(0, 'seconds')
-                      
                       }
-                    
                     }}
                   />
                 </div>
@@ -223,27 +214,19 @@ export default function MusicPlayer({
                   style={{ zIndex: -1 }}
                   ref={player}
                   onProgress={e => {
-
                     setCurrentTime(e.playedSeconds)
-                  
                   }}
                   onDuration={e => {
-
                     setDuration(e)
                     // console.log(duration)
-                  
                   }}
                   onEnded={() => {
-
                     setOnPlay(false)
                     if (player.current != null) {
-
                       player.current.seekTo(0, 'seconds')
-                    
                     }
-                  
                   }}
-                  onReady={()=>{
+                  onReady={() => {
                     SetLoading(false)
                     // console.log("ready")
                   }}
@@ -284,8 +267,19 @@ export default function MusicPlayer({
               // pointerEvents: { pointerEventForDrawer },
               pointerEvents: 'auto',
             }}
+            onMouseOver={() => {
+              setOnOpenControl(true)
+              clearTimeout(controlTimeout)
+            }}
+            onMouseLeave={() => {
+              setShowButton(false)
+              const timeOut = setTimeout(() => {
+                setOnOpenControl(false)
+              }, 3000)
+              setControlTimeout(timeOut)
+            }}
             component={motion.div}
-            animate={onPlay ? 'open' : 'closed'}
+            animate={onOpenControl ? 'open' : 'closed'}
             variants={variants}
           >
             {/* <Stack></Stack> */}
@@ -323,11 +317,9 @@ export default function MusicPlayer({
                 left: '50%',
               }}
               onClick={() => {
-
                 if (!drag && !loading) {
-                onPlay ? setOnPlay(false) : setOnPlay(true)
+                  onPlay ? setOnPlay(false) : setOnPlay(true)
                 }
-              
               }}
             >
               {onPlay ? (
@@ -369,5 +361,4 @@ export default function MusicPlayer({
       )}
     </Box>
   )
-
 }
