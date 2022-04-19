@@ -121,7 +121,7 @@ function ResponsiveAppBar(props: AppBarProps) {
     props.background == 'auto'
       ? useScrollTrigger({
           disableHysteresis: true,
-          threshold: 460,
+          threshold: 270,
         })
       : props.background == 'gradient'
 

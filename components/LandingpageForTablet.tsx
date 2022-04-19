@@ -29,97 +29,54 @@ export default function LandingPageForMobile() {
       }}
     >
       <ResponsiveAppBar background={'auto'} page={'HOME'} />
-      <Stack className='first paragraph' sx={{ mb: '100px' }}>
-        <svg width='100vw' height='331' viewBox='0 0 400 331' fill='none'>
-          <g style={{ mixBlendMode: 'multiply' }}>
-            <path
-              d='M-229 13.5001L533.5 -265L580.5 13.4999C580.5 13.4999 593 83.0003 469.5 187C346 291 84 332.467 -100.5 310C-285 287.534 -229 13.5001 -229 13.5001Z'
-              fill='url(#pattern0)'
-            />
-            <path
-              d='M-229 13.5001L533.5 -265L580.5 13.4999C580.5 13.4999 593 83.0003 469.5 187C346 291 84 332.467 -100.5 310C-285 287.534 -229 13.5001 -229 13.5001Z'
-              fill='url(#paint0_linear_679_38232)'
-              fill-opacity='0.55'
-            />
-          </g>
-          <defs>
-            <pattern
-              id='pattern0'
-              patternContentUnits='objectBoundingBox'
-              width='1'
-              height='1'
-            >
-              <use
-                xlinkHref='#image0_679_38232'
-                transform='translate(-0.0388728 0.051246) scale(0.000344165 0.000488117) '
-              />
-            </pattern>
-            <linearGradient
-              id='paint0_linear_679_38232'
-              x1='90.7401'
-              y1='-22.0556'
-              x2='391.239'
-              y2='157.253'
-              gradientUnits='userSpaceOnUse'
-            >
-              <stop stop-color='#0EA7A7' />
-              <stop offset='1' stop-color='#2E007C' />
-            </linearGradient>
-            <image
-              id='image0_679_38232'
-              width='2923'
-              height='2950'
-              href='./assets/images/LandingPageBackground_1.jpeg'
-              style={{
-                transform: 'rotate(-15deg)',
-                // position: 'relative',
-                // right: '0%',
-                // bottom: '0%',
-              }}
-            />
-          </defs>
-        </svg>
-
+      <Stack className='first paragraph' sx={{ mb: '-450px' }}>
         <Box
           sx={{
+            backgroundImage:
+              'linear-gradient(123.57deg, rgba(14, 167, 167, 0.55) 35.86%, rgba(46, 0, 124, 0.55) 77.15%),url(./assets/images/LandingPageBackground_1.jpeg)',
+            mixBlendMode: 'multiply',
+
+            // position: "absolute",
+            // width: "100vw",
             width: '100vw',
-            height: '600px',
-            mt: '-900px',
+            height: '1100px',
+            mt: '-400px',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            // clipPath: "ellipse(90% 43% at 49% 55%)",
+            clipPath: 'ellipse(90% 34% at 53% 56%)',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            alignItems: 'center',
           }}
         >
           <Typography
             sx={{
-              mt: '650px',
-              ml: '20px',
+              mt: '74vh',
               color: 'white',
-              fontWeight: 500,
-              fontSize: '25px',
-              lineHeight: '25px',
+              fontWeight: '500',
+              fontSize: '3.8vw',
               textShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
               fontFamily: 'Mitr',
               fontStyle: 'normal',
-              width: '306px',
+              textAlign: 'center',
             }}
           >
             Let's be part of the music industry together.
           </Typography>
           <Typography
             sx={{
-              mt: '15px',
-              ml: '20px',
+              mt: '37px',
               color: 'white',
-              width: '245px',
-              height: '58px',
+              width: '80vw',
+              height: '80px',
               fontFamily: 'Kalam',
               fontStyle: 'normal',
-              fontWeight: 300,
-              fontSize: '15px',
-              lineHeight: '20px',
+              fontWeight: 400,
+              fontSize: '3vw',
+              lineHeight: '3.3vw',
 
-              // textAlign: 'center',
+              textAlign: 'center',
             }}
           >
             Fundraising for creative music projects, there is no better place to
@@ -128,13 +85,12 @@ export default function LandingPageForMobile() {
           <Button
             variant='contained'
             sx={{
-              mt: '25px',
-              ml: '20px',
-              width: '130px',
+              mt: '70px',
+              width: '23vw',
               background: 'rgba(255, 255, 255, 0.15)',
               borderRadius: '16px',
               // fontFamily: "Mitr",
-              fontSize: '13px',
+              fontSize: '2.4vw',
               fontWeight: 500,
               '&:hover': {
                 backgroundColor: 'rgba(0, 0, 0, 0.05)',
@@ -151,7 +107,7 @@ export default function LandingPageForMobile() {
       </Stack>
       <Stack
         className='second paragraph'
-        sx={{ width: '100vw', height: '200px', mt: '180px' }}
+        sx={{ width: '100vw', height: '600px', mt: '30vw', mb: '-450px' }}
       >
         <Box
           sx={{
@@ -160,90 +116,97 @@ export default function LandingPageForMobile() {
           }}
         >
           <svg
-            width='100vw'
+            viewBox='0 250 1550 600'
+            width='100%'
             height='auto'
-            viewBox='0 100 414 634'
-            fill='none'
             style={{
-              marginTop: '-170px',
+              marginTop: '0px',
             }}
           >
             <path
-              id='CurvedPath1'
-              d='M-366 181.5C-366 181.5 125 624.5 758 137C1391 -350.5 746.5 624.5 746.5 624.5C746.5 624.5 378.5 399.5 -327.5 594.5C-1033.5 789.5 -366 181.5 -366 181.5Z'
-              fill='url(#paint0_linear_679_38347)'
-              fill-opacity='0.55'
+              d='M-333 56.5001C209.5 477.5 1004 624 1871.5 117C2739 -390 2497.5 927.5 1782.5 796.5C1067.5 665.5 -396.5 764.33 -396.5 764.33C-396.5 764.33 -552.976 -114.209 -333 56.5001Z'
+              fill='url(#paint0_linear_428_37098)'
+              fillOpacity='0.55'
+              id='CurvedPath'
             />
-
             <defs>
               <linearGradient
-                id='paint0_linear_679_38347'
-                x1='111.5'
-                y1='96'
-                x2='390.5'
-                y2='11.5'
+                id='paint0_linear_428_37098'
+                x1='268.878'
+                y1='378.133'
+                x2='1235.88'
+                y2='19.133'
                 gradientUnits='userSpaceOnUse'
               >
-                <stop stop-color='#008E8E' />
-                <stop offset='1' stop-color='#2E007C' />
+                <stop stopColor='#2BA4AB' />
+                <stop offset='1' stopColor='#2E007C' />
               </linearGradient>
             </defs>
-            <text x='475' y='50' textAnchor='middle' fill='#5199C0' dy='-2%'>
+            <text
+              fontSize='54'
+              x='325'
+              y='50'
+              textAnchor='middle'
+              fill='#5199C0'
+              dy='-5%'
+            >
               <textPath
                 id='MyMessage'
-                xlinkHref='#CurvedPath1'
+                xlinkHref='#CurvedPath'
                 style={{
                   fontFamily: 'Kalam',
                   fontStyle: 'normal',
                   fontWeight: 700,
-                  fontSize: '10px',
+                  fontSize: '30px',
                   lineHeight: '45px',
                   // color: "#5199C0",
 
                   transform: 'rotate(5deg)',
-                  letterSpacing: '1.5px',
+                  letterSpacing: '3px',
                 }}
               >
-                Be the Songholders
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Be
+                the Songholders
               </textPath>
             </text>
             <text
-              fontSize='40'
-              x='675'
+              fontSize='54'
+              x='325'
               y='50'
               textAnchor='middle'
               fill='#236386'
-              dy='-2%'
+              dy='-5%'
             >
               <textPath
                 id='MyMessage'
-                xlinkHref='#CurvedPath1'
+                xlinkHref='#CurvedPath'
                 style={{
                   fontFamily: 'Mitr',
                   fontStyle: 'normal',
                   fontWeight: 400,
-                  fontSize: '15px',
+                  fontSize: '43px',
                   lineHeight: '45px',
                   color: '#236386',
                   textShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                  letterSpacing: '0.8px',
+                  letterSpacing: '3px',
                 }}
               >
-                &nbsp;&nbsp;Fund the next big hit music track
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fund
+                the next big hit music track
               </textPath>
             </text>
           </svg>
         </Box>
         <Typography
           sx={{
-            mt: '-510px',
+            mt: '-338px',
             ml: '20px',
-            width: '156px',
+            width: '50vw',
             fontFamily: 'Kalam',
             fontStyle: 'normal',
-            fontWeight: '300',
-            fontSize: '13px',
-            lineHeight: '22px',
+            fontWeight: '400',
+            fontSize: '2.8vw',
+            lineHeight: '3.8vw',
             color: '#FFFFFF',
           }}
         >
@@ -252,16 +215,31 @@ export default function LandingPageForMobile() {
           investment.
         </Typography>
 
+        <Stack
+          direction='row'
+          justifyContent='flex-start'
+          alignItems='center'
+          spacing='0.5'
+          sx={{
+            mt: '-21vw',
+            ml: '65vw',
+            width: '900px',
+            paddingTop: '50px',
+          }}
+        >
+          <LandingpageCard url='3u_52yBjXZw' size1={'13vw'} size2={'15.5vw'} />
+          <LandingpageCard url='dIwxIF5SBLc' size1={'13vw'} size2={'15.5vw'} />
+          <LandingpageCard url='nOPyJ9M9cX8' size1={'13vw'} size2={'15.5vw'} />
+          <LandingpageCard url='EDs719Qy414' size1={'13vw'} size2={'15.5vw'} />
+        </Stack>
+
         <IconButton
           sx={{
             color: 'white',
             borderRadius: '10px',
-            ml: '180px',
-            mt: '-110px',
-            width: '65px',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            ml: '50vw',
+            mt: '-9vw',
+            width: '190px',
           }}
           onClick={() => {
             location.href = '/discover'
@@ -269,11 +247,13 @@ export default function LandingPageForMobile() {
         >
           <Typography
             sx={{
+              mr: '0px',
+              mt: '-5px',
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 400,
-              fontSize: '11px',
-              lineHeight: '17px',
+              fontSize: '2vw',
+              lineHeight: '36px',
               textAlign: 'center',
 
               color: 'rgba(255, 255, 255, 0.7)',
@@ -284,35 +264,14 @@ export default function LandingPageForMobile() {
           <KeyboardDoubleArrowRightRoundedIcon
             sx={{
               borderStyle: 'solid',
-              borderWidth: '3px',
+              borderWidth: '0.5vw',
               borderRadius: '50%',
-              fontSize: '24px',
-
+              fontSize: '4vw',
               opacity: 0.7,
+              ml: '0.2vw',
             }}
           />
         </IconButton>
-        <Stack
-          direction='row'
-          justifyContent='flex-start'
-          alignItems='center'
-          spacing='0.5'
-          sx={{
-            mt: '-70px',
-            ml: '250px',
-            width: '900px',
-          }}
-        >
-          <LandingpageCard url='3u_52yBjXZw' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='nOPyJ9M9cX8' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='dIwxIF5SBLc' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='EDs719Qy414' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='nOPyJ9M9cX8' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='EDs719Qy414' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='EDs719Qy414' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='nOPyJ9M9cX8' size1={'110px'} size2={'135px'} />
-          <LandingpageCard url='EDs719Qy414' size1={'110px'} size2={'135px'} />
-        </Stack>
       </Stack>
       <Stack
         className='Third paragraph'
@@ -322,7 +281,7 @@ export default function LandingPageForMobile() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          mt: '-120px',
+          mt: '18vw',
         }}
       >
         <Typography
@@ -330,10 +289,11 @@ export default function LandingPageForMobile() {
             fontFamily: 'Mitr',
             fontStyle: 'normal',
             fontWeight: 400,
-            fontSize: '20px',
+            fontSize: '3.8vw',
             lineHeight: '25px',
             textAlign: 'center',
             color: ' #3A8F8F',
+            mb: '1vw',
             // letterSpacing: "6px",
           }}
         >
@@ -344,14 +304,14 @@ export default function LandingPageForMobile() {
             fontFamily: 'Kalam',
             fontStyle: 'normal',
             fontWeight: 300,
-            fontSize: '14px',
-            lineHeight: '18px',
+            fontSize: '2.8vw',
+            lineHeight: '3vw',
             textAlign: 'center',
             color: ' #3A8F8F',
 
             mt: '20px',
 
-            width: '360px',
+            width: '80vw',
             // letterSpacing: "6px",
           }}
         >
@@ -377,7 +337,7 @@ export default function LandingPageForMobile() {
               location.href = '/discover'
             }}
           >
-            <svg width='35' height='64' viewBox='0 0 35 64' fill='none'>
+            <svg width='56' height='102.4' viewBox='0 0 35 64' fill='none'>
               <path
                 fill-rule='evenodd'
                 clip-rule='evenodd'
@@ -413,7 +373,7 @@ export default function LandingPageForMobile() {
               location.href = '/discover'
             }}
           >
-            <svg width='36' height='63' viewBox='0 0 36 63' fill='none'>
+            <svg width='57.6' height='100.8' viewBox='0 0 36 63' fill='none'>
               <path
                 d='M2.835 61.125C2.675 61.125 2.55833 61.0917 2.485 61.025C2.41833 60.9517 2.385 60.8417 2.385 60.695V54.765C2.385 54.6183 2.41833 54.5083 2.485 54.435C2.55833 54.3617 2.675 54.325 2.835 54.325H5.365C7.05833 54.325 7.905 55.065 7.905 56.545C7.905 57.0183 7.805 57.4217 7.605 57.755C7.405 58.0817 7.10833 58.3317 6.715 58.505L7.765 60.805C7.785 60.8517 7.795 60.8983 7.795 60.945C7.795 61.065 7.725 61.125 7.585 61.125H6.475C6.38167 61.125 6.31167 61.115 6.265 61.095C6.21833 61.0683 6.17833 61.015 6.145 60.935L5.225 58.735H4.035V60.695C4.035 60.8417 4.00167 60.9517 3.935 61.025C3.86833 61.0917 3.75167 61.125 3.585 61.125H2.835ZM5.125 57.545C5.505 57.545 5.78833 57.465 5.975 57.305C6.16833 57.145 6.265 56.8917 6.265 56.545C6.265 56.1983 6.17833 55.945 6.005 55.785C5.83167 55.625 5.57167 55.545 5.225 55.545H4.035V57.545H5.125ZM12.0129 61.275C10.8796 61.275 10.0129 60.965 9.41289 60.345C8.81956 59.725 8.52289 58.8517 8.52289 57.725C8.52289 56.5983 8.81956 55.725 9.41289 55.105C10.0129 54.485 10.8796 54.175 12.0129 54.175C13.1396 54.175 13.9996 54.485 14.5929 55.105C15.1929 55.725 15.4929 56.5983 15.4929 57.725C15.4929 58.8517 15.1929 59.725 14.5929 60.345C13.9996 60.965 13.1396 61.275 12.0129 61.275ZM12.0129 60.085C12.6196 60.085 13.0762 59.8883 13.3829 59.495C13.6962 59.095 13.8529 58.505 13.8529 57.725C13.8529 56.945 13.6962 56.3583 13.3829 55.965C13.0762 55.565 12.6196 55.365 12.0129 55.365C11.3996 55.365 10.9362 55.565 10.6229 55.965C10.3162 56.3583 10.1629 56.945 10.1629 57.725C10.1629 58.505 10.3162 59.095 10.6229 59.495C10.9362 59.8883 11.3996 60.085 12.0129 60.085ZM19.5069 61.275C18.3469 61.275 17.4469 60.9717 16.8069 60.365C16.1735 59.7517 15.8569 58.8717 15.8569 57.725C15.8569 56.5717 16.1669 55.6917 16.7869 55.085C17.4135 54.4783 18.3069 54.175 19.4669 54.175C19.9535 54.175 20.3935 54.225 20.7869 54.325C21.1869 54.4183 21.5235 54.555 21.7969 54.735C21.8635 54.7817 21.8969 54.835 21.8969 54.895C21.8969 54.9483 21.8769 55.005 21.8369 55.065L21.4869 55.675C21.4402 55.7483 21.3935 55.785 21.3469 55.785C21.3069 55.785 21.2502 55.765 21.1769 55.725C20.7502 55.485 20.2469 55.365 19.6669 55.365C18.9802 55.365 18.4469 55.565 18.0669 55.965C17.6869 56.3583 17.4969 56.945 17.4969 57.725C17.4969 58.5117 17.6935 59.1017 18.0869 59.495C18.4869 59.8883 19.0302 60.085 19.7169 60.085C20.3435 60.085 20.8702 59.965 21.2969 59.725C21.3702 59.685 21.4269 59.665 21.4669 59.665C21.5135 59.665 21.5602 59.7017 21.6069 59.775L21.9969 60.445C22.0235 60.4917 22.0369 60.5317 22.0369 60.565C22.0369 60.605 21.9969 60.655 21.9169 60.715C21.3969 61.0883 20.5935 61.275 19.5069 61.275ZM28.4042 60.795C28.4442 60.8417 28.4642 60.895 28.4642 60.955C28.4642 61.0683 28.4042 61.125 28.2842 61.125H27.0342C26.9542 61.125 26.8909 61.1183 26.8442 61.105C26.8042 61.085 26.7642 61.0517 26.7242 61.005L24.5142 58.105L24.4842 58.065V60.695C24.4842 60.8417 24.4509 60.9517 24.3842 61.025C24.3176 61.0917 24.2009 61.125 24.0342 61.125H23.2842C23.1242 61.125 23.0076 61.0917 22.9342 61.025C22.8676 60.9517 22.8342 60.8417 22.8342 60.695V54.765C22.8342 54.6183 22.8676 54.5083 22.9342 54.435C23.0076 54.3617 23.1242 54.325 23.2842 54.325H24.0342C24.2009 54.325 24.3176 54.3617 24.3842 54.435C24.4509 54.5017 24.4842 54.6117 24.4842 54.765V57.345L24.5142 57.305L26.6542 54.455C26.6942 54.4017 26.7342 54.3683 26.7742 54.355C26.8209 54.335 26.8909 54.325 26.9842 54.325H28.2142C28.3342 54.325 28.3942 54.3817 28.3942 54.495C28.3942 54.5483 28.3742 54.6017 28.3342 54.655L25.9642 57.705L28.4042 60.795Z'
                 fill='#87AEC2'
@@ -430,7 +390,7 @@ export default function LandingPageForMobile() {
               location.href = '/discover'
             }}
           >
-            <svg width='36' height='60' viewBox='0 0 36 60' fill='none'>
+            <svg width='57.6' height='96' viewBox='0 0 36 60' fill='none'>
               <path
                 d='M3.08131 59.3912C2.28131 59.3912 1.60464 59.2079 1.05131 58.8412C0.984642 58.8012 0.951309 58.7479 0.951309 58.6812C0.951309 58.6279 0.971309 58.5712 1.01131 58.5112L1.37131 57.9012C1.42464 57.8212 1.47464 57.7812 1.52131 57.7812C1.56131 57.7812 1.61464 57.8045 1.68131 57.8512C2.02798 58.0845 2.40798 58.2012 2.82131 58.2012C3.13464 58.2012 3.36131 58.1245 3.50131 57.9712C3.64798 57.8112 3.72131 57.5712 3.72131 57.2512V52.8812C3.72131 52.7345 3.75464 52.6245 3.82131 52.5512C3.89464 52.4779 4.01464 52.4412 4.18131 52.4412H4.92131C5.08798 52.4412 5.20464 52.4779 5.27131 52.5512C5.34464 52.6245 5.38131 52.7345 5.38131 52.8812V57.2512C5.38131 57.9045 5.18464 58.4245 4.79131 58.8112C4.40464 59.1979 3.83464 59.3912 3.08131 59.3912ZM6.0874 59.2412C5.9674 59.2412 5.9074 59.1845 5.9074 59.0712C5.9074 59.0245 5.9174 58.9712 5.9374 58.9112L8.5274 52.7412C8.57407 52.6279 8.62407 52.5512 8.6774 52.5112C8.7374 52.4645 8.82074 52.4412 8.9274 52.4412H9.6574C9.76407 52.4412 9.84407 52.4645 9.8974 52.5112C9.95074 52.5512 10.0007 52.6279 10.0474 52.7412L12.6374 58.9112C12.6574 58.9712 12.6674 59.0245 12.6674 59.0712C12.6674 59.1845 12.6074 59.2412 12.4874 59.2412H11.2774C11.1841 59.2412 11.1141 59.2279 11.0674 59.2012C11.0274 59.1679 10.9907 59.1112 10.9574 59.0312L10.4974 57.8512H8.0674L7.6174 59.0312C7.58407 59.1112 7.54407 59.1679 7.4974 59.2012C7.4574 59.2279 7.39074 59.2412 7.2974 59.2412H6.0874ZM10.1174 56.7012L9.2874 54.5412L8.4474 56.7012H10.1174ZM13.5333 59.2412C13.3799 59.2412 13.2766 59.2112 13.2233 59.1512C13.1766 59.0912 13.1533 58.9845 13.1533 58.8312C13.1533 58.6845 13.1699 58.5645 13.2033 58.4712C13.2366 58.3779 13.3066 58.2579 13.4133 58.1112L16.7033 53.6612H13.7033C13.5433 53.6612 13.4266 53.6279 13.3533 53.5612C13.2866 53.4879 13.2533 53.3779 13.2533 53.2312V52.8612C13.2533 52.7145 13.2866 52.6079 13.3533 52.5412C13.4266 52.4745 13.5433 52.4412 13.7033 52.4412H18.4833C18.6366 52.4412 18.7399 52.4745 18.7933 52.5412C18.8466 52.6012 18.8733 52.7045 18.8733 52.8512C18.8733 53.0045 18.8566 53.1245 18.8233 53.2112C18.7899 53.2979 18.7166 53.4212 18.6033 53.5812L15.3333 58.0312H18.4433C18.6033 58.0312 18.7166 58.0645 18.7833 58.1312C18.8566 58.1979 18.8933 58.3079 18.8933 58.4612V58.8212C18.8933 58.9679 18.8566 59.0745 18.7833 59.1412C18.7166 59.2079 18.6033 59.2412 18.4433 59.2412H13.5333ZM19.7442 59.2412C19.5909 59.2412 19.4875 59.2112 19.4342 59.1512C19.3875 59.0912 19.3642 58.9845 19.3642 58.8312C19.3642 58.6845 19.3809 58.5645 19.4142 58.4712C19.4475 58.3779 19.5175 58.2579 19.6242 58.1112L22.9142 53.6612H19.9142C19.7542 53.6612 19.6375 53.6279 19.5642 53.5612C19.4975 53.4879 19.4642 53.3779 19.4642 53.2312V52.8612C19.4642 52.7145 19.4975 52.6079 19.5642 52.5412C19.6375 52.4745 19.7542 52.4412 19.9142 52.4412H24.6942C24.8475 52.4412 24.9509 52.4745 25.0042 52.5412C25.0575 52.6012 25.0842 52.7045 25.0842 52.8512C25.0842 53.0045 25.0675 53.1245 25.0342 53.2112C25.0009 53.2979 24.9275 53.4212 24.8142 53.5812L21.5442 58.0312H24.6542C24.8142 58.0312 24.9275 58.0645 24.9942 58.1312C25.0675 58.1979 25.1042 58.3079 25.1042 58.4612V58.8212C25.1042 58.9679 25.0675 59.0745 24.9942 59.1412C24.9275 59.2079 24.8142 59.2412 24.6542 59.2412H19.7442Z'
                 fill='#87AEC2'
@@ -480,7 +440,7 @@ export default function LandingPageForMobile() {
               location.href = '/discover'
             }}
           >
-            <svg width='35' height='56' viewBox='0 0 35 56' fill='none'>
+            <svg width='56' height='89.6' viewBox='0 0 35 56' fill='none'>
               <path
                 d='M6.21 55.5C6.05 55.5 5.93333 55.4667 5.86 55.4C5.79333 55.3267 5.76 55.2167 5.76 55.07V49.14C5.76 48.9933 5.79333 48.8833 5.86 48.81C5.93333 48.7367 6.05 48.7 6.21 48.7H10.36C10.52 48.7 10.63 48.7333 10.69 48.8C10.75 48.86 10.78 48.9667 10.78 49.12V49.49C10.78 49.6433 10.75 49.7533 10.69 49.82C10.63 49.8867 10.52 49.92 10.36 49.92H7.41V51.5H9.47C9.63 51.5 9.74 51.5333 9.8 51.6C9.86 51.66 9.89 51.7667 9.89 51.92V52.27C9.89 52.4233 9.86 52.5333 9.8 52.6C9.74 52.6667 9.63 52.7 9.47 52.7H7.41V54.29H10.35C10.51 54.29 10.62 54.3233 10.68 54.39C10.74 54.4567 10.77 54.5667 10.77 54.72V55.08C10.77 55.2333 10.74 55.3433 10.68 55.41C10.62 55.47 10.51 55.5 10.35 55.5H6.21ZM11.9522 55.5C11.7922 55.5 11.6755 55.4667 11.6022 55.4C11.5355 55.3267 11.5022 55.2167 11.5022 55.07V49.14C11.5022 48.9933 11.5355 48.8833 11.6022 48.81C11.6755 48.7367 11.7922 48.7 11.9522 48.7H14.0522C15.1922 48.7 16.0589 48.9733 16.6522 49.52C17.2455 50.0667 17.5422 50.9267 17.5422 52.1C17.5422 53.26 17.2422 54.1167 16.6422 54.67C16.0422 55.2233 15.1789 55.5 14.0522 55.5H11.9522ZM14.1322 54.29C14.7255 54.29 15.1689 54.1267 15.4622 53.8C15.7555 53.4667 15.9022 52.9 15.9022 52.1C15.9022 51.3 15.7555 50.7367 15.4622 50.41C15.1689 50.0833 14.7255 49.92 14.1322 49.92H13.1522V54.29H14.1322ZM18.8077 55.5C18.6477 55.5 18.531 55.4667 18.4577 55.4C18.391 55.3267 18.3577 55.2167 18.3577 55.07V49.13C18.3577 48.9833 18.391 48.8767 18.4577 48.81C18.531 48.7367 18.651 48.7 18.8177 48.7H19.5577C19.6777 48.7 19.771 48.7167 19.8377 48.75C19.9043 48.7767 19.9577 48.8333 19.9977 48.92L21.7277 53L23.4677 48.92C23.5077 48.8333 23.561 48.7767 23.6277 48.75C23.6943 48.7167 23.7877 48.7 23.9077 48.7H24.6477C24.8143 48.7 24.931 48.7367 24.9977 48.81C25.071 48.8767 25.1077 48.9833 25.1077 49.13V55.07C25.1077 55.2167 25.071 55.3267 24.9977 55.4C24.931 55.4667 24.8177 55.5 24.6577 55.5H24.0477C23.881 55.5 23.761 55.4667 23.6877 55.4C23.621 55.3267 23.5877 55.2167 23.5877 55.07V51.29L22.2477 54.28C22.181 54.42 22.1143 54.52 22.0477 54.58C21.9877 54.6333 21.881 54.66 21.7277 54.66C21.581 54.66 21.471 54.6333 21.3977 54.58C21.331 54.52 21.2677 54.42 21.2077 54.28L19.8777 51.29V55.07C19.8777 55.2167 19.841 55.3267 19.7677 55.4C19.701 55.4667 19.5843 55.5 19.4177 55.5H18.8077Z'
                 fill='#87AEC2'
@@ -606,7 +566,7 @@ export default function LandingPageForMobile() {
               location.href = '/discover'
             }}
           >
-            <svg width='45' height='55' viewBox='0 0 45 55' fill='none'>
+            <svg width='72' height='88' viewBox='0 0 45 55' fill='none'>
               <path
                 d='M5.567 50.6997C5.38367 50.6997 5.25167 50.663 5.171 50.5897C5.09767 50.509 5.061 50.388 5.061 50.2267V45.7387C5.061 45.614 5.083 45.5297 5.127 45.4857C5.171 45.4417 5.259 45.4197 5.391 45.4197H6.205C6.293 45.4197 6.35533 45.4344 6.392 45.4637C6.436 45.493 6.46167 45.5444 6.469 45.6177L6.513 46.0137C6.72567 45.7717 6.964 45.5847 7.228 45.4527C7.492 45.3207 7.80733 45.2547 8.174 45.2547C8.812 45.2547 9.263 45.5077 9.527 46.0137C9.93767 45.5077 10.5023 45.2547 11.221 45.2547C11.7637 45.2547 12.189 45.416 12.497 45.7387C12.805 46.054 12.959 46.5344 12.959 47.1797V50.2267C12.959 50.388 12.9187 50.509 12.838 50.5897C12.7647 50.663 12.64 50.6997 12.464 50.6997H11.771C11.5877 50.6997 11.4593 50.663 11.386 50.5897C11.3127 50.509 11.276 50.388 11.276 50.2267V47.2897C11.276 47.011 11.221 46.813 11.111 46.6957C11.0083 46.571 10.8507 46.5087 10.638 46.5087C10.396 46.5087 10.198 46.5894 10.044 46.7507C9.89733 46.912 9.824 47.1247 9.824 47.3887V50.2267C9.824 50.388 9.78367 50.509 9.703 50.5897C9.62967 50.663 9.505 50.6997 9.329 50.6997H8.702C8.51867 50.6997 8.38667 50.663 8.306 50.5897C8.23267 50.509 8.196 50.388 8.196 50.2267V47.2457C8.196 46.9964 8.14467 46.813 8.042 46.6957C7.94667 46.571 7.79633 46.5087 7.591 46.5087C7.34167 46.5087 7.13633 46.593 6.975 46.7617C6.821 46.923 6.744 47.1394 6.744 47.4107V50.2267C6.744 50.388 6.70733 50.509 6.634 50.5897C6.56067 50.663 6.43233 50.6997 6.249 50.6997H5.567ZM16.7296 50.8647C15.7543 50.8647 14.9953 50.6154 14.4526 50.1167C13.9173 49.6107 13.6496 48.925 13.6496 48.0597C13.6496 47.1944 13.9173 46.5124 14.4526 46.0137C14.9953 45.5077 15.7543 45.2547 16.7296 45.2547C17.7123 45.2547 18.4713 45.5077 19.0066 46.0137C19.5493 46.5124 19.8206 47.1944 19.8206 48.0597C19.8206 48.925 19.5493 49.6107 19.0066 50.1167C18.4713 50.6154 17.7123 50.8647 16.7296 50.8647ZM16.7296 49.5557C17.1476 49.5557 17.4666 49.431 17.6866 49.1817C17.9066 48.9324 18.0166 48.5584 18.0166 48.0597C18.0166 47.5684 17.9066 47.198 17.6866 46.9487C17.4666 46.6994 17.1476 46.5747 16.7296 46.5747C16.3189 46.5747 16.0036 46.6994 15.7836 46.9487C15.5636 47.198 15.4536 47.5684 15.4536 48.0597C15.4536 48.551 15.5636 48.925 15.7836 49.1817C16.0036 49.431 16.3189 49.5557 16.7296 49.5557ZM21.2291 50.6997C21.0458 50.6997 20.9138 50.663 20.8331 50.5897C20.7598 50.509 20.7231 50.388 20.7231 50.2267V45.7387C20.7231 45.614 20.7451 45.5297 20.7891 45.4857C20.8331 45.4417 20.9211 45.4197 21.0531 45.4197H21.9331C22.0211 45.4197 22.0834 45.4344 22.1201 45.4637C22.1641 45.493 22.1898 45.5444 22.1971 45.6177L22.2411 45.9697C22.6811 45.493 23.2311 45.2547 23.8911 45.2547C24.1038 45.2547 24.2761 45.273 24.4081 45.3097C24.5474 45.339 24.6684 45.3904 24.7711 45.4637C24.8371 45.515 24.8701 45.5664 24.8701 45.6177C24.8701 45.6397 24.8628 45.6727 24.8481 45.7167L24.5731 46.5417C24.5438 46.6297 24.4961 46.6737 24.4301 46.6737C24.4008 46.6737 24.3641 46.6627 24.3201 46.6407C24.1294 46.5454 23.9094 46.4977 23.6601 46.4977C23.3374 46.4977 23.0698 46.5894 22.8571 46.7727C22.6444 46.956 22.5381 47.2017 22.5381 47.5097V50.2267C22.5381 50.388 22.5014 50.509 22.4281 50.5897C22.3548 50.663 22.2264 50.6997 22.0431 50.6997H21.2291ZM28.4721 50.8647C27.8781 50.8647 27.3428 50.7657 26.8661 50.5677C26.3968 50.3624 26.0228 50.058 25.7441 49.6547C25.4728 49.244 25.3371 48.738 25.3371 48.1367C25.3371 47.198 25.5938 46.483 26.1071 45.9917C26.6278 45.5004 27.3684 45.2547 28.3291 45.2547C29.2751 45.2547 29.9901 45.493 30.4741 45.9697C30.9654 46.4464 31.2111 47.1247 31.2111 48.0047C31.2111 48.3127 31.0718 48.4667 30.7931 48.4667H27.0531C27.0531 48.8627 27.1998 49.1707 27.4931 49.3907C27.7938 49.6034 28.2044 49.7097 28.7251 49.7097C29.0331 49.7097 29.3008 49.6804 29.5281 49.6217C29.7554 49.5557 29.9754 49.464 30.1881 49.3467C30.2614 49.31 30.3128 49.2917 30.3421 49.2917C30.3934 49.2917 30.4411 49.332 30.4851 49.4127L30.8041 50.0067C30.8334 50.058 30.8481 50.102 30.8481 50.1387C30.8481 50.1974 30.8078 50.256 30.7271 50.3147C30.4338 50.5054 30.1038 50.6447 29.7371 50.7327C29.3704 50.8207 28.9488 50.8647 28.4721 50.8647ZM29.5831 47.5207C29.5831 47.154 29.4804 46.868 29.2751 46.6627C29.0698 46.4574 28.7581 46.3547 28.3401 46.3547C27.9221 46.3547 27.6031 46.461 27.3831 46.6737C27.1631 46.879 27.0531 47.1614 27.0531 47.5207H29.5831ZM32.4178 50.6997C32.2638 50.6997 32.1355 50.6484 32.0328 50.5457C31.9375 50.4357 31.8898 50.3037 31.8898 50.1497V49.9297C31.8898 49.7684 31.9375 49.6364 32.0328 49.5337C32.1355 49.4237 32.2638 49.3687 32.4178 49.3687H32.6488C32.8028 49.3687 32.9275 49.4237 33.0228 49.5337C33.1255 49.6364 33.1768 49.7684 33.1768 49.9297V50.1497C33.1768 50.3037 33.1255 50.4357 33.0228 50.5457C32.9275 50.6484 32.8028 50.6997 32.6488 50.6997H32.4178ZM34.3836 50.6997C34.2296 50.6997 34.1013 50.6484 33.9986 50.5457C33.9033 50.4357 33.8556 50.3037 33.8556 50.1497V49.9297C33.8556 49.7684 33.9033 49.6364 33.9986 49.5337C34.1013 49.4237 34.2296 49.3687 34.3836 49.3687H34.6146C34.7686 49.3687 34.8933 49.4237 34.9886 49.5337C35.0913 49.6364 35.1426 49.7684 35.1426 49.9297V50.1497C35.1426 50.3037 35.0913 50.4357 34.9886 50.5457C34.8933 50.6484 34.7686 50.6997 34.6146 50.6997H34.3836ZM36.3495 50.6997C36.1955 50.6997 36.0671 50.6484 35.9645 50.5457C35.8691 50.4357 35.8215 50.3037 35.8215 50.1497V49.9297C35.8215 49.7684 35.8691 49.6364 35.9645 49.5337C36.0671 49.4237 36.1955 49.3687 36.3495 49.3687H36.5805C36.7345 49.3687 36.8591 49.4237 36.9545 49.5337C37.0571 49.6364 37.1085 49.7684 37.1085 49.9297V50.1497C37.1085 50.3037 37.0571 50.4357 36.9545 50.5457C36.8591 50.6484 36.7345 50.6997 36.5805 50.6997H36.3495Z'
                 fill='#7F7BC3'
@@ -654,7 +614,13 @@ export default function LandingPageForMobile() {
 
       <Stack
         className='4 paragraph'
-        sx={{ width: '100vw', height: '600px', mt: '-260px' }}
+        sx={{
+          width: '100vw',
+          height: '1200px',
+          mt: '-400px',
+          paddingTop: '17vw',
+          mb: '-500px',
+        }}
       >
         <Box
           sx={{
@@ -665,10 +631,10 @@ export default function LandingPageForMobile() {
             // position: "absolute",
             // width: "100vw",
             width: '100vw',
-            height: '400px',
+            height: '800px',
             backgroundSize: 'cover',
             backgroundPosition: 'center 50px',
-            clipPath: 'ellipse(100% 30% at 49% 55%)',
+            clipPath: 'ellipse(80% 35% at 49% 52%)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
@@ -679,15 +645,15 @@ export default function LandingPageForMobile() {
               fontFamily: 'Kalam',
               fontStyle: 'normal',
               fontWeight: 500,
-              fontSize: '22px',
+              fontSize: '6vw',
               lineHeight: '35px',
               textTransform: 'uppercase',
               letterSpacing: '1px',
 
               color: '#FFFFFF',
 
-              mt: '130px',
-              ml: '70px',
+              mt: '230px',
+              ml: '170px',
 
               textShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
             }}
@@ -700,8 +666,8 @@ export default function LandingPageForMobile() {
             sx={{ mt: '20px', ml: '30px' }}
           >
             <svg
-              width='52'
-              height='52'
+              width='152'
+              height='152'
               viewBox='0 0 52 52'
               fill='none'
               // style={{ marginTop: '20px', marginLeft: '30px' }}
@@ -760,12 +726,12 @@ export default function LandingPageForMobile() {
                 fontFamily: 'Mitr',
                 fontStyle: 'normal',
                 fontWeight: 100,
-                fontSize: '13px',
-                lineHeight: '23px',
+                fontSize: '3vw',
+                lineHeight: '3.4vw',
 
                 color: '#FFFFFF',
 
-                width: '175px',
+                width: '40vw',
                 // mt: '-145px',
                 ml: '10px',
               }}
@@ -783,12 +749,12 @@ export default function LandingPageForMobile() {
                 fontFamily: 'Mitr',
                 fontStyle: 'normal',
                 fontWeight: 100,
-                fontSize: '13px',
-                lineHeight: '20px',
+                fontSize: '3vw',
+                lineHeight: '3.4vw',
 
                 color: '#FFFFFF',
 
-                width: '193px',
+                width: '42vw',
                 // mt: '-140px',
                 mr: '10px',
                 textAlign: 'right',
@@ -796,7 +762,7 @@ export default function LandingPageForMobile() {
             >
               To create quality new songs to the music industry
             </Typography>
-            <svg width='52' height='52' viewBox='0 0 52 52' fill='none'>
+            <svg width='152' height='152' viewBox='0 0 52 52' fill='none'>
               <circle
                 cx='25.508'
                 cy='25.508'
@@ -819,8 +785,8 @@ export default function LandingPageForMobile() {
         className='5 paragraph'
         sx={{
           width: '100vw',
-          height: '170px',
-          mt: '-210px',
+          height: '200px',
+          mt: '25vw',
           display: 'flex',
           // justifyContent: "center",
           alignItems: 'center',
@@ -831,7 +797,7 @@ export default function LandingPageForMobile() {
             fontFamily: 'Kalam',
             fontStyle: 'normal',
             fontWeight: 700,
-            fontSize: '20px',
+            fontSize: '3.6vw',
             lineHeight: '24px',
 
             color: '#6486B8',
@@ -850,7 +816,12 @@ export default function LandingPageForMobile() {
           }}
         >
           <Stack>
-            <svg width='174' height='149' viewBox='0 0 174 149' fill='none'>
+            <svg
+              width='222.72'
+              height='190.72'
+              viewBox='0 0 174 149'
+              fill='none'
+            >
               <g filter='url(#filter0_d_681_38473)'>
                 <path
                   d='M22 47C22 33.1929 33.1929 22 47 22H129C130.657 22 132 23.3431 132 25V82C132 95.8071 120.807 107 107 107H25C23.3431 107 22 105.657 22 104V47Z'
@@ -910,7 +881,7 @@ export default function LandingPageForMobile() {
 
             <Typography
               sx={{
-                mt: '-130px',
+                mt: '-160px',
                 ml: '-20px',
                 fontFamily: 'Kalam',
                 fontStyle: 'normal',
@@ -926,7 +897,12 @@ export default function LandingPageForMobile() {
             </Typography>
           </Stack>
           <Stack>
-            <svg width='174' height='149' viewBox='0 0 174 149' fill='none'>
+            <svg
+              width='222.72'
+              height='190.72'
+              viewBox='0 0 174 149'
+              fill='none'
+            >
               <g filter='url(#filter0_d_681_38477)'>
                 <path
                   d='M22 47C22 33.1929 33.1929 22 47 22H129C130.657 22 132 23.3431 132 25V82C132 95.8071 120.807 107 107 107H25C23.3431 107 22 105.657 22 104V47Z'
@@ -986,7 +962,7 @@ export default function LandingPageForMobile() {
 
             <Typography
               sx={{
-                mt: '-130px',
+                mt: '-160px',
                 ml: '-20px',
                 fontFamily: 'Kalam',
                 fontStyle: 'normal',
@@ -1003,7 +979,12 @@ export default function LandingPageForMobile() {
           </Stack>
 
           <Stack>
-            <svg width='163' height='149' viewBox='0 0 163 149' fill='none'>
+            <svg
+              width='222.72'
+              height='190.72'
+              viewBox='0 0 174 149'
+              fill='none'
+            >
               <g filter='url(#filter0_d_681_38481)'>
                 <path
                   d='M22 47C22 33.1929 33.1929 22 47 22H129C130.657 22 132 23.3431 132 25V82C132 95.8071 120.807 107 107 107H25C23.3431 107 22 105.657 22 104V47Z'
@@ -1063,7 +1044,7 @@ export default function LandingPageForMobile() {
 
             <Typography
               sx={{
-                mt: '-130px',
+                mt: '-160px',
                 ml: '-20px',
                 fontFamily: 'Kalam',
                 fontStyle: 'normal',

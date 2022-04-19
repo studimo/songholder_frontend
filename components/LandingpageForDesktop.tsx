@@ -224,10 +224,10 @@ export default function LandingPageForDesktop() {
             width: '900px',
           }}
         >
-          <LandingpageCard url='3u_52yBjXZw' />
-          <LandingpageCard url='dIwxIF5SBLc' />
-          <LandingpageCard url='nOPyJ9M9cX8' />
-          <LandingpageCard url='EDs719Qy414' />
+          <LandingpageCard url='3u_52yBjXZw' size1={'220px'} size2={'300px'} />
+          <LandingpageCard url='dIwxIF5SBLc' size1={'220px'} size2={'300px'} />
+          <LandingpageCard url='nOPyJ9M9cX8' size1={'220px'} size2={'300px'} />
+          <LandingpageCard url='EDs719Qy414' size1={'220px'} size2={'300px'} />
         </Stack>
 
         <IconButton
