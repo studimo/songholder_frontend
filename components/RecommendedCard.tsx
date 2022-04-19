@@ -18,9 +18,8 @@ export default function RecommendedCard({
   setOnPlay,
   setSongName,
   setMusicId,
-  musicId
+  musicId,
 }: any) {
-
   const [showButton, setShowButton] = useState(false)
   // console.log(content);
   return (
@@ -46,27 +45,24 @@ export default function RecommendedCard({
             transition: '0.2s',
             transitionDelay: '0.02s',
             backgroundSize: 'cover',
-            // borderRadius: "20px",
+            borderRadius: '0px',
             '&:hover': {
               clipPath: 'polygon(9% 0%, 100% 0%,91% 100%,0% 100%)',
-              height: 300,
+              height: 280,
               width: 500,
               backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
               // borderTopRightRadius: 15,
               // borderBottomRightRadius: 50,
               // transition: "0.2s",
             },
+            boxShadow: '10px 0px 25px rgba(0, 0, 0, 0.5)',
             backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           }}
           onMouseOver={() => {
-
             setShowButton(true)
-          
           }}
           onMouseLeave={() => {
-
             setShowButton(false)
-          
           }}
         >
           <CardActionArea
@@ -79,20 +75,14 @@ export default function RecommendedCard({
               borderBottomRightRadius: 50,
             }}
             onClick={() => {
-
               setAudioUrl(content.youtubeId)
               setSongName(content.name)
               setMusicId(musicId)
               if (audioUrl == content.youtubeId && onPlay) {
-
                 setOnPlay(false)
-              
               } else {
-
                 setOnPlay(true)
-              
               }
-            
             }}
           >
             {audioUrl == content.youtubeId ? (
@@ -131,18 +121,26 @@ export default function RecommendedCard({
         </CardMedia>
       </Card>
       <Typography
-        fontWeight='400'
-        fontSize='20px'
-        lineHeight='42.4px'
-        color='#6F9BC3'
+        // fontWeight='400'
+        // fontSize='20px'
+        // lineHeight='42.4px'
+        // color='#6F9BC3'
         marginRight='30px'
         component={motion.div}
-        animate={{ fontSize: '20px' }}
+        // animate={{ fontSize: '20px' }}
+        sx={{
+          fontFamily: 'Mitr',
+          fontStyle: 'normal',
+          fontWeight: 400,
+          fontSize: '18px',
+          lineHeight: '28px',
+
+          color: '#6F9BC4',
+        }}
         // alignSelf="center"
       >
         {content.name}
       </Typography>
     </Stack>
   )
-
 }

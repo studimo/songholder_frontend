@@ -12,7 +12,6 @@ import Footer from 'components/Footer'
 import ResponsiveAppBar from 'components/ResponsiveAppBar'
 
 export default function LandingPage() {
-
   return (
     <Container
       maxWidth={false}
@@ -29,7 +28,7 @@ export default function LandingPage() {
         overflow: 'hidden',
       }}
     >
-    <ResponsiveAppBar background={'auto'} />
+      <ResponsiveAppBar background={'auto'} page={'HOME'} />
       <Stack className='first paragraph'>
         <Box
           sx={{
@@ -98,9 +97,7 @@ export default function LandingPage() {
               opacity: 0.8,
             }}
             onClick={() => {
-
               location.href = '/discover'
-            
             }}
           >
             GET STARTED
@@ -109,7 +106,7 @@ export default function LandingPage() {
       </Stack>
       <Stack
         className='second paragraph'
-        sx={{ width: '100vw', height: '600px' }}
+        sx={{ width: '100vw', height: '600px', mt: '-0px' }}
       >
         <Box
           sx={{
@@ -118,7 +115,7 @@ export default function LandingPage() {
           }}
         >
           <svg
-            viewBox='0 0 1550 600'
+            viewBox='0 250 1550 600'
             width='100%'
             height='auto'
             style={{
@@ -126,7 +123,7 @@ export default function LandingPage() {
             }}
           >
             <path
-              d='M-2.92303 13.8303C387.077 177.83 863.802 279.173 1437.08 79.2993C2010.35 -120.574 2151.08 594.83 1437.08 514.33C723.077 433.83 -2.92297 514.33 -2.92297 514.33C-2.92297 514.33 -259.596 -94.1041 -2.92303 13.8303Z'
+              d='M-333 56.5001C209.5 477.5 1004 624 1871.5 117C2739 -390 2497.5 927.5 1782.5 796.5C1067.5 665.5 -396.5 764.33 -396.5 764.33C-396.5 764.33 -552.976 -114.209 -333 56.5001Z'
               fill='url(#paint0_linear_428_37098)'
               fillOpacity='0.55'
               id='CurvedPath'
@@ -167,7 +164,7 @@ export default function LandingPage() {
                   letterSpacing: '3px',
                 }}
               >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Be
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Be
                 the Songholders
               </textPath>
             </text>
@@ -193,7 +190,7 @@ export default function LandingPage() {
                   letterSpacing: '3px',
                 }}
               >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fund
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fund
                 the next big hit music track
               </textPath>
             </text>
@@ -228,37 +225,36 @@ export default function LandingPage() {
             width: '900px',
           }}
         >
-          <LandingpageCard url='ujIre04ZtAY' />
-          <LandingpageCard url='XYAghEq5Lfw' />
-          <LandingpageCard url='0U-b1sfatpo' />
-          <LandingpageCard url='q0hyYWKXF0Q' />
+          <LandingpageCard url='3u_52yBjXZw' />
+          <LandingpageCard url='dIwxIF5SBLc' />
+          <LandingpageCard url='nOPyJ9M9cX8' />
+          <LandingpageCard url='EDs719Qy414' />
         </Stack>
 
         <IconButton
           sx={{
             color: 'white',
             borderRadius: '10px',
-            ml: '580px',
-            mt: '-130px',
-            width: '180px',
+            ml: '550px',
+            mt: '-140px',
+            width: '190px',
           }}
           onClick={() => {
-
             location.href = '/discover'
-          
           }}
         >
           <Typography
             sx={{
               mr: '10px',
+              mt: '-5px',
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 400,
-              fontSize: '23px',
+              fontSize: '27px',
               lineHeight: '36px',
               textAlign: 'center',
 
-              color: 'rgba(255, 255, 255, 0.9)',
+              color: 'rgba(255, 255, 255, 0.7)',
             }}
           >
             EXPLORE
@@ -268,15 +264,16 @@ export default function LandingPage() {
               borderStyle: 'solid',
               borderWidth: '4px',
               borderRadius: '50%',
-              fontSize: '40px',
-              opacity: 0.8,
+              fontSize: '48px',
+              opacity: 0.7,
+              ml: '10px',
             }}
           />
         </IconButton>
       </Stack>
       <Stack
         className='Third paragraph'
-        sx={{ width: '100vw', height: '600px' }}
+        sx={{ width: '100vw', height: '600px', mt: '-58px' }}
       >
         <svg
           viewBox='0 -200 1550 600'
@@ -351,7 +348,11 @@ export default function LandingPage() {
             alignItems: 'center',
           }}
         >
-          <Button>
+          <Button
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
             <svg
               width='70'
               height='116'
@@ -389,7 +390,11 @@ export default function LandingPage() {
               />
             </svg>
           </Button>
-          <Button>
+          <Button
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
             <svg
               width='69'
               height='116'
@@ -408,7 +413,11 @@ export default function LandingPage() {
               />
             </svg>
           </Button>
-          <Button>
+          <Button
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
             <svg
               width='68'
               height='113'
@@ -460,14 +469,12 @@ export default function LandingPage() {
               />
             </svg>
           </Button>
-          <Button>
-            <svg
-              width='65'
-              height='102'
-              viewBox='0 0 65 102'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
+          <Button
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
+            <svg width='65' height='102' viewBox='0 0 65 102' fill='none'>
               <path
                 d='M21.248 90C21.04 90 20.8883 89.9567 20.793 89.87C20.7063 89.7747 20.663 89.6317 20.663 89.441V81.732C20.663 81.5413 20.7063 81.3983 20.793 81.303C20.8883 81.2077 21.04 81.16 21.248 81.16H26.643C26.851 81.16 26.994 81.2033 27.072 81.29C27.15 81.368 27.189 81.5067 27.189 81.706V82.187C27.189 82.3863 27.15 82.5293 27.072 82.616C26.994 82.7027 26.851 82.746 26.643 82.746H22.808V84.8H25.486C25.694 84.8 25.837 84.8433 25.915 84.93C25.993 85.008 26.032 85.1467 26.032 85.346V85.801C26.032 86.0003 25.993 86.1433 25.915 86.23C25.837 86.3167 25.694 86.36 25.486 86.36H22.808V88.427H26.63C26.838 88.427 26.981 88.4703 27.059 88.557C27.137 88.6437 27.176 88.7867 27.176 88.986V89.454C27.176 89.6533 27.137 89.7963 27.059 89.883C26.981 89.961 26.838 90 26.63 90H21.248ZM28.7128 90C28.5048 90 28.3532 89.9567 28.2578 89.87C28.1712 89.7747 28.1278 89.6317 28.1278 89.441V81.732C28.1278 81.5413 28.1712 81.3983 28.2578 81.303C28.3532 81.2077 28.5048 81.16 28.7128 81.16H31.4428C32.9248 81.16 34.0515 81.5153 34.8228 82.226C35.5942 82.9367 35.9798 84.0547 35.9798 85.58C35.9798 87.088 35.5898 88.2017 34.8098 88.921C34.0298 89.6403 32.9075 90 31.4428 90H28.7128ZM31.5468 88.427C32.3182 88.427 32.8945 88.2147 33.2758 87.79C33.6572 87.3567 33.8478 86.62 33.8478 85.58C33.8478 84.54 33.6572 83.8077 33.2758 83.383C32.8945 82.9583 32.3182 82.746 31.5468 82.746H30.2728V88.427H31.5468ZM37.625 90C37.417 90 37.2653 89.9567 37.17 89.87C37.0833 89.7747 37.04 89.6317 37.04 89.441V81.719C37.04 81.5283 37.0833 81.3897 37.17 81.303C37.2653 81.2077 37.4213 81.16 37.638 81.16H38.6C38.756 81.16 38.8773 81.1817 38.964 81.225C39.0506 81.2597 39.12 81.3333 39.172 81.446L41.421 86.75L43.683 81.446C43.735 81.3333 43.8043 81.2597 43.891 81.225C43.9776 81.1817 44.099 81.16 44.255 81.16H45.217C45.4336 81.16 45.5853 81.2077 45.672 81.303C45.7673 81.3897 45.815 81.5283 45.815 81.719V89.441C45.815 89.6317 45.7673 89.7747 45.672 89.87C45.5853 89.9567 45.438 90 45.23 90H44.437C44.2203 90 44.0643 89.9567 43.969 89.87C43.8823 89.7747 43.839 89.6317 43.839 89.441V84.527L42.097 88.414C42.0103 88.596 41.9236 88.726 41.837 88.804C41.759 88.8733 41.6203 88.908 41.421 88.908C41.2303 88.908 41.0873 88.8733 40.992 88.804C40.9053 88.726 40.823 88.596 40.745 88.414L39.016 84.527V89.441C39.016 89.6317 38.9683 89.7747 38.873 89.87C38.7863 89.9567 38.6346 90 38.418 90H37.625Z'
                 fill='#87AEC2'
@@ -588,7 +595,11 @@ export default function LandingPage() {
               />
             </svg>
           </Button>
-          <Button>
+          <Button
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
             <svg
               width='60'
               height='93'
@@ -643,7 +654,7 @@ export default function LandingPage() {
 
       <Stack
         className='4 paragraph'
-        sx={{ width: '100vw', height: '600px', mt: '75px' }}
+        sx={{ width: '100vw', height: '600px', mt: '95px' }}
       >
         <Box
           sx={{
@@ -670,7 +681,7 @@ export default function LandingPage() {
               fontFamily: 'Kalam',
               fontStyle: 'normal',
               fontWeight: 700,
-              fontSize: '50px',
+              fontSize: '55px',
               lineHeight: '80px',
               textTransform: 'uppercase',
 
@@ -678,111 +689,126 @@ export default function LandingPage() {
 
               mt: '310px',
               ml: '-400px',
+
+              textShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
             }}
           >
             Our missions
           </Typography>
           <svg
-            width='160'
-            height='160'
-            viewBox='0 0 160 160'
+            width='185'
+            height='185'
+            viewBox='0 0 185 185'
             fill='none'
             style={{
-              marginLeft: '-1050px',
+              marginLeft: '-1085px',
               marginTop: '50px',
             }}
           >
-            <circle cx='80' cy='80' r='77' stroke='white' strokeWidth='6' />
+            <circle
+              cx='92.5'
+              cy='92.5'
+              r='89.5'
+              stroke='white'
+              stroke-width='6'
+            />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M62.2917 57.0833C62.2917 47.3033 70.22 39.375 80.0001 39.375C89.7801 39.375 97.7084 47.3033 97.7084 57.0833C97.7084 66.8634 89.7801 74.7917 80.0001 74.7917C70.22 74.7917 62.2917 66.8634 62.2917 57.0833ZM80.0001 45.625C73.6718 45.625 68.5417 50.7551 68.5417 57.0833C68.5417 63.4116 73.6718 68.5417 80.0001 68.5417C86.3284 68.5417 91.4584 63.4116 91.4584 57.0833C91.4584 50.7551 86.3284 45.625 80.0001 45.625Z'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M72.0247 66.0026C72.0247 54.6944 81.1917 45.5273 92.4999 45.5273C103.808 45.5273 112.975 54.6944 112.975 66.0026C112.975 77.3108 103.808 86.4779 92.4999 86.4779C81.1917 86.4779 72.0247 77.3108 72.0247 66.0026ZM92.4999 52.7539C85.1829 52.7539 79.2512 58.6856 79.2512 66.0026C79.2512 73.3197 85.1828 79.2513 92.4999 79.2513C99.817 79.2513 105.749 73.3197 105.749 66.0026C105.749 58.6856 99.817 52.7539 92.4999 52.7539Z'
               fill='white'
             />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M57.5631 43.3261C58.5505 44.7417 58.2034 46.6896 56.7878 47.677C53.8116 49.7529 51.875 53.1921 51.875 57.0833C51.875 61.2477 54.0947 64.8967 57.4303 66.9067C58.9086 67.7975 59.3849 69.7179 58.4941 71.1962C57.6034 72.6744 55.6829 73.1507 54.2046 72.26C49.0703 69.1662 45.625 63.5286 45.625 57.0833C45.625 51.0629 48.6321 45.7455 53.2122 42.5508C54.6278 41.5635 56.5757 41.9106 57.5631 43.3261Z'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M66.5573 50.0958C67.699 51.7326 67.2976 53.9849 65.6609 55.1265C62.2197 57.5268 59.9805 61.5034 59.9805 66.0026C59.9805 70.8176 62.547 75.0369 66.4038 77.3609C68.1131 78.3908 68.6638 80.6114 67.6338 82.3206C66.6039 84.0298 64.3834 84.5805 62.6741 83.5506C56.7376 79.9734 52.7539 73.4549 52.7539 66.0026C52.7539 59.0415 56.2309 52.8933 61.5266 49.1994C63.1633 48.0578 65.4157 48.4591 66.5573 50.0958Z'
               fill='white'
             />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M102.437 43.3261C103.424 41.9106 105.372 41.5635 106.788 42.5508C111.368 45.7455 114.375 51.0629 114.375 57.0833C114.375 63.1035 111.368 68.4212 106.788 71.6158C105.372 72.6032 103.424 72.256 102.437 70.8405C101.45 69.4249 101.797 67.4769 103.212 66.4896C106.188 64.4138 108.125 60.9744 108.125 57.0833C108.125 53.1921 106.188 49.7529 103.212 47.677C101.797 46.6896 101.45 44.7417 102.437 43.3261Z'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M118.443 50.0958C119.584 48.4591 121.837 48.0578 123.473 49.1994C128.769 52.8933 132.246 59.0415 132.246 66.0026C132.246 72.9634 128.769 79.112 123.473 82.8058C121.837 83.9474 119.584 83.546 118.443 81.9093C117.301 80.2725 117.702 78.0202 119.339 76.8786C122.78 74.4785 125.02 70.5017 125.02 66.0026C125.02 61.5034 122.78 57.5268 119.339 55.1265C117.702 53.9849 117.301 51.7326 118.443 50.0958Z'
               fill='white'
             />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M79.8859 85.2083H80.1141C83.9003 85.2083 86.901 85.2083 89.332 85.3742C91.8154 85.5436 93.9317 85.8966 95.9074 86.715C100.757 88.7236 104.61 92.5765 106.618 97.426C107.437 99.4017 107.79 101.518 107.959 104.001C108.125 106.432 108.125 109.433 108.125 113.219V117.5C108.125 119.226 106.726 120.625 105 120.625H55C53.2741 120.625 51.875 119.226 51.875 117.5L51.875 113.219C51.875 109.433 51.875 106.432 52.0408 104.001C52.2103 101.518 52.5632 99.4017 53.3816 97.426C55.3902 92.5766 59.2432 88.7236 64.0926 86.715M79.8859 85.2083C76.0997 85.2083 73.099 85.2083 70.668 85.3742L79.8859 85.2083ZM70.668 85.3742C68.1846 85.5436 66.0683 85.8966 64.0926 86.715L70.668 85.3742ZM71.0935 91.6097C68.9283 91.7574 67.5717 92.0388 66.4845 92.4892C63.1665 93.8635 60.5302 96.4997 59.1559 99.8177C58.7055 100.905 58.4241 102.262 58.2763 104.427C58.1267 106.62 58.125 109.408 58.125 113.333V114.375H101.875V113.333C101.875 109.408 101.873 106.62 101.724 104.427C101.576 102.262 101.294 100.905 100.844 99.8178C99.4699 96.4998 96.8336 93.8635 93.5156 92.4892C92.4284 92.0389 91.0717 91.7574 88.9065 91.6097C86.7133 91.46 83.9256 91.4583 80 91.4583C76.0744 91.4583 73.2867 91.46 71.0935 91.6097Z'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M92.3681 98.5221H92.6319C97.0097 98.5221 100.479 98.5221 103.29 98.7139C106.162 98.9098 108.609 99.3179 110.893 100.264C116.5 102.587 120.955 107.042 123.278 112.649C124.224 114.933 124.632 117.38 124.828 120.252C125.02 123.062 125.02 126.532 125.02 130.91V135.859C125.02 137.855 123.402 139.473 121.406 139.473H63.5938C61.5982 139.473 59.9805 137.855 59.9805 135.859L59.9805 130.91C59.9804 126.532 59.9804 123.062 60.1722 120.252C60.3682 117.38 60.7763 114.933 61.7225 112.649C64.0449 107.042 68.4999 102.587 74.1071 100.264M92.3681 98.5221C87.9903 98.5221 84.5207 98.5221 81.7099 98.7139ZM81.7099 98.7139C78.8385 98.9098 76.3915 99.3179 74.1071 100.264ZM82.2018 105.924C79.6984 106.095 78.1297 106.42 76.8727 106.941C73.0362 108.53 69.988 111.578 68.399 115.414C67.8783 116.671 67.5528 118.24 67.382 120.744C67.209 123.279 67.207 126.503 67.207 131.042V132.246H117.793V131.042C117.793 126.503 117.791 123.279 117.618 120.744C117.447 118.24 117.122 116.671 116.601 115.414C115.012 111.578 111.964 108.53 108.127 106.941C106.87 106.42 105.302 106.095 102.798 105.924C100.262 105.751 97.0389 105.749 92.5 105.749C87.9611 105.749 84.7378 105.751 82.2018 105.924Z'
               fill='white'
             />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M109.782 88.7311C110.565 87.1933 112.447 86.5819 113.985 87.3654C117.709 89.2629 120.737 92.2908 122.634 96.0148C123.805 98.3113 124.311 100.827 124.554 103.799C124.792 106.706 124.792 110.312 124.792 114.863V117.5C124.792 119.226 123.392 120.625 121.667 120.625C119.941 120.625 118.542 119.226 118.542 117.5V115C118.542 110.281 118.539 106.93 118.325 104.308C118.114 101.722 117.712 100.121 117.066 98.8523M109.782 88.7311C108.998 90.2688 109.61 92.1506 111.148 92.9342L109.782 88.7311ZM111.148 92.9342C112.459 93.6021 113.643 94.4749 114.662 95.5118C115.623 96.4904 116.435 97.6152 117.066 98.8523'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M126.935 102.595C127.841 100.817 130.017 100.11 131.795 101.016C136.101 103.21 139.602 106.711 141.796 111.017C143.149 113.672 143.735 116.581 144.016 120.018C144.29 123.378 144.29 127.548 144.29 132.81V135.859C144.29 137.855 142.672 139.473 140.677 139.473C138.681 139.473 137.064 137.855 137.064 135.859V132.969C137.064 127.513 137.061 123.638 136.813 120.606C136.569 117.616 136.105 115.765 135.357 114.298M126.935 102.595C126.029 104.373 126.736 106.549 128.514 107.455ZM128.514 107.455C130.03 108.227 131.4 109.237 132.578 110.436C133.689 111.567 134.628 112.868 135.357 114.298'
               fill='white'
             />
             <path
-              d='M114.662 95.5118L109.782 88.7311L111.148 92.9342C112.459 93.6021 113.643 94.4749 114.662 95.5118Z'
+              d='M132.578 110.436L126.935 102.595L128.514 107.455C130.03 108.227 131.4 109.237 132.578 110.436Z'
               fill='white'
             />
             <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M50.218 88.731C51.0016 90.2688 50.3902 92.1506 48.8524 92.9342C46.3044 94.2325 44.2327 96.3042 42.9345 98.8522C42.2881 100.121 41.8865 101.722 41.6752 104.308C41.4609 106.93 41.4585 110.281 41.4585 115V117.5C41.4585 119.226 40.0594 120.625 38.3335 120.625C36.6076 120.625 35.2085 119.226 35.2085 117.5L35.2085 114.862C35.2085 110.312 35.2085 106.706 35.4459 103.799C35.6888 100.826 36.1955 98.3114 37.3657 96.0148C39.2631 92.2908 42.2909 89.2629 46.0149 87.3654C47.5527 86.5819 49.4345 87.1933 50.218 88.731Z'
+              fill-rule='evenodd'
+              clip-rule='evenodd'
+              d='M58.0647 102.595C58.9707 104.373 58.2638 106.549 56.4857 107.455C53.5396 108.956 51.1443 111.352 49.6431 114.298C48.8957 115.765 48.4314 117.616 48.1871 120.606C47.9393 123.638 47.9365 127.513 47.9365 132.969V135.859C47.9365 137.855 46.3188 139.473 44.3232 139.473C42.3277 139.473 40.71 137.855 40.71 135.859L40.71 132.81C40.7099 127.548 40.7099 123.378 40.9845 120.018C41.2653 116.581 41.8512 113.673 43.2042 111.017C45.3981 106.711 48.8989 103.21 53.2049 101.016C54.9829 100.11 57.1588 100.817 58.0647 102.595Z'
               fill='white'
             />
           </svg>
+
           <Typography
             sx={{
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 200,
-              fontSize: '28px',
+              fontSize: '32px',
               lineHeight: '44px',
 
               color: '#FFFFFF',
 
-              width: '380px',
-              mt: '-130px',
-              ml: '-440px',
+              width: '440px',
+              mt: '-145px',
+              ml: '-400px',
             }}
           >
             To be an exhibition space for the artist's work
           </Typography>
           <svg
-            width='160'
-            height='160'
-            viewBox='0 0 160 160'
+            width='185'
+            height='185'
+            viewBox='0 0 185 185'
             fill='none'
-            xmlns='http://www.w3.org/2000/svg'
             style={{
               marginTop: '50px',
             }}
           >
-            <circle cx='80' cy='80' r='77' stroke='white' strokeWidth='6' />
-            <path
-              d='M117.5 59.1667L84.1667 92.5L67.5 75.8333L42.5 100.833M117.5 59.1667H92.5M117.5 59.1667V84.1667'
+            <circle
+              cx='92.5'
+              cy='92.5'
+              r='89.5'
               stroke='white'
-              strokeWidth='6'
-              strokeLinecap='round'
-              strokeLinejoin='round'
+              stroke-width='6'
+            />
+            <path
+              d='M135.859 68.4115L97.3177 106.953L78.0469 87.6823L49.1406 116.589M135.859 68.4115H106.953M135.859 68.4115V97.3177'
+              stroke='white'
+              stroke-width='6'
+              stroke-linecap='round'
+              stroke-linejoin='round'
             />
           </svg>
+
           <Typography
             sx={{
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 200,
-              fontSize: '28px',
+              fontSize: '32px',
               lineHeight: '44px',
 
               color: '#FFFFFF',
 
-              width: '410px',
-              mt: '-130px',
-              mr: '650px',
+              width: '450px',
+              mt: '-140px',
+              mr: '680px',
               textAlign: 'right',
             }}
           >
@@ -1069,5 +1095,4 @@ export default function LandingPage() {
       <Footer />
     </Container>
   )
-
 }

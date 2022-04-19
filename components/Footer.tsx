@@ -1,13 +1,12 @@
-import { Box, Divider, IconButton, Stack, Typography } from '@mui/material';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import MailRoundedIcon from '@mui/icons-material/MailRounded';
+import { Box, Divider, IconButton, Stack, Typography } from '@mui/material'
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import MailRoundedIcon from '@mui/icons-material/MailRounded'
 
 export default function Footer() {
-
   return (
     <Box
-      id="footer"
+      id='footer'
       sx={{
         width: '100%',
         height: '180px',
@@ -15,7 +14,7 @@ export default function Footer() {
       }}
     >
       <Stack
-        direction="column"
+        direction='column'
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -24,17 +23,17 @@ export default function Footer() {
         }}
       >
         <Stack
-          direction="row"
+          direction='row'
           sx={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
-          <Box sx={{ width: '43vw', height: '1px', bgcolor: 'white' }} />
+          <Box sx={{ width: '40vw', height: '1px', bgcolor: 'white' }} />
           <Stack
             sx={{
-              width: '16vw',
+              width: '20vw',
               height: '3px',
               flexDirection: 'row',
               display: 'flex',
@@ -42,26 +41,25 @@ export default function Footer() {
               alignItems: 'center',
             }}
           >
-            <Typography
-              sx={{ ml: 3, mr: 0.75, display: { xs: 'none', md: 'flex' } }}
-            >
-              <img src="./assets/images/logo.png" style={{ height: '32px' }} />
-            </Typography>
-            <Typography
-              sx={{
-                mr: 3,
-                fontSize: '18px',
-              }}
-              color="white"
-            >
-              MaTchA
+            <Typography sx={{ ml: 3, mr: 0.75 }}>
+              <Box
+                component='img'
+                sx={{
+                  height: '100px',
+                  width: 'auto',
+                  // maxHeight: { xs: 233, md: 167 },
+                  // maxWidth: { xs: 350, md: 250 },
+                }}
+                alt='LOGO'
+                src='./assets/images/logo/logoForFooter.png'
+              />
             </Typography>
           </Stack>
-          <Box sx={{ width: '43vw', height: '1px', bgcolor: 'white' }} />
+          <Box sx={{ width: '40vw', height: '1px', bgcolor: 'white' }} />
         </Stack>
 
         <Stack
-          direction="row"
+          direction='row'
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -74,14 +72,14 @@ export default function Footer() {
               ml: '90px',
               fontSize: '14px',
             }}
-            color="white"
+            color='white'
           >
             ABOUT US
           </Typography>
           <Divider
-            orientation="vertical"
+            orientation='vertical'
             flexItem
-            variant="middle"
+            variant='middle'
             sx={{
               height: '30px',
               alignSelf: 'center',
@@ -94,14 +92,14 @@ export default function Footer() {
               m: '20px',
               fontSize: '14px',
             }}
-            color="white"
+            color='white'
           >
             THEME
           </Typography>
           <Divider
-            orientation="vertical"
+            orientation='vertical'
             flexItem
-            variant="middle"
+            variant='middle'
             sx={{
               height: '30px',
               alignSelf: 'center',
@@ -110,7 +108,7 @@ export default function Footer() {
             }}
           />
           <Stack
-            direction="row"
+            direction='row'
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -119,10 +117,10 @@ export default function Footer() {
             }}
             spacing={7}
           >
-            <IconButton>
+            <IconButton href='https://www.facebook.com/Songholder-104864228867080'>
               <FacebookRoundedIcon sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
-            <IconButton>
+            <IconButton disabled>
               <Typography
                 sx={{
                   display: 'flex',
@@ -131,23 +129,23 @@ export default function Footer() {
                 }}
               >
                 <img
-                  src="./assets/images/logo/logoInstagram.png"
+                  src='./assets/images/logo/logoInstagram.png'
                   style={{ height: '30px', marginLeft: 0 }}
                 />
               </Typography>
             </IconButton>
-            <IconButton>
+            <IconButton disabled>
               <TwitterIcon sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
 
-            <IconButton>
+            <IconButton disabled>
               <MailRoundedIcon sx={{ color: 'white', fontSize: '30px' }} />
             </IconButton>
           </Stack>
           <Divider
-            orientation="vertical"
+            orientation='vertical'
             flexItem
-            variant="middle"
+            variant='middle'
             sx={{
               height: '30px',
               alignSelf: 'center',
@@ -160,14 +158,14 @@ export default function Footer() {
               m: '20px',
               fontSize: '14px',
             }}
-            color="white"
+            color='white'
           >
             PRIVACY POLICY
           </Typography>
           <Divider
-            orientation="vertical"
+            orientation='vertical'
             flexItem
-            variant="middle"
+            variant='middle'
             sx={{
               height: '30px',
               alignSelf: 'center',
@@ -181,13 +179,12 @@ export default function Footer() {
               m: '20px',
               fontSize: '14px',
             }}
-            color="white"
+            color='white'
           >
             SECURITY
           </Typography>
         </Stack>
       </Stack>
     </Box>
-  );
-
+  )
 }

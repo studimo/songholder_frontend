@@ -11,7 +11,13 @@ import Container from '@mui/material/Container'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import { Divider, Stack, Tooltip, useScrollTrigger } from '@mui/material'
+import {
+  CardMedia,
+  Divider,
+  Stack,
+  Tooltip,
+  useScrollTrigger,
+} from '@mui/material'
 import InputBase from '@mui/material/InputBase'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
@@ -19,7 +25,11 @@ import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward } from '@mui/icons-material'
 // import "components/navbar.css";
 
-const pages = ['HOME', 'DISCOVER', 'INVESTED']
+const pages = [
+  'HOME',
+  'DISCOVER',
+  //  'INVESTED'
+]
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 const Search = styled('div')(({ theme }) => ({
@@ -64,6 +74,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 interface AppBarProps {
   background: 'auto' | 'gradient' | 'transparent'
+  page: 'HOME' | 'DISCOVER' | 'INVESTED'
 }
 
 function ResponsiveAppBar(props: AppBarProps) {
@@ -94,8 +105,8 @@ function ResponsiveAppBar(props: AppBarProps) {
   }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
   const variants = {
     gradient: { opacity: 1, x: 0 },
     none: { opacity: 0, x: '-100%' },
@@ -140,17 +151,19 @@ function ResponsiveAppBar(props: AppBarProps) {
             padding: '20px',
           }}
         >
-          <Typography sx={{ mr: 0.75, display: { xs: 'none', md: 'flex' } }}>
-            <img src='./assets/images/logo.png' style={{ height: '37.5px' }} />
-          </Typography>
-          <Typography
-            sx={{
-              mr: 3,
-              fontSize: '22px',
-              display: { xs: 'none', md: 'flex' },
-            }}
-          >
-            MaTchA
+          <Typography sx={{ display: { xs: 'none', md: 'flex' } }}>
+            {/* <CardMedia image='./assets/images/logo/logoWithoutText.png'/> */}
+            <Box
+              component='img'
+              sx={{
+                height: '50px',
+                width: '50px',
+                // maxHeight: { xs: 233, md: 167 },
+                // maxWidth: { xs: 350, md: 250 },
+              }}
+              alt='LOGO'
+              src='./assets/images/logo/logoWithoutText.png'
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -202,80 +215,61 @@ function ResponsiveAppBar(props: AppBarProps) {
             sx={{
               flexGrow: 1,
               display: { xs: 'none', md: 'flex' },
-              ml: '50px',
+              ml: '25px',
             }}
           >
-            {pages.map(page =>
-              page == 'HOME' ? (
-                <>
-                  <Button
-                    key={page}
-                    onClick={() => {
-                      location.href = '/'
-                    }}
-                    sx={{
-                      transition: '0.2s',
-                      my: 2,
-                      mx: 2,
-                      color: 'white',
-                      display: 'block',
-                      fontSize: '17px',
-                      fontWeight: '200',
-                      '&:hover': {
-                        fontSize: '20px',
-                        textDecoration: 'underline',
-                        // background:
-                        //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                        // backgroundClip: "text",
-                        // WebkitTextFillColor: "transparent",
-                      },
-                    }}
-                  >
-                    {page}
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Divider
-                    key={page + '-divider'}
-                    orientation='vertical'
-                    flexItem
-                    variant='middle'
-                    sx={{
-                      height: '45px',
-                      alignSelf: 'center',
-                      borderRightWidth: 1.5,
-                      background: 'white',
-                    }}
-                  />
-                  <Button
-                    key={page}
-                    onClick={() => {
-                      location.href = `/${page.toLowerCase()}`
-                    }}
-                    sx={{
-                      transition: '0.2s',
-                      my: 2,
-                      mx: 2,
-                      color: 'white',
-                      display: 'block',
-                      fontSize: '17px',
-                      fontWeight: '200',
-                      '&:hover': {
-                        fontSize: '20px',
-                        textDecoration: 'underline',
-                        // background:
-                        //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                        // backgroundClip: "text",
-                        // WebkitTextFillColor: "transparent",
-                      },
-                    }}
-                  >
-                    {page}
-                  </Button>
-                </>
-              ),
-            )}
+            {pages.map(page => (
+              <>
+                <Divider
+                  key={page + '-divider'}
+                  orientation='vertical'
+                  flexItem
+                  variant='middle'
+                  sx={{
+                    height: '35px',
+                    alignSelf: 'center',
+                    borderRightWidth: 1,
+                    background: 'white',
+                    display: page == 'HOME' ? 'none' : 'flex',
+                  }}
+                />
+                <Button
+                  key={page}
+                  onClick={() => {
+                    location.href = `/${page.toLowerCase()}`
+                  }}
+                  sx={{
+                    transition: '0.2s',
+                    my: 2,
+                    mx: 2,
+                    color: 'white',
+                    display: 'block',
+                    // fontSize: '17px',
+                    // fontWeight: '200',
+                    textDecoration: props.page == page ? 'underline' : 'none',
+                    textUnderlineOffset: '3px',
+                    // paddingBottom: '10px',
+                    fontFamily: 'Mitr',
+                    fontStyle: 'normal',
+                    fontWeight: 300,
+                    fontSize: '17px',
+                    lineHeight: '27px',
+                    textTransform: 'uppercase',
+                    '&:hover': {
+                      fontSize: '20px',
+                      textDecoration: 'underline',
+                      textUnderlineOffset: '3px',
+                      // background:
+                      //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+                      // backgroundClip: "text",
+                      // WebkitTextFillColor: "transparent",
+                    },
+                  }}
+                >
+                  {page}
+                </Button>
+              </>
+            ))}
           </Box>
           {/* <Search
             style={{ width: "max" }}
@@ -310,80 +304,92 @@ function ResponsiveAppBar(props: AppBarProps) {
             </Badge>
           </IconButton> */}
           {authUser ? (
-          <Box sx={{ flexGrow: 0, mr: "15px",flexDirection: "row" }}>
-            <Stack sx={{flexDirection:'row',justifyContent:'center',alignItems: 'center'}}>
-              <Tooltip title="Open settings" sx={{flexDirection:'row'}}>
+            <Box sx={{ flexGrow: 0, mr: '15px', flexDirection: 'row' }}>
+              <Stack
+                sx={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Tooltip title='Open settings' sx={{ flexDirection: 'row' }}>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt='Remy Sharp'
                       src={authUser.photoURL || '/static/images/avatar/2.jpg'}
                     />
                   </IconButton>
-              </Tooltip>
-              <Typography
+                </Tooltip>
+                <Typography
                   sx={{
-                    fontSize: '20px',
                     display: { xs: 'none', md: 'flex' },
-                    ml:"10px"
+                    ml: '15px',
+                    mt: '5px',
+                    fontFamily: 'Kalam',
+                    fontStyle: 'normal',
+                    fontWeight: 400,
+                    fontSize: '18px',
+                    lineHeight: '29px',
+
+                    color: '#FFFFFF',
                   }}
-                  fontWeight={10}
                 >
                   {authUser.email || ''}
-              </Typography>
-            </Stack>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-                <MenuItem key="account"
-                onClick={handleCloseUserMenu}
-                disabled
-                >
-                  <Typography textAlign="center">account</Typography>
+                </Typography>
+              </Stack>
+              <Menu
+                sx={{ mt: '45px' }}
+                id='menu-appbar'
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem key='account' onClick={handleCloseUserMenu} disabled>
+                  <Typography textAlign='center'>account</Typography>
                 </MenuItem>
-                
-                <MenuItem key="dashboard"
-                onClick={handleCloseUserMenu}
-                disabled
+
+                <MenuItem
+                  key='dashboard'
+                  onClick={handleCloseUserMenu}
+                  disabled
                 >
-                  <Typography textAlign="center">dashboard</Typography>
+                  <Typography textAlign='center'>dashboard</Typography>
                 </MenuItem>
-                
-                <MenuItem key="Logout"
-                onClick={signOut}
-                >
-                  <Typography textAlign="center" sx={{color:"darkred"}}>Logout</Typography>
+
+                <MenuItem key='Logout' onClick={signOut}>
+                  <Typography textAlign='center' sx={{ color: 'darkred' }}>
+                    Logout
+                  </Typography>
                 </MenuItem>
-            </Menu>
-          </Box>) : (
+              </Menu>
+            </Box>
+          ) : (
             <Button
               onClick={() => router.push('/signin')}
-              sx={{ color: 'white', 
+              sx={{
+                color: 'white',
                 '&:hover': {
                   backgroundColor: 'rgba(255, 255, 255, 0.2)',
                   // borderColor: "#ffffff",
                 },
               }}
-          >
-            <Typography
-              sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
             >
-              Sign In
-            </Typography>
-            <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
-          </Button>
+              <Typography
+                sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+              >
+                SING IN
+              </Typography>
+              <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
+            </Button>
           )}
           {/* {authUser ? (
             <>
