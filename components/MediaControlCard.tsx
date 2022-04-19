@@ -52,6 +52,7 @@ export default function MediaControlCard({
             borderBottomRightRadius: 50,
             // transition: "0.2s",
           },
+          src: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
         }}
         onMouseOver={() => {

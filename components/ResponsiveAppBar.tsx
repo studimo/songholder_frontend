@@ -23,6 +23,7 @@ import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward } from '@mui/icons-material'
+import { AppbarButton } from './AppbarButton'
 // import "components/navbar.css";
 
 const pages = [
@@ -218,58 +219,80 @@ function ResponsiveAppBar(props: AppBarProps) {
               ml: '25px',
             }}
           >
-            {pages.map(page => (
-              <>
-                <Divider
-                  key={page + '-divider'}
-                  orientation='vertical'
-                  flexItem
-                  variant='middle'
-                  sx={{
-                    height: '35px',
-                    alignSelf: 'center',
-                    borderRightWidth: 1,
-                    background: 'white',
-                    display: page == 'HOME' ? 'none' : 'flex',
-                  }}
-                />
-                <Button
-                  key={page}
-                  onClick={() => {
-                    location.href = `/${page.toLowerCase()}`
-                  }}
-                  sx={{
-                    transition: '0.2s',
-                    my: 2,
-                    mx: 2,
-                    color: 'white',
-                    display: 'block',
-                    // fontSize: '17px',
-                    // fontWeight: '200',
-                    textDecoration: props.page == page ? 'underline' : 'none',
-                    textUnderlineOffset: '3px',
-                    // paddingBottom: '10px',
-                    fontFamily: 'Mitr',
-                    fontStyle: 'normal',
-                    fontWeight: 300,
-                    fontSize: '17px',
-                    lineHeight: '27px',
-                    textTransform: 'uppercase',
-                    '&:hover': {
-                      fontSize: '20px',
-                      textDecoration: 'underline',
-                      textUnderlineOffset: '3px',
-                      // background:
-                      //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                      // backgroundClip: "text",
-                      // WebkitTextFillColor: "transparent",
-                    },
-                  }}
-                >
-                  {page}
-                </Button>
-              </>
-            ))}
+            {pages.map(
+              page => (
+                <AppbarButton key={page} page={page}></AppbarButton>
+              ),
+              // page == 'HOME' ? (
+              //   <>
+              //     <Button
+              //       key={page}
+              //       onClick={() => {
+              //         location.href = '/'
+              //       }}
+              //       sx={{
+              //         transition: '0.2s',
+              //         my: 2,
+              //         mx: 2,
+              //         color: 'white',
+              //         display: 'block',
+              //         fontSize: '17px',
+              //         fontWeight: '200',
+              //         '&:hover': {
+              //           fontSize: '20px',
+              //           textDecoration: 'underline',
+              //           // background:
+              //           //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+              //           // backgroundClip: "text",
+              //           // WebkitTextFillColor: "transparent",
+              //         },
+              //       }}
+              //     >
+              //       {page}
+              //     </Button>
+              //   </>
+              // ) : (
+              //   <>
+              //     <Divider
+              //       key={page + '-divider'}
+              //       orientation='vertical'
+              //       flexItem
+              //       variant='middle'
+              //       sx={{
+              //         height: '45px',
+              //         alignSelf: 'center',
+              //         borderRightWidth: 1.5,
+              //         background: 'white',
+              //       }}
+              //     />
+              //     <Button
+              //       key={page}
+              //       onClick={() => {
+              //         location.href = `/${page.toLowerCase()}`
+              //       }}
+              //       sx={{
+              //         transition: '0.2s',
+              //         my: 2,
+              //         mx: 2,
+              //         color: 'white',
+              //         display: 'block',
+              //         fontSize: '17px',
+              //         fontWeight: '200',
+              //         '&:hover': {
+              //           fontSize: '20px',
+              //           textDecoration: 'underline',
+              //           // background:
+              //           //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+              //           // backgroundClip: "text",
+              //           // WebkitTextFillColor: "transparent",
+              //         },
+              //       }}
+              //     >
+              //       {page}
+              //     </Button>
+              //   </>
+              // ),
+            )}
           </Box>
           {/* <Search
             style={{ width: "max" }}

@@ -33,8 +33,8 @@ export default function RecommendedCard({
         // bgcolor: "violet",
       }}
       component={motion.div}
-      initial={{ scale: '0.5' }}
-      animate={{ scale: '1' }}
+      initial={{ scale: 0.5 }}
+      animate={{ scale: 1 }}
     >
       <Card style={{ border: 'none', boxShadow: 'none', background: 'none' }}>
         <CardMedia
