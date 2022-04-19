@@ -18,9 +18,8 @@ export default function RecommendedCard({
   setOnPlay,
   setSongName,
   setMusicId,
-  musicId
+  musicId,
 }: any) {
-
   const [showButton, setShowButton] = useState(false)
   // console.log(content);
   return (
@@ -34,8 +33,8 @@ export default function RecommendedCard({
         // bgcolor: "violet",
       }}
       component={motion.div}
-      initial={{ scale: '0.5' }}
-      animate={{ scale: '1' }}
+      initial={{ scale: 0.5 }}
+      animate={{ scale: 1 }}
     >
       <Card style={{ border: 'none', boxShadow: 'none', background: 'none' }}>
         <CardMedia
@@ -59,14 +58,10 @@ export default function RecommendedCard({
             backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           }}
           onMouseOver={() => {
-
             setShowButton(true)
-          
           }}
           onMouseLeave={() => {
-
             setShowButton(false)
-          
           }}
         >
           <CardActionArea
@@ -79,20 +74,14 @@ export default function RecommendedCard({
               borderBottomRightRadius: 50,
             }}
             onClick={() => {
-
               setAudioUrl(content.youtubeId)
               setSongName(content.name)
               setMusicId(musicId)
               if (audioUrl == content.youtubeId && onPlay) {
-
                 setOnPlay(false)
-              
               } else {
-
                 setOnPlay(true)
-              
               }
-            
             }}
           >
             {audioUrl == content.youtubeId ? (
@@ -144,5 +133,4 @@ export default function RecommendedCard({
       </Typography>
     </Stack>
   )
-
 }

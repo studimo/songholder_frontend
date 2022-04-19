@@ -20,7 +20,6 @@ export default function MediaControlCard({
   setMusicId,
   musicId,
 }: any) {
-
   const [showButton, setShowButton] = useState(false)
 
   const theme = useTheme()
@@ -53,17 +52,14 @@ export default function MediaControlCard({
             borderBottomRightRadius: 50,
             // transition: "0.2s",
           },
+          src: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
         }}
         onMouseOver={() => {
-
           setShowButton(true)
-        
         }}
         onMouseLeave={() => {
-
           setShowButton(false)
-        
         }}
       >
         <CardActionArea
@@ -76,20 +72,14 @@ export default function MediaControlCard({
             borderBottomRightRadius: 50,
           }}
           onClick={() => {
-
             setAudioUrl(content.youtubeId)
             setSongName(content.name)
             setMusicId(musicId)
             if (audioUrl == content.youtubeId && onPlay) {
-
               setOnPlay(false)
-            
             } else {
-
               setOnPlay(true)
-            
             }
-          
           }}
         >
           {audioUrl == content.youtubeId ? (
@@ -192,5 +182,4 @@ export default function MediaControlCard({
       </CardContent>
     </Card>
   )
-
 }

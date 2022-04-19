@@ -17,6 +17,7 @@ import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward } from '@mui/icons-material'
+import { AppbarButton } from './AppbarButton'
 // import "components/navbar.css";
 
 const pages = ['HOME', 'DISCOVER', 'INVESTED']
@@ -94,8 +95,8 @@ function ResponsiveAppBar(props: AppBarProps) {
   }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
   const variants = {
     gradient: { opacity: 1, x: 0 },
     none: { opacity: 0, x: '-100%' },
@@ -205,76 +206,79 @@ function ResponsiveAppBar(props: AppBarProps) {
               ml: '50px',
             }}
           >
-            {pages.map(page =>
-              page == 'HOME' ? (
-                <>
-                  <Button
-                    key={page}
-                    onClick={() => {
-                      location.href = '/'
-                    }}
-                    sx={{
-                      transition: '0.2s',
-                      my: 2,
-                      mx: 2,
-                      color: 'white',
-                      display: 'block',
-                      fontSize: '17px',
-                      fontWeight: '200',
-                      '&:hover': {
-                        fontSize: '20px',
-                        textDecoration: 'underline',
-                        // background:
-                        //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                        // backgroundClip: "text",
-                        // WebkitTextFillColor: "transparent",
-                      },
-                    }}
-                  >
-                    {page}
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Divider
-                    key={page + '-divider'}
-                    orientation='vertical'
-                    flexItem
-                    variant='middle'
-                    sx={{
-                      height: '45px',
-                      alignSelf: 'center',
-                      borderRightWidth: 1.5,
-                      background: 'white',
-                    }}
-                  />
-                  <Button
-                    key={page}
-                    onClick={() => {
-                      location.href = `/${page.toLowerCase()}`
-                    }}
-                    sx={{
-                      transition: '0.2s',
-                      my: 2,
-                      mx: 2,
-                      color: 'white',
-                      display: 'block',
-                      fontSize: '17px',
-                      fontWeight: '200',
-                      '&:hover': {
-                        fontSize: '20px',
-                        textDecoration: 'underline',
-                        // background:
-                        //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
-                        // backgroundClip: "text",
-                        // WebkitTextFillColor: "transparent",
-                      },
-                    }}
-                  >
-                    {page}
-                  </Button>
-                </>
+            {pages.map(
+              page => (
+                <AppbarButton key={page} page={page}></AppbarButton>
               ),
+              // page == 'HOME' ? (
+              //   <>
+              //     <Button
+              //       key={page}
+              //       onClick={() => {
+              //         location.href = '/'
+              //       }}
+              //       sx={{
+              //         transition: '0.2s',
+              //         my: 2,
+              //         mx: 2,
+              //         color: 'white',
+              //         display: 'block',
+              //         fontSize: '17px',
+              //         fontWeight: '200',
+              //         '&:hover': {
+              //           fontSize: '20px',
+              //           textDecoration: 'underline',
+              //           // background:
+              //           //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+              //           // backgroundClip: "text",
+              //           // WebkitTextFillColor: "transparent",
+              //         },
+              //       }}
+              //     >
+              //       {page}
+              //     </Button>
+              //   </>
+              // ) : (
+              //   <>
+              //     <Divider
+              //       key={page + '-divider'}
+              //       orientation='vertical'
+              //       flexItem
+              //       variant='middle'
+              //       sx={{
+              //         height: '45px',
+              //         alignSelf: 'center',
+              //         borderRightWidth: 1.5,
+              //         background: 'white',
+              //       }}
+              //     />
+              //     <Button
+              //       key={page}
+              //       onClick={() => {
+              //         location.href = `/${page.toLowerCase()}`
+              //       }}
+              //       sx={{
+              //         transition: '0.2s',
+              //         my: 2,
+              //         mx: 2,
+              //         color: 'white',
+              //         display: 'block',
+              //         fontSize: '17px',
+              //         fontWeight: '200',
+              //         '&:hover': {
+              //           fontSize: '20px',
+              //           textDecoration: 'underline',
+              //           // background:
+              //           //   "linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%)",
+              //           // backgroundClip: "text",
+              //           // WebkitTextFillColor: "transparent",
+              //         },
+              //       }}
+              //     >
+              //       {page}
+              //     </Button>
+              //   </>
+              // ),
             )}
           </Box>
           {/* <Search
@@ -310,80 +314,86 @@ function ResponsiveAppBar(props: AppBarProps) {
             </Badge>
           </IconButton> */}
           {authUser ? (
-          <Box sx={{ flexGrow: 0, mr: "15px",flexDirection: "row" }}>
-            <Stack sx={{flexDirection:'row',justifyContent:'center',alignItems: 'center'}}>
-              <Tooltip title="Open settings" sx={{flexDirection:'row'}}>
+            <Box sx={{ flexGrow: 0, mr: '15px', flexDirection: 'row' }}>
+              <Stack
+                sx={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Tooltip title='Open settings' sx={{ flexDirection: 'row' }}>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt='Remy Sharp'
                       src={authUser.photoURL || '/static/images/avatar/2.jpg'}
                     />
                   </IconButton>
-              </Tooltip>
-              <Typography
+                </Tooltip>
+                <Typography
                   sx={{
                     fontSize: '20px',
                     display: { xs: 'none', md: 'flex' },
-                    ml:"10px"
+                    ml: '10px',
                   }}
                   fontWeight={10}
                 >
                   {authUser.email || ''}
-              </Typography>
-            </Stack>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-                <MenuItem key="account"
-                onClick={handleCloseUserMenu}
-                disabled
-                >
-                  <Typography textAlign="center">account</Typography>
+                </Typography>
+              </Stack>
+              <Menu
+                sx={{ mt: '45px' }}
+                id='menu-appbar'
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem key='account' onClick={handleCloseUserMenu} disabled>
+                  <Typography textAlign='center'>account</Typography>
                 </MenuItem>
-                
-                <MenuItem key="dashboard"
-                onClick={handleCloseUserMenu}
-                disabled
+
+                <MenuItem
+                  key='dashboard'
+                  onClick={handleCloseUserMenu}
+                  disabled
                 >
-                  <Typography textAlign="center">dashboard</Typography>
+                  <Typography textAlign='center'>dashboard</Typography>
                 </MenuItem>
-                
-                <MenuItem key="Logout"
-                onClick={signOut}
-                >
-                  <Typography textAlign="center" sx={{color:"darkred"}}>Logout</Typography>
+
+                <MenuItem key='Logout' onClick={signOut}>
+                  <Typography textAlign='center' sx={{ color: 'darkred' }}>
+                    Logout
+                  </Typography>
                 </MenuItem>
-            </Menu>
-          </Box>) : (
+              </Menu>
+            </Box>
+          ) : (
             <Button
               onClick={() => router.push('/signin')}
-              sx={{ color: 'white', 
+              sx={{
+                color: 'white',
                 '&:hover': {
                   backgroundColor: 'rgba(255, 255, 255, 0.2)',
                   // borderColor: "#ffffff",
                 },
               }}
-          >
-            <Typography
-              sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
             >
-              Sign In
-            </Typography>
-            <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
-          </Button>
+              <Typography
+                sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+              >
+                Sign In
+              </Typography>
+              <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
+            </Button>
           )}
           {/* {authUser ? (
             <>
