@@ -18,6 +18,7 @@ import {
   Button,
   MenuItem,
   InputBase,
+  useMediaQuery,
 } from '@mui/material'
 import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
@@ -77,7 +78,6 @@ interface AppBarProps {
   background: 'auto' | 'gradient' | 'transparent'
   page: 'HOME' | 'DISCOVER' | 'INVESTED'
 }
-
 function ResponsiveAppBar(props: AppBarProps) {
   const { scrollYProgress, scrollY } = useViewportScroll()
   // React.useEffect(() => {
@@ -124,6 +124,7 @@ function ResponsiveAppBar(props: AppBarProps) {
           threshold: 460,
         })
       : props.background == 'gradient'
+
   return (
     <AppBar
       className='navbar'
@@ -175,8 +176,15 @@ function ResponsiveAppBar(props: AppBarProps) {
               aria-haspopup='true'
               onClick={handleOpenNavMenu}
               color='inherit'
+              // sx={{ ml: '-15px' }}
             >
-              <MenuIcon />
+              {/* <MenuIcon /> */}
+              <svg width='27' height='17' viewBox='0 0 27 17' fill='none'>
+                <path
+                  d='M1.83325 14.7916C1.28097 14.7916 0.833252 15.2393 0.833252 15.7916C0.833252 16.3439 1.28097 16.7916 1.83325 16.7916V14.7916ZM25.1666 16.7916C25.7189 16.7916 26.1666 16.3439 26.1666 15.7916C26.1666 15.2393 25.7189 14.7916 25.1666 14.7916V16.7916ZM1.83325 7.49992C1.28097 7.49992 0.833252 7.94763 0.833252 8.49992C0.833252 9.0522 1.28097 9.49992 1.83325 9.49992V7.49992ZM25.1666 9.49992C25.7189 9.49992 26.1666 9.0522 26.1666 8.49992C26.1666 7.94763 25.7189 7.49992 25.1666 7.49992V9.49992ZM1.83325 0.208252C1.28097 0.208252 0.833252 0.655967 0.833252 1.20825C0.833252 1.76054 1.28097 2.20825 1.83325 2.20825V0.208252ZM25.1666 2.20825C25.7189 2.20825 26.1666 1.76054 26.1666 1.20825C26.1666 0.655967 25.7189 0.208252 25.1666 0.208252V2.20825ZM1.83325 16.7916H25.1666V14.7916H1.83325V16.7916ZM1.83325 9.49992H25.1666V7.49992H1.83325V9.49992ZM1.83325 2.20825H25.1666V0.208252H1.83325V2.20825Z'
+                  fill='white'
+                />
+              </svg>
             </IconButton>
             <Menu
               id='menu-appbar'
@@ -210,7 +218,17 @@ function ResponsiveAppBar(props: AppBarProps) {
             component='div'
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            <img src='./assets/images/logo.png' style={{ height: '37.5px' }} />
+            <Box
+              component='img'
+              sx={{
+                height: '50px',
+                width: '50px',
+                // maxHeight: { xs: 233, md: 167 },
+                // maxWidth: { xs: 350, md: 250 },
+              }}
+              alt='LOGO'
+              src='./assets/images/logo/logoWithoutText.png'
+            />
           </Typography>
           <Box
             sx={{
