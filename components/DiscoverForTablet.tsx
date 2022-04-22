@@ -203,7 +203,7 @@ export default function DiscoverForTablet() {
           // fontWeight='400'
           // lineHeight='67.84px'
           // color='#0E5379'
-          component={motion.div}
+          component={motion.h1}
           // animate={{ fontSize: '32px' }}
 
           sx={{
@@ -284,7 +284,7 @@ export default function DiscoverForTablet() {
           // color='#0E5379'
           // marginTop="30px"
           marginBottom='30px'
-          component={motion.div}
+          component={motion.h1}
           // animate={{ fontSize: '32px' }}
           // alignSelf="center"
           sx={{

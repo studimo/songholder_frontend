@@ -31,7 +31,6 @@ export default function MusicPlayerMobile({
   const [showButton, setShowButton] = useState(false)
   const player = useRef<any>(null)
   const [loading, SetLoading] = useState(true)
-  const [onOpenControl, setOnOpenControl] = useState(false)
 
   const [controlTimeout, setControlTimeout] = useState<any>(null)
 
@@ -102,21 +101,13 @@ export default function MusicPlayerMobile({
               onClick={() => {
                 if (!loading) {
                   onPlay ? setOnPlay(false) : setOnPlay(true)
-                  setOnOpenControl(true)
-                  clearTimeout(controlTimeout)
                 }
               }}
               onMouseOver={() => {
                 setShowButton(true)
-                setOnOpenControl(true)
-                clearTimeout(controlTimeout)
               }}
               onMouseLeave={() => {
                 setShowButton(false)
-                const timeOut = setTimeout(() => {
-                  setOnOpenControl(false)
-                }, 3000)
-                setControlTimeout(timeOut)
               }}
               sx={{
                 borderRadius: '50px',
@@ -305,19 +296,11 @@ export default function MusicPlayerMobile({
               // pointerEvents: { pointerEventForDrawer },
               pointerEvents: 'auto',
             }}
-            onMouseOver={() => {
-              setOnOpenControl(true)
-              clearTimeout(controlTimeout)
-            }}
             onMouseLeave={() => {
               setShowButton(false)
-              const timeOut = setTimeout(() => {
-                setOnOpenControl(false)
-              }, 3000)
-              setControlTimeout(timeOut)
             }}
             component={motion.div}
-            animate={onOpenControl ? 'open' : 'closed'}
+            animate={onPlay ? 'open' : 'closed'}
             variants={variants}
           >
             {/* <Stack></Stack> */}
@@ -330,7 +313,7 @@ export default function MusicPlayerMobile({
                 top: '20%',
                 right: '13%',
                 fontSize: '28px',
-                lineHeight: '42px',
+                lineHeight: '44px',
 
                 fontFamily: 'Mitr',
                 fontStyle: 'normal',

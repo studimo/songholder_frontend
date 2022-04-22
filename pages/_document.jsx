@@ -8,6 +8,23 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
+          <title>Songholder</title>
+          <meta
+            name='description'
+            content='Fundraising for creative music projects, there is no better place to find a demo from a talented artist.'
+          />
+          <meta name='keywords' content='ทำเพลง' />
+          <meta name='keywords' content='เพลงใหม่' />
+          <meta name='keywords' content='ศิลปินอินดี้' />
+          <meta name='keywords' content='ทุนทำเพลง' />
+          <meta name='keywords' content='ค่ายเพลง' />
+          <meta name='keywords' content='music crowdfunding' />
+          <meta name='keywords' content='crowdfunding' />
+          <link
+            rel='shortcut icon'
+            type='image/x-icon'
+            href='./assets/images/logo/logoWithoutText.png'
+          />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link
             rel='preconnect'

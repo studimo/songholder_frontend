@@ -85,6 +85,7 @@ export default function FooterMobile() {
             >
               <img
                 src='./assets/images/logo/logoInstagram.png'
+                alt='LOGO_IG'
                 style={{ height: '17px', marginLeft: 0 }}
               />
             </Typography>
