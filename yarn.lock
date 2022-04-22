@@ -205,6 +205,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.7.6":
+  version "7.17.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.9.tgz#d19fbf802d01a8cb6cf053a64e472d42c434ba72"
+  integrity sha512-lSiBBvodq29uShpWGNbgFdKYNiFDo5/HIYsaCEY9ff4sb10x9jizo2+pRrSyF4jKZCXqgzuqBOQKbUm90gQwJg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.16.7":
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.16.7.tgz"
@@ -237,6 +244,11 @@
   dependencies:
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
+
+"@corex/deepmerge@^2.6.148":
+  version "2.6.148"
+  resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-2.6.148.tgz#8fa825d53ffd1cbcafce1b6a830eefd3dcc09dd5"
+  integrity sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==
 
 "@emotion/babel-plugin@^11.7.1":
   version "11.7.2"
@@ -3195,6 +3207,13 @@ hey-listen@^1.0.8:
   resolved "https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.8.tgz"
   integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
 
+history@^5.2.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/history/-/history-5.3.0.tgz#1548abaa245ba47992f063a0783db91ef201c73b"
+  integrity sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+
 hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz"
@@ -3830,7 +3849,7 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@^1.2.0, minimist@~1.2.5:
+minimist@^1.2.0, minimist@^1.2.6, minimist@~1.2.5:
   version "1.2.6"
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.6.tgz"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
@@ -3878,6 +3897,14 @@ next-images@^1.8.4:
   dependencies:
     file-loader "^6.2.0"
     url-loader "^4.1.0"
+
+next-sitemap@^2.5.20:
+  version "2.5.20"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.20.tgz#7124e138506c2f10e460c3dc77907baf4d134478"
+  integrity sha512-Qbm4N2WGA6VHemFN0C9PNWQav9RKwMEbVrNgVvDQhG0sDBmNBgKii54WklOjCvVJVHgQPgtXLBhlNaJGS+RVQA==
+  dependencies:
+    "@corex/deepmerge" "^2.6.148"
+    minimist "^1.2.6"
 
 next@^12.1.0:
   version "12.1.0"
@@ -4303,6 +4330,13 @@ react-player@^2.10.0:
     memoize-one "^5.1.1"
     prop-types "^15.7.2"
     react-fast-compare "^3.0.1"
+
+react-router@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.3.0.tgz#3970cc64b4cb4eae0c1ea5203a80334fdd175557"
+  integrity sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==
+  dependencies:
+    history "^5.2.0"
 
 react-transition-group@^4.4.2:
   version "4.4.2"

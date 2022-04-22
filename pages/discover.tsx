@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import DiscoverForDesktop from 'components/DiscoverForDesktop'
-import DiscoverForMobile from 'components/DiscoverForMobile'
-import DiscoverForTablet from 'components/DiscoverForTablet'
+import DiscoverForDesktop from 'components/Discover/DiscoverForDesktop'
+import DiscoverForMobile from 'components/Discover/DiscoverForMobile'
+import DiscoverForTablet from 'components/Discover/DiscoverForTablet'
 
 export default function Discover() {
   const [screenWidth, setScreenWidth] = useState(0)

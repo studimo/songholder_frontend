@@ -24,7 +24,7 @@ import { motion, useViewportScroll } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward, Menu as MenuIcon } from '@mui/icons-material'
-import { AppbarButton } from './AppbarButton'
+import { AppbarButton } from 'components/Layout/Appbar/AppbarButton'
 // import "components/navbar.css";
 
 const pages = [

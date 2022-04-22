@@ -2,12 +2,14 @@ import { Container, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import MediaControlCardDuo from 'components/MediaControlCardDuo'
-import MusicPlayer from 'components/MusicPlayer'
-import RecommendedCard from 'components/RecommendedCard'
+import MediaControlCardDuo from 'components/MediaCard/MediaControlCardDuo'
+import MusicPlayerMobile from 'components/MusicPlayer/MusicPlayerMobile'
+import RecommendedCard from 'components/Discover/RecommendedCard'
 import { gql, useQuery } from '@apollo/client'
-import Footer from 'components/Footer'
-import ResponsiveAppBar from 'components/ResponsiveAppBar'
+import FooterMobile from 'components/Layout/Footer/FooterMobile'
+import ResponsiveAppBar from 'components/Layout/Appbar/ResponsiveAppBar'
+import RecommendedCardForMobile from 'components/Discover/RecommendedCardForMobile'
+import MediaControlCardDuoForTablet from 'components/MediaCard/MediaControlCardDuoForTablet'
 
 const AllQuery = gql`
   query {
@@ -26,13 +28,19 @@ const getAudioUrl = gql`
     getAudioUrl(youtubeIdInput: "$id")
   }
 `
-export default function DiscoverForDesktop() {
+export default function DiscoverForTablet() {
   const [dragAble, setDragAble] = useState(true)
   const [allContents, setAllContents] = useState<any>([])
   const [songName, setSongName] = useState<any>()
   const [audioUrl, setAudioUrl] = useState('')
   const [onPlay, setOnPlay] = useState(false)
   const { data, error, loading } = useQuery(AllQuery)
+
+  const [transform, setTransform] = useState('scale(1)')
+
+  useEffect(() => {
+    setTransform('scale(' + window.innerWidth / 1500 + ')')
+  }, [])
 
   const [musicId, setMusicId] = useState(0)
 
@@ -75,7 +83,6 @@ export default function DiscoverForDesktop() {
             src='./assets/images/logo/logoWithText.png'
           />
         </Box>
-        {/* <h1>Loading</h1> */}
       </>
     )
   }
@@ -108,7 +115,7 @@ export default function DiscoverForDesktop() {
         height: 'auto',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        // alignItems: 'center',
         overflow: 'hidden',
       }}
     >
@@ -134,10 +141,10 @@ export default function DiscoverForDesktop() {
           dragConstraints={contentRef}
           id='boxtest'
           sx={{
-            paddingBottom: '80px',
-            paddingLeft: '200px',
-            paddingRight: '200px',
-            paddingTop: '150px',
+            paddingBottom: '50px',
+            paddingLeft: '115px',
+            paddingRight: '110px',
+            paddingTop: '120px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -145,22 +152,22 @@ export default function DiscoverForDesktop() {
             position: 'fixed',
             bottom: '10%',
             left: '0%',
-            width: 'auto',
-            height: 'auto',
-            // bgcolor: "yellowgreen",
+            width: 'fit-content',
+            height: '10px',
+            // bgcolor: 'yellowgreen',
             zIndex: 2,
             pointerEvents: 'none',
           }}
         >
-          <MusicPlayer
+          <MusicPlayerMobile
             audioUrl={audioUrl}
             onPlay={onPlay}
             setOnPlay={setOnPlay}
             songName={songName}
             setDragAble={setDragAble}
             changeSong={changeSong}
-            transform={''}
-            pauseOnHover={true}
+            transform={'scale(0.6)'}
+            pauseOnHover={false}
           />
         </Box>
       </motion.div>
@@ -181,59 +188,70 @@ export default function DiscoverForDesktop() {
         ref={contentRef}
       > */}
 
-      <Typography
-        // sx={{ mt: "100px" }}
-        // fontWeight='400'
-        // lineHeight='67.84px'
-        // color='#0E5379'
-        component={motion.h1}
-        // animate={{ fontSize: '32px' }}
-
-        sx={{
-          fontFamily: 'Mitr',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          fontSize: '30px',
-          lineHeight: '47px',
-
-          color: '#0E5379',
-          mt: '50px',
-        }}
-
-        // alignSelf="center"
-      >
-        RECOMMENDED SONGS
-      </Typography>
+      {/* transform: 'scale(0.7)', */}
       <Stack
-        direction='row'
-        justifyContent='center'
-        alignItems='center'
-        spacing='0.5'
-        sx={{ mt: '-50px' }}
-        // height="350px"
-        // sx={{ bgcolor: "yellow" }}
-        // sx={{ zIndex: 0 }}
+        sx={{
+          transform: transform,
+          display: 'flex',
+          alignItems: 'center',
+          mt: 'calc(-700px + 46vw)',
+          mb: 'calc(-600px + 46vw)',
+        }}
       >
-        {allContents.slice(0, 5).map((content: any, index: number) => (
-          <RecommendedCard
-            key={content.name}
-            content={content}
-            audioUrl={audioUrl}
-            setAudioUrl={setAudioUrl}
-            onPlay={onPlay}
-            setOnPlay={setOnPlay}
-            setSongName={setSongName}
-            setMusicId={setMusicId}
-            musicId={index}
-            normalWidth={220}
-            normalHeight={220}
-            hoverWidth={500}
-            hoverHeight={280}
-            fontSize={'18px'}
-          />
-        ))}
-      </Stack>
-      {/* <div id="test">
+        <Typography
+          // sx={{ mt: "100px" }}
+          // fontWeight='400'
+          // lineHeight='67.84px'
+          // color='#0E5379'
+          component={motion.h1}
+          // animate={{ fontSize: '32px' }}
+
+          sx={{
+            fontFamily: 'Mitr',
+            fontStyle: 'normal',
+            fontWeight: 400,
+            fontSize: '30px',
+            lineHeight: '47px',
+
+            color: '#0E5379',
+            mt: '50px',
+          }}
+
+          // alignSelf="center"
+        >
+          RECOMMENDED SONGS
+        </Typography>
+        <Stack
+          direction='row'
+          justifyContent='center'
+          alignItems='center'
+          spacing='0.5'
+          sx={{ mt: '-50px' }}
+          // height="350px"
+          // sx={{ bgcolor: "yellow" }}
+          // sx={{ zIndex: 0 }}
+        >
+          {allContents.slice(0, 5).map((content: any, index: number) => (
+            <RecommendedCardForMobile
+              key={content.name}
+              content={content}
+              audioUrl={audioUrl}
+              setAudioUrl={setAudioUrl}
+              onPlay={onPlay}
+              setOnPlay={setOnPlay}
+              setSongName={setSongName}
+              setMusicId={setMusicId}
+              musicId={index}
+              normalWidth={220}
+              normalHeight={220}
+              hoverWidth={500}
+              hoverHeight={280}
+              fontSize={'18px'}
+              buttonSize={100}
+            />
+          ))}
+        </Stack>
+        {/* <div id="test">
           <Marquee
             gradient={false}
             style={{
@@ -260,53 +278,54 @@ export default function DiscoverForDesktop() {
             <Box style={{ width: "230px", height: "400px" }} /> 
           </Marquee>
         </div> */}
-      <Typography
-        // fontWeight='400'
-        // lineHeight='67.84px'
-        // color='#0E5379'
-        // marginTop="30px"
-        marginBottom='30px'
-        component={motion.h1}
-        // animate={{ fontSize: '32px' }}
-        // alignSelf="center"
-        sx={{
-          fontFamily: 'Mitr',
-          fontStyle: 'normal',
-          fontWeight: 400,
-          fontSize: '30px',
-          lineHeight: '47px',
+        <Typography
+          // fontWeight='400'
+          // lineHeight='67.84px'
+          // color='#0E5379'
+          // marginTop="30px"
+          marginBottom='30px'
+          component={motion.h1}
+          // animate={{ fontSize: '32px' }}
+          // alignSelf="center"
+          sx={{
+            fontFamily: 'Mitr',
+            fontStyle: 'normal',
+            fontWeight: 400,
+            fontSize: '30px',
+            lineHeight: '47px',
 
-          color: '#0E5379',
-        }}
-      >
-        SONG LIST
-      </Typography>
-      <Stack>
-        {allContents.map((content: any, index: number) => {
-          if (checkOdd) {
+            color: '#0E5379',
+          }}
+        >
+          SONG LIST
+        </Typography>
+        <Stack>
+          {allContents.map((content: any, index: number) => {
+            if (checkOdd) {
+              checkOdd = !checkOdd
+              return (
+                <MediaControlCardDuoForTablet
+                  key={content.name}
+                  content1={refCard}
+                  content2={content}
+                  audioUrl={audioUrl}
+                  setAudioUrl={setAudioUrl}
+                  onPlay={onPlay}
+                  setOnPlay={setOnPlay}
+                  setSongName={setSongName}
+                  setMusicId={setMusicId}
+                  musicId1={index - 1}
+                  musicId2={index}
+                />
+              )
+            }
             checkOdd = !checkOdd
-            return (
-              <MediaControlCardDuo
-                key={content.name}
-                content1={refCard}
-                content2={content}
-                audioUrl={audioUrl}
-                setAudioUrl={setAudioUrl}
-                onPlay={onPlay}
-                setOnPlay={setOnPlay}
-                setSongName={setSongName}
-                setMusicId={setMusicId}
-                musicId1={index - 1}
-                musicId2={index}
-              />
-            )
-          }
-          checkOdd = !checkOdd
-          refCard = content
-        })}
+            refCard = content
+          })}
+        </Stack>
       </Stack>
       {/* </Box> */}
-      <Footer />
+      <FooterMobile />
     </Container>
   )
 }

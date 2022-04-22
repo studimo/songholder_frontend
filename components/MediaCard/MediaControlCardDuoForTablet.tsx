@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { Stack } from '@mui/material';
-import MediaControlCard from 'components/MediaControlCard';
+import * as React from 'react'
+import { Stack } from '@mui/material'
+import MediaControlCard from 'components/MediaCard/MediaControlCard'
+import MediaControlCardForTablet from './MediaControlCardForTablet'
 
-export default function MediaControlCardDuo({
+export default function MediaControlCardDuoForTablet({
   content1,
   content2,
   audioUrl,
@@ -12,12 +13,11 @@ export default function MediaControlCardDuo({
   setSongName,
   setMusicId,
   musicId1,
-  musicId2
+  musicId2,
 }: any) {
-
   return (
     <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
-      <MediaControlCard
+      <MediaControlCardForTablet
         content={content1}
         audioUrl={audioUrl}
         setAudioUrl={setAudioUrl}
@@ -27,7 +27,7 @@ export default function MediaControlCardDuo({
         setMusicId={setMusicId}
         musicId={musicId1}
       />
-      <MediaControlCard
+      <MediaControlCardForTablet
         content={content2}
         audioUrl={audioUrl}
         setAudioUrl={setAudioUrl}
@@ -38,6 +38,5 @@ export default function MediaControlCardDuo({
         musicId={musicId2}
       />
     </Stack>
-  );
-
+  )
 }

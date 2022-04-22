@@ -6,10 +6,10 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import LandingpageCard from 'components/LandingpageCard'
+import LandingpageCard from 'components/LandingPage/LandingpageCard'
 import KeyboardDoubleArrowRightRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowRightRounded'
-import Footer from 'components/Footer'
-import ResponsiveAppBar from 'components/ResponsiveAppBar'
+import Footer from 'components/Layout/Footer/Footer'
+import ResponsiveAppBar from 'components/Layout/Appbar/ResponsiveAppBar'
 export default function LandingPageForDesktop() {
   return (
     <Container
