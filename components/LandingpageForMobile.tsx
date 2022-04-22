@@ -238,18 +238,18 @@ export default function LandingPageForMobile() {
           sx={{
             mt: '-510px',
             ml: '20px',
-            width: '156px',
+            width: '120px',
             fontFamily: 'Kalam',
             fontStyle: 'normal',
             fontWeight: '300',
             fontSize: '13px',
             lineHeight: '22px',
             color: '#FFFFFF',
+            mb: '22px',
           }}
         >
           Songholders’s fundraising campaign is a hub for emerging artists and
-          new music projects that you can be a part of them and earn a return on
-          investment.
+          new music projects.
         </Typography>
 
         <IconButton

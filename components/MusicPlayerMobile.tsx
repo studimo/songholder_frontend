@@ -1,4 +1,4 @@
-import { Card, CardActionArea } from '@mui/material'
+import { Card, CardActionArea, Typography } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 import { Box } from '@mui/system'
 import ReactPlayer from 'react-player'
@@ -12,13 +12,15 @@ import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined'
 import PauseRoundedIcon from '@mui/icons-material/PauseRounded'
 import { motion } from 'framer-motion'
 
-export default function MusicPlayer({
+export default function MusicPlayerMobile({
   audioUrl,
   onPlay,
   setOnPlay,
   songName,
   setDragAble,
   changeSong,
+  transform,
+  pauseOnHover,
 }: any) {
   const variants = {
     open: { scale: 1, x: 0, opacity: 1 },
@@ -28,18 +30,23 @@ export default function MusicPlayer({
   const [duration, setDuration] = useState(0)
   const [showButton, setShowButton] = useState(false)
   const player = useRef<any>(null)
-  const [drag, SetDrag] = useState(false)
   const [loading, SetLoading] = useState(true)
   const [onOpenControl, setOnOpenControl] = useState(false)
 
   const [controlTimeout, setControlTimeout] = useState<any>(null)
 
   useEffect(() => {
-    SetLoading(true)
+    //   SetLoading(true)
+    //   setTimeout(() => {
+    //     setOnPlay(true)
+    //   }, 500)
   }, [audioUrl])
 
-  document.addEventListener('mousedown', () => SetDrag(false))
-  document.addEventListener('mousemove', () => SetDrag(true))
+  useEffect(() => {
+    if (!loading) {
+      setDragAble(true)
+    }
+  }, [loading])
 
   // const [pointerEventForDrawer, SetPointerEventForDrawer] = useState("auto");
 
@@ -76,6 +83,7 @@ export default function MusicPlayer({
         // marginTop: "-100px",
         // marginLeft: "-250px",
         // bgcolor: "yellow",
+        transform: transform,
       }}
     >
       {audioUrl ? (
@@ -92,13 +100,14 @@ export default function MusicPlayer({
           >
             <CardActionArea
               onClick={() => {
-                if (!drag && !loading) {
+                if (!loading) {
                   onPlay ? setOnPlay(false) : setOnPlay(true)
+                  setOnOpenControl(true)
+                  clearTimeout(controlTimeout)
                 }
               }}
               onMouseOver={() => {
                 setShowButton(true)
-                setDragAble(true)
                 setOnOpenControl(true)
                 clearTimeout(controlTimeout)
               }}
@@ -115,11 +124,14 @@ export default function MusicPlayer({
             >
               <Box
                 sx={{
-                  width: '130px',
-                  height: '130px',
+                  width: '100px',
+                  height: '100px',
                   borderRadius: '100%',
                   zIndex: 3,
                   position: 'fixed',
+                  ml: '15px',
+                  mt: '15px',
+                  // backgroundColor: 'yellow',
                 }}
               />
             </CardActionArea>
@@ -128,37 +140,41 @@ export default function MusicPlayer({
               sx={{
                 width: '130px',
                 height: '130px',
-                borderRadius: '100%',
+                borderRadius: '50%',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                padding: '30px',
               }}
             >
               <Box
                 sx={{
                   fontSize: 50,
                   color: 'white',
-                  display: 'block',
+                  // display: 'block',
                   zIndex: 2,
                   position: 'fixed',
-                  mt: '20px',
+                  // mt: '20px',
+                  paddingTop: '11px',
+                  width: '200px',
+                  height: '200px',
+                  display: 'flex',
+                  // backgroundColor: 'yellow',
+                  // alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                <div
-                  onMouseLeave={() => {
-                    setDragAble(true)
-                  }}
-                >
+                <div>
                   <CircleSlider
                     value={(currentTime / duration) * 100}
-                    size={167}
+                    size={178}
                     // showTooltip={true}
-                    knobRadius={0}
+                    knobRadius={10}
                     gradientColorFrom='#67BFC2'
                     gradientColorTo='#8062B7'
-                    progressWidth={10}
-                    circleWidth={10}
+                    progressWidth={13}
+                    circleWidth={13}
                     circleColor='white'
                     onChange={(e: any) => {
                       setDragAble(false)
@@ -203,17 +219,36 @@ export default function MusicPlayer({
                 <></>
               )}
               <Box
-              // sx={{ transform: `rotate(${}deg)` }}
+                // sx={{ transform: `rotate(${}deg)` }}
+                sx={{}}
               >
+                <Box
+                  component='img'
+                  sx={{
+                    width: 'auto',
+                    height: '140px',
+                    // transform: 'scale(0.1)',
+                  }}
+                  alt={`Cover image for youtubeId ${audioUrl}`}
+                  src={`https://img.youtube.com/vi/${audioUrl}/maxresdefault.jpg`}
+                />
                 <ReactPlayer
+                  // fileConfig={{ attributes: { playsinline: true } }}
                   url={`https://www.youtube.com/embed/${audioUrl}`}
+                  // config={{ file: { attributes: { playsInline: true } } }}
+                  // config={{ vimeo: { playerOptions: { playsinline: 1 } } }}
                   // width="0px"
-                  height='1000px'
-                  width='300px'
+                  // height='1000px'
+                  // width='300px'
+                  height='0px'
+                  width='0px'
                   playing={onPlay}
                   style={{ zIndex: -1 }}
                   ref={player}
                   onProgress={e => {
+                    setTimeout(() => {
+                      setDragAble(true)
+                    }, 200)
                     setCurrentTime(e.playedSeconds)
                   }}
                   onDuration={e => {
@@ -228,6 +263,9 @@ export default function MusicPlayer({
                   }}
                   onReady={() => {
                     SetLoading(false)
+                    setDragAble(true)
+                    // this.player.getInternalPlayer().playVideo()
+                    // player.getinternalPlayer.plaVideo()
                     // console.log("ready")
                   }}
 
@@ -283,7 +321,6 @@ export default function MusicPlayer({
             variants={variants}
           >
             {/* <Stack></Stack> */}
-
             <Marquee
               gradient={false}
               style={{
@@ -293,19 +330,19 @@ export default function MusicPlayer({
                 top: '20%',
                 right: '13%',
                 fontSize: '28px',
-                // height: '100%',
+                lineHeight: '42px',
 
                 fontFamily: 'Mitr',
                 fontStyle: 'normal',
                 fontWeight: 400,
                 // fontSize: '18px',
-                lineHeight: '42px',
 
                 color: '#3a597a',
+                pointerEvents: pauseOnHover ? 'auto' : 'none',
               }}
               speed={20}
               delay={3}
-              pauseOnHover
+              pauseOnHover={pauseOnHover}
             >
               {songName}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
             </Marquee>
@@ -326,7 +363,7 @@ export default function MusicPlayer({
                 left: '50%',
               }}
               onClick={() => {
-                if (!drag && !loading) {
+                if (!loading) {
                   onPlay ? setOnPlay(false) : setOnPlay(true)
                 }
               }}

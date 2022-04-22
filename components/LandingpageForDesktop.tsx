@@ -206,11 +206,11 @@ export default function LandingPageForDesktop() {
             fontSize: '23px',
             lineHeight: '55px',
             color: '#FFFFFF',
+            mb: '110px',
           }}
         >
           Songholders’s fundraising campaign is a hub for emerging artists and
-          new music projects that you can be a part of them and earn a return on
-          investment.
+          new music projects.
         </Typography>
 
         <Stack

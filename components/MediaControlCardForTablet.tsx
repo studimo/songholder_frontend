@@ -12,7 +12,7 @@ import {
 import { PlayArrowOutlined, Pause } from '@mui/icons-material'
 // import PauseIcon from '@mui/icons-material/Pause'
 
-export default function MediaControlCard({
+export default function MediaControlCardForTablet({
   content,
   setAudioUrl,
   audioUrl,
@@ -47,23 +47,14 @@ export default function MediaControlCard({
     >
       <CardMedia
         sx={{
-          width: 180,
+          width: showButton ? 400 : 180,
           transition: '0.2s',
-          '&:hover': {
-            width: 400,
-            backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
-            // borderTopRightRadius: 15,
-            borderBottomRightRadius: 50,
-            // transition: "0.2s",
-          },
+
+          borderBottomRightRadius: showButton ? 50 : 0,
           src: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
-          backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
-        }}
-        onMouseOver={() => {
-          setShowButton(true)
-        }}
-        onMouseLeave={() => {
-          setShowButton(false)
+          backgroundImage: showButton
+            ? `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`
+            : `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
         }}
       >
         <CardActionArea
@@ -79,11 +70,22 @@ export default function MediaControlCard({
             setAudioUrl(content.youtubeId)
             setSongName(content.name)
             setMusicId(musicId)
-            if (audioUrl == content.youtubeId && onPlay) {
+            const ua = navigator.userAgent
+            if (
+              /iPad|iPhone|iPod/.test(ua) ||
+              (navigator.platform === 'MacIntel' &&
+                navigator.maxTouchPoints > 1)
+            ) {
+              setOnPlay(false)
+            } else if (audioUrl == content.youtubeId && onPlay) {
               setOnPlay(false)
             } else {
               setOnPlay(true)
             }
+            setShowButton(true)
+            setTimeout(() => {
+              setShowButton(false)
+            }, 250)
           }}
         >
           {audioUrl == content.youtubeId ? (

@@ -52,7 +52,7 @@ export default function LandingPageForMobile() {
         >
           <Typography
             sx={{
-              mt: '74vh',
+              mt: '500px',
               color: 'white',
               fontWeight: '500',
               fontSize: '3.8vw',
@@ -107,171 +107,155 @@ export default function LandingPageForMobile() {
       </Stack>
       <Stack
         className='second paragraph'
-        sx={{ width: '100vw', height: '600px', mt: '30vw', mb: '-450px' }}
+        sx={{
+          width: '100vw',
+          height: '30vw',
+          mt: '400px',
+          // mb: '-450px',
+        }}
       >
-        <Box
-          sx={{
-            width: '100%',
-            height: '600px',
-          }}
-        >
-          <svg
-            viewBox='0 250 1550 600'
-            width='100%'
-            height='auto'
-            style={{
-              marginTop: '0px',
-            }}
-          >
-            <path
-              d='M-333 56.5001C209.5 477.5 1004 624 1871.5 117C2739 -390 2497.5 927.5 1782.5 796.5C1067.5 665.5 -396.5 764.33 -396.5 764.33C-396.5 764.33 -552.976 -114.209 -333 56.5001Z'
-              fill='url(#paint0_linear_428_37098)'
-              fillOpacity='0.55'
-              id='CurvedPath'
-            />
-            <defs>
-              <linearGradient
-                id='paint0_linear_428_37098'
-                x1='268.878'
-                y1='378.133'
-                x2='1235.88'
-                y2='19.133'
-                gradientUnits='userSpaceOnUse'
-              >
-                <stop stopColor='#2BA4AB' />
-                <stop offset='1' stopColor='#2E007C' />
-              </linearGradient>
-            </defs>
-            <text
-              fontSize='54'
-              x='325'
-              y='50'
-              textAnchor='middle'
-              fill='#5199C0'
-              dy='-5%'
-            >
-              <textPath
-                id='MyMessage'
-                xlinkHref='#CurvedPath'
-                style={{
-                  fontFamily: 'Kalam',
-                  fontStyle: 'normal',
-                  fontWeight: 700,
-                  fontSize: '30px',
-                  lineHeight: '45px',
-                  // color: "#5199C0",
-
-                  transform: 'rotate(5deg)',
-                  letterSpacing: '3px',
-                }}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Be
-                the Songholders
-              </textPath>
-            </text>
-            <text
-              fontSize='54'
-              x='325'
-              y='50'
-              textAnchor='middle'
-              fill='#236386'
-              dy='-5%'
-            >
-              <textPath
-                id='MyMessage'
-                xlinkHref='#CurvedPath'
-                style={{
-                  fontFamily: 'Mitr',
-                  fontStyle: 'normal',
-                  fontWeight: 400,
-                  fontSize: '43px',
-                  lineHeight: '45px',
-                  color: '#236386',
-                  textShadow: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-                  letterSpacing: '3px',
-                }}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fund
-                the next big hit music track
-              </textPath>
-            </text>
-          </svg>
-        </Box>
-        <Typography
-          sx={{
-            mt: '-338px',
-            ml: '20px',
-            width: '50vw',
-            fontFamily: 'Kalam',
-            fontStyle: 'normal',
-            fontWeight: '400',
-            fontSize: '2.8vw',
-            lineHeight: '3.8vw',
-            color: '#FFFFFF',
-          }}
-        >
-          Songholders’s fundraising campaign is a hub for emerging artists and
-          new music projects that you can be a part of them and earn a return on
-          investment.
-        </Typography>
-
         <Stack
-          direction='row'
-          justifyContent='flex-start'
-          alignItems='center'
-          spacing='0.5'
+          flexDirection='row'
           sx={{
-            mt: '-21vw',
-            ml: '65vw',
-            width: '900px',
-            paddingTop: '50px',
-          }}
-        >
-          <LandingpageCard url='3u_52yBjXZw' size1={'13vw'} size2={'15.5vw'} />
-          <LandingpageCard url='dIwxIF5SBLc' size1={'13vw'} size2={'15.5vw'} />
-          <LandingpageCard url='nOPyJ9M9cX8' size1={'13vw'} size2={'15.5vw'} />
-          <LandingpageCard url='EDs719Qy414' size1={'13vw'} size2={'15.5vw'} />
-        </Stack>
-
-        <IconButton
-          sx={{
-            color: 'white',
-            borderRadius: '10px',
-            ml: '50vw',
-            mt: '-9vw',
-            width: '190px',
-          }}
-          onClick={() => {
-            location.href = '/discover'
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Typography
             sx={{
-              mr: '0px',
-              mt: '-5px',
+              width: '100%',
+              fontFamily: 'Kalam',
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: '2.8vw',
+              lineHeight: '3.8vw',
+              color: '#5199C0',
+              // mb: '20px',
+              ml: '90px',
+              mt: '3px',
+            }}
+          >
+            Be the Songholders
+          </Typography>
+          <Typography
+            sx={{
+              width: '100%',
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 400,
-              fontSize: '2vw',
-              lineHeight: '36px',
-              textAlign: 'center',
-
-              color: 'rgba(255, 255, 255, 0.7)',
+              fontSize: '3.3vw',
+              lineHeight: '3.8vw',
+              color: '#236386',
+              mb: '10px',
+              ml: '-280px',
             }}
           >
-            EXPLORE
+            Fund the next big hit music track
           </Typography>
-          <KeyboardDoubleArrowRightRoundedIcon
+        </Stack>
+        <Box
+          sx={{
+            width: '100vw',
+            height: '100%',
+            backgroundImage:
+              'linear-gradient(123.57deg, rgba(14, 167, 167, 0.55) 35.86%, rgba(46, 0, 124, 0.55) 77.15%)',
+            padding: '40px',
+            flexDirection: 'row',
+            // paddingTop: '60px',
+          }}
+        >
+          <Typography
             sx={{
-              borderStyle: 'solid',
-              borderWidth: '0.5vw',
-              borderRadius: '50%',
-              fontSize: '4vw',
-              opacity: 0.7,
-              ml: '0.2vw',
+              // mt: '-338px',
+              ml: '20px',
+              width: '50vw',
+              fontFamily: 'Kalam',
+              fontStyle: 'normal',
+              fontWeight: '400',
+              fontSize: '2.8vw',
+              lineHeight: '3.8vw',
+              color: '#FFFFFF',
             }}
-          />
-        </IconButton>
+          >
+            Songholders’s fundraising campaign is a hub for emerging artists and
+            new music projects.
+          </Typography>
+
+          <Stack
+            direction='row'
+            justifyContent='flex-start'
+            alignItems='center'
+            spacing='0.5'
+            sx={{
+              mt: '-130px',
+              ml: '65vw',
+              width: '900px',
+              paddingTop: '50px',
+            }}
+          >
+            <LandingpageCard
+              url='3u_52yBjXZw'
+              size1={'13vw'}
+              size2={'15.5vw'}
+            />
+            <LandingpageCard
+              url='dIwxIF5SBLc'
+              size1={'13vw'}
+              size2={'15.5vw'}
+            />
+            <LandingpageCard
+              url='nOPyJ9M9cX8'
+              size1={'13vw'}
+              size2={'15.5vw'}
+            />
+            <LandingpageCard
+              url='EDs719Qy414'
+              size1={'13vw'}
+              size2={'15.5vw'}
+            />
+          </Stack>
+
+          <IconButton
+            sx={{
+              color: 'white',
+              borderRadius: '10px',
+              ml: '50vw',
+              mt: '-9vw',
+              width: '190px',
+            }}
+            onClick={() => {
+              location.href = '/discover'
+            }}
+          >
+            <Typography
+              sx={{
+                mr: '0px',
+                mt: '-5px',
+                fontFamily: 'Mitr',
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '2vw',
+                lineHeight: '36px',
+                textAlign: 'center',
+
+                color: 'rgba(255, 255, 255, 0.7)',
+              }}
+            >
+              EXPLORE
+            </Typography>
+            <KeyboardDoubleArrowRightRoundedIcon
+              sx={{
+                borderStyle: 'solid',
+                borderWidth: '0.5vw',
+                borderRadius: '50%',
+                fontSize: '4vw',
+                opacity: 0.7,
+                ml: '0.2vw',
+              }}
+            />
+          </IconButton>
+        </Box>
       </Stack>
       <Stack
         className='Third paragraph'
@@ -281,7 +265,7 @@ export default function LandingPageForMobile() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          mt: '18vw',
+          mt: '-100px',
         }}
       >
         <Typography
@@ -294,6 +278,7 @@ export default function LandingPageForMobile() {
             textAlign: 'center',
             color: ' #3A8F8F',
             mb: '1vw',
+            mt: '10vw',
             // letterSpacing: "6px",
           }}
         >

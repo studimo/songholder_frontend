@@ -88,12 +88,14 @@ function ResponsiveAppBar(props: AppBarProps) {
   // console.log(authUser)
   const router = useRouter()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [menuOpen, setMenuOpen] = React.useState(false)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   )
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget)
+    setMenuOpen(!menuOpen)
+    // setAnchorElNav(event.currentTarget)
   }
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget)
@@ -124,7 +126,10 @@ function ResponsiveAppBar(props: AppBarProps) {
           threshold: 270,
         })
       : props.background == 'gradient'
-
+  const variant = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: '-100%' },
+  }
   return (
     <AppBar
       className='navbar'
@@ -186,6 +191,64 @@ function ResponsiveAppBar(props: AppBarProps) {
                 />
               </svg>
             </IconButton>
+            <Stack
+              sx={{
+                flexDirection: 'row',
+                height: '100%',
+                // display: menuOpen ? 'flex' : 'none',
+                justifyContent: 'flex',
+                alignContent: 'center',
+                mt: '3px',
+              }}
+            >
+              <Button
+                component={motion.div}
+                animate={menuOpen ? 'open' : 'closed'}
+                variants={variant}
+                disabled={!menuOpen}
+                sx={{
+                  fontFamily: 'Mitr',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '24px',
+                  mr: '20px',
+                  ml: '20px',
+                  // opacity: props.page == 'HOME' ? '1' : '0.6',
+                  color:
+                    props.page == 'HOME' ? 'white' : 'rgba(255, 255, 255, 0.6)',
+                }}
+                onClick={() => {
+                  location.href = `/home`
+                }}
+              >
+                HOME
+              </Button>
+              <Button
+                component={motion.div}
+                animate={menuOpen ? 'open' : 'closed'}
+                variants={variant}
+                disabled={!menuOpen}
+                sx={{
+                  fontFamily: 'Mitr',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '24px',
+                  // opacity: props.page == 'DISCOVER' ? '1' : '0.6',
+                  color:
+                    props.page == 'DISCOVER'
+                      ? 'white'
+                      : 'rgba(255, 255, 255, 0.6)',
+                  // color: 'white',
+                }}
+                onClick={() => {
+                  location.href = `/discover`
+                }}
+              >
+                DISCOVER
+              </Button>
+            </Stack>
             <Menu
               id='menu-appbar'
               anchorEl={anchorElNav}
@@ -205,7 +268,12 @@ function ResponsiveAppBar(props: AppBarProps) {
               }}
             >
               {pages.map(page => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={page}
+                  onClick={() => {
+                    location.href = `/${page.toLowerCase()}`
+                  }}
+                >
                   <Typography textAlign='center'>{page}</Typography>
                 </MenuItem>
               ))}
@@ -216,13 +284,22 @@ function ResponsiveAppBar(props: AppBarProps) {
             variant='h6'
             noWrap
             component='div'
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{
+              display: {
+                xs: menuOpen ? 'none' : 'flex',
+                md: 'none',
+              },
+              position: 'absolute',
+              right: 'calc(50vw - 25px)',
+            }}
           >
             <Box
               component='img'
               sx={{
                 height: '50px',
                 width: '50px',
+                // paddingLeft: '25px',
+                // mr: '-25px',
                 // maxHeight: { xs: 233, md: 167 },
                 // maxWidth: { xs: 350, md: 250 },
               }}
@@ -394,7 +471,9 @@ function ResponsiveAppBar(props: AppBarProps) {
               <AttachFileIcon fontSize="large" />
             </Badge>
           </IconButton> */}
-          {authUser ? (
+          {menuOpen ? (
+            <></>
+          ) : authUser ? (
             <Box sx={{ flexGrow: 0, mr: '15px', flexDirection: 'row' }}>
               <Stack
                 sx={{
@@ -475,7 +554,7 @@ function ResponsiveAppBar(props: AppBarProps) {
               }}
             >
               <Typography
-                sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
+                sx={{ color: 'white', fontSize: '13px', textTransform: 'none' }}
               >
                 SING IN
               </Typography>

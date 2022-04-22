@@ -10,7 +10,7 @@ import PauseIcon from '@mui/icons-material/Pause'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-export default function RecommendedCard({
+export default function RecommendedCardForMobile({
   content,
   setAudioUrl,
   audioUrl,
@@ -24,6 +24,7 @@ export default function RecommendedCard({
   hoverWidth,
   hoverHeight,
   fontSize,
+  buttonSize,
 }: any) {
   const [showButton, setShowButton] = useState(false)
   // console.log(content);
@@ -45,29 +46,25 @@ export default function RecommendedCard({
         <CardMedia
           sx={{
             clipPath: 'polygon(15% 0%, 100% 0%,85% 100%,0% 100%)',
-            height: normalHeight, //220
-            width: normalWidth, //220
+            height: showButton ? hoverHeight : normalHeight, //220
+            width: showButton ? hoverWidth : normalWidth, //220
             transition: '0.2s',
             transitionDelay: '0.02s',
             backgroundSize: 'cover',
             borderRadius: '0px',
-            '&:hover': {
-              clipPath: 'polygon(9% 0%, 100% 0%,91% 100%,0% 100%)',
-              height: hoverHeight, //280
-              width: hoverWidth, //500
-              backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
-              // borderTopRightRadius: 15,
-              // borderBottomRightRadius: 50,
-              // transition: "0.2s",
-            },
+            // '&:hover': {
+            // clipPath: 'polygon(9% 0%, 100% 0%,91% 100%,0% 100%)',
+            // height: hoverHeight, //280
+            // width: hoverWidth, //500
+            // backgroundImage: `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
+            // borderTopRightRadius: 15,
+            // borderBottomRightRadius: 50,
+            // transition: "0.2s",
+            // },
             boxShadow: '10px 0px 25px rgba(0, 0, 0, 0.5)',
-            backgroundImage: `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
-          }}
-          onMouseOver={() => {
-            setShowButton(true)
-          }}
-          onMouseLeave={() => {
-            setShowButton(false)
+            backgroundImage: showButton
+              ? `linear-gradient(134.22deg, rgba(1, 124, 117, 0.3) 23.94%, rgba(147, 2, 171, 0.3) 80.19%), url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`
+              : `url(https://img.youtube.com/vi/${content.youtubeId}/maxresdefault.jpg)`,
           }}
         >
           <CardActionArea
@@ -95,6 +92,10 @@ export default function RecommendedCard({
               } else {
                 setOnPlay(true)
               }
+              setShowButton(true)
+              setTimeout(() => {
+                setShowButton(false)
+              }, 200)
             }}
           >
             {audioUrl == content.youtubeId ? (
@@ -102,7 +103,7 @@ export default function RecommendedCard({
                 showButton ? (
                   <PauseIcon
                     sx={{
-                      fontSize: 100,
+                      fontSize: buttonSize,
                       color: 'white',
                     }}
                   />
@@ -112,7 +113,7 @@ export default function RecommendedCard({
               ) : showButton ? (
                 <PlayArrowOutlinedIcon
                   sx={{
-                    fontSize: 100,
+                    fontSize: buttonSize,
                     color: 'white',
                   }}
                 />
@@ -122,7 +123,7 @@ export default function RecommendedCard({
             ) : showButton ? (
               <PlayArrowOutlinedIcon
                 sx={{
-                  fontSize: 100,
+                  fontSize: buttonSize,
                   color: 'white',
                 }}
               />
