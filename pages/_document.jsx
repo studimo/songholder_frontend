@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
           <link
             rel='shortcut icon'
             type='image/x-icon'
-            href='./assets/images/logo/logoWithoutText.png'
+            href='./assets/images/logo/iconLogo.PNG'
           />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link

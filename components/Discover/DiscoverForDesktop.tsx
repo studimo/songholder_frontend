@@ -17,7 +17,6 @@ const AllQuery = gql`
       artist
       style
       requirement
-      youtubeId
     }
   }
 `

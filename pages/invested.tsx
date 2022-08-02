@@ -1,4 +1,4 @@
-import ResponsiveAppBar from 'components/ResponsiveAppBar'
+import ResponsiveAppBar from 'components/Layout/Appbar/ResponsiveAppBar'
 
 export default function Invested() {
   return (

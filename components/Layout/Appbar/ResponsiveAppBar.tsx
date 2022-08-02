@@ -76,7 +76,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 interface AppBarProps {
   background: 'auto' | 'gradient' | 'transparent'
-  page: 'HOME' | 'DISCOVER' | 'INVESTED'
+  page: 'HOME' | 'DISCOVER' | 'INVESTED' | 'PROJECT'
 }
 function ResponsiveAppBar(props: AppBarProps) {
   const { scrollYProgress, scrollY } = useViewportScroll()
@@ -169,7 +169,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                 // maxWidth: { xs: 350, md: 250 },
               }}
               alt='LOGO'
-              src='./assets/images/logo/logoWithoutText.png'
+              src='/assets/images/logo/logoWithoutText.png'
             />
           </Typography>
 
@@ -202,6 +202,7 @@ function ResponsiveAppBar(props: AppBarProps) {
               }}
             >
               <Button
+                key='home'
                 component={motion.div}
                 animate={menuOpen ? 'open' : 'closed'}
                 variants={variant}
@@ -225,6 +226,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                 HOME
               </Button>
               <Button
+                key='DISCOVER'
                 component={motion.div}
                 animate={menuOpen ? 'open' : 'closed'}
                 variants={variant}
@@ -274,7 +276,9 @@ function ResponsiveAppBar(props: AppBarProps) {
                     location.href = `/${page.toLowerCase()}`
                   }}
                 >
-                  <Typography textAlign='center'>{page}</Typography>
+                  <Typography textAlign='center' key={page + 'typography'}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -304,7 +308,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                 // maxWidth: { xs: 350, md: 250 },
               }}
               alt='LOGO'
-              src='./assets/images/logo/logoWithoutText.png'
+              src='/assets/images/logo/logoWithoutText.png'
             />
           </Typography>
           <Box
@@ -316,7 +320,7 @@ function ResponsiveAppBar(props: AppBarProps) {
           >
             {pages.map(
               page => (
-                <>
+                <Stack key={page + 'stack'} sx={{ flexDirection: 'row' }}>
                   <Divider
                     key={page + '-divider'}
                     orientation='vertical'
@@ -331,7 +335,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                     }}
                   />
                   <Button
-                    key={page}
+                    key={page + '-buttonInBOx'}
                     onClick={() => {
                       location.href = `/${page.toLowerCase()}`
                     }}
@@ -365,7 +369,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                   >
                     {page}
                   </Button>
-                </>
+                </Stack>
                 // <AppbarButton key={page} page={page}></AppbarButton>
               ),
               // page == 'HOME' ? (
@@ -556,7 +560,7 @@ function ResponsiveAppBar(props: AppBarProps) {
               <Typography
                 sx={{ color: 'white', fontSize: '13px', textTransform: 'none' }}
               >
-                SING IN
+                SIGN IN
               </Typography>
               <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
             </Button>

@@ -1,5 +1,5 @@
-import RegisterVer2ForDesktop from 'components/RegisterVer2ForDesktop'
-import RegisterVer2ForMobile from 'components/RegisterVer2ForMobile'
+import RegisterVer2ForDesktop from 'components/Register/RegisterVer2ForDesktop'
+import RegisterVer2ForMobile from 'components/Register/RegisterVer2ForMobile'
 import { useEffect, useState } from 'react'
 
 export default function register() {

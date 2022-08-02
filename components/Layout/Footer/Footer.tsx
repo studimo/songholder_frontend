@@ -31,10 +31,10 @@ export default function Footer() {
             alignItems: 'center',
           }}
         >
-          <Box sx={{ width: '40vw', height: '1px', bgcolor: 'white' }} />
+          <Box sx={{ width: '1000px', height: '1px', bgcolor: 'white' }} />
           <Stack
             sx={{
-              width: '20vw',
+              width: { xs: '190px', sm: '220px', md: '250px', lg: '280px' },
               height: '3px',
               flexDirection: 'row',
               display: 'flex',
@@ -46,7 +46,7 @@ export default function Footer() {
               <Box
                 component='img'
                 sx={{
-                  height: '100px',
+                  height: { xs: '70px', sm: '80px', md: '90px', lg: '100px' },
                   width: 'auto',
                   // maxHeight: { xs: 233, md: 167 },
                   // maxWidth: { xs: 350, md: 250 },
@@ -56,7 +56,7 @@ export default function Footer() {
               />
             </Typography>
           </Stack>
-          <Box sx={{ width: '40vw', height: '1px', bgcolor: 'white' }} />
+          <Box sx={{ width: '1000px', height: '1px', bgcolor: 'white' }} />
         </Stack>
 
         <Stack
@@ -65,13 +65,16 @@ export default function Footer() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            mt: '50px',
           }}
+          spacing='20px'
         >
           <Typography
             sx={{
-              m: '20px',
-              ml: '90px',
-              fontSize: '14px',
+              // m: '20px',
+              ml: '55px',
+              fontSize: { xs: '9px', sm: '10px', md: '11px', lg: '13px' },
+              display: { xs: 'none', md: 'flex' },
             }}
             color='white'
           >
@@ -86,12 +89,14 @@ export default function Footer() {
               alignSelf: 'center',
               borderRightWidth: 0.7,
               background: 'white',
+              display: { xs: 'none', md: 'flex' },
             }}
           />
           <Typography
             sx={{
-              m: '20px',
-              fontSize: '14px',
+              // m: '20px',
+              fontSize: { xs: '9px', sm: '10px', md: '11px', lg: '13px' },
+              display: { xs: 'none', md: 'flex' },
             }}
             color='white'
           >
@@ -106,6 +111,7 @@ export default function Footer() {
               alignSelf: 'center',
               borderRightWidth: 0.7,
               background: 'white',
+              display: { xs: 'none', md: 'flex' },
             }}
           />
           <Stack
@@ -114,9 +120,10 @@ export default function Footer() {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              padding: '50px',
+              // padding: '50px',
             }}
-            spacing={7}
+            // spacing={7}
+            spacing={{ xs: '25px', sm: '40px', md: '30px', lg: '40px' }}
           >
             <IconButton href='https://www.facebook.com/Songholder-104864228867080'>
               <FacebookRounded sx={{ color: 'white', fontSize: '30px' }} />
@@ -131,6 +138,7 @@ export default function Footer() {
               >
                 <img
                   src='./assets/images/logo/logoInstagram.png'
+                  alt='Logo_IG'
                   style={{ height: '30px', marginLeft: 0 }}
                 />
               </Typography>
@@ -152,12 +160,14 @@ export default function Footer() {
               alignSelf: 'center',
               borderRightWidth: 0.7,
               background: 'white',
+              display: { xs: 'none', md: 'flex' },
             }}
           />
           <Typography
             sx={{
               m: '20px',
-              fontSize: '14px',
+              fontSize: { xs: '9px', sm: '10px', md: '11px', lg: '13px' },
+              display: { xs: 'none', md: 'flex' },
             }}
             color='white'
           >
@@ -172,13 +182,15 @@ export default function Footer() {
               alignSelf: 'center',
               borderRightWidth: 0.7,
               background: 'white',
+              display: { xs: 'none', md: 'flex' },
             }}
           />
 
           <Typography
             sx={{
               m: '20px',
-              fontSize: '14px',
+              fontSize: { xs: '9px', sm: '10px', md: '11px', lg: '13px' },
+              display: { xs: 'none', md: 'flex' },
             }}
             color='white'
           >

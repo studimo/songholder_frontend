@@ -20,7 +20,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/discover.tsx",
+    "pages/discover/discover.tsx",
     "components/player.js",
     "pages/_document.jsx"
   ],

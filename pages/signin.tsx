@@ -1,5 +1,5 @@
-import SigninVer2ForDesktop from 'components/SigninVer2ForDesktop'
-import SigninVer2ForMobile from 'components/SigninVer2ForMobile'
+import SigninVer2ForDesktop from 'components/Signin/SigninVer2ForDesktop'
+import SigninVer2ForMobile from 'components/Signin/SigninVer2ForMobile'
 import { useEffect, useState } from 'react'
 
 export default function signin() {
