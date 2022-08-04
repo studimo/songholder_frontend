@@ -17,13 +17,13 @@ export const RootContainer = styled(Container)(() => ({
   gap: '20px',
 }))
 export const HeaderDetailsContainer = styled('div')(() => ({
-  desplay: 'flex',
+  display: 'flex',
   flexDirection: 'column',
   width: '100vw',
   alignItems: 'center',
 }))
 
 export const TabsContainer = styled('div')(() => ({
-  desplay: 'flex',
+  display: 'flex',
   flexDirection: 'column',
 }))

@@ -4,6 +4,7 @@ import ProjectDetails from './components/ProjectDetails'
 import TrackBar from './components/ProjectDetails/TrackBar'
 import DescribtionTab from './components/Tabs/DescribtionTab'
 import ProjectDetailTab from './components/Tabs/ProjectDetailTab'
+import TimeLineTab from './components/Tabs/TimelineTab'
 import { HeaderDetailsContainer, RootContainer, TabsContainer } from './styled'
 
 export default function Project() {
@@ -19,6 +20,7 @@ export default function Project() {
         <Divider sx={{ ml: '58px', mr: '50px', color: '#A2B6D2' }} />
         <DescribtionTab />
         <Divider sx={{ ml: '58px', mr: '50px', color: '#A2B6D2' }} />
+        <TimeLineTab />
       </TabsContainer>
     </RootContainer>
   )

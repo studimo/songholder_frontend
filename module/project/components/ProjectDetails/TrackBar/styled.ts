@@ -6,7 +6,6 @@ export const TrackBarContainer = styled('div')(() => ({
   width: 'calc( 100vw - 100px )',
   height: '15px',
   marginTop: '20px',
-  marginLeft: '50px',
 }))
 export const KnotsContainer = styled('div')(() => ({
   position: 'absolute',

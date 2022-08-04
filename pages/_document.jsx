@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
             name='description'
             content='Fundraising for creative music projects, there is no better place to find a demo from a talented artist.'
           />
+          <meta name='keywords' content='song holder' />
           <meta name='keywords' content='ทำเพลง' />
           <meta name='keywords' content='เพลงใหม่' />
           <meta name='keywords' content='ศิลปินอินดี้' />
@@ -23,7 +24,7 @@ export default class MyDocument extends Document {
           <link
             rel='shortcut icon'
             type='image/x-icon'
-            href='./assets/images/logo/iconLogo.PNG'
+            href='/assets/images/logo/iconLogo.PNG'
           />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link

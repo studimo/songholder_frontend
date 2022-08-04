@@ -2,10 +2,9 @@ import { Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
 export const TabContainer = styled('div')(() => ({
-  desplay: 'flex',
   width: '100vw',
   paddingLeft: '50px',
-  flexDirection: 'column',
+  paddingRight: '50px',
 }))
 
 export const DescriptionText = styled(Typography)(() => ({
@@ -16,8 +15,8 @@ export const DescriptionText = styled(Typography)(() => ({
   fontWeight: 300,
   fontSize: '12px',
 
-  marginLeft: '25px',
-  width: '75%',
+  paddingLeft: '25px',
+  width: '100%',
   wordBreak: 'break-word',
 
   marginBottom: '10px',
