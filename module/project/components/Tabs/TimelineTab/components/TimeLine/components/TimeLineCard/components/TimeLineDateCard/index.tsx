@@ -6,9 +6,9 @@ import {
   MonthDateText,
   TimelineDateCardContainer,
 } from './styled'
-import { TimeLineDateCardProps } from './types'
+import { TimelineDateCardProps } from './types'
 
-export default function TimelineDateCard(props: TimeLineDateCardProps) {
+export default function TimelineDateCard(props: TimelineDateCardProps) {
   const { date } = props
   return (
     <TimelineDateCardContainer>

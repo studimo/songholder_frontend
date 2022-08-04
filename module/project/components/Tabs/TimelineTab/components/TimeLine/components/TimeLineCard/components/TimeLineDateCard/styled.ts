@@ -5,7 +5,7 @@ export const TimelineDateCardContainer = styled('div')(() => ({
   display: 'block',
   flexDirection: 'column',
   width: '50px',
-  height: '100%',
+  height: 'auto',
 }))
 export const CircleDate = styled('div')(() => ({
   display: 'flex',

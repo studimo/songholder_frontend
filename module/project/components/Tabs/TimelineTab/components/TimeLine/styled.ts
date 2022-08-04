@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
-export const TimeLineContainer = styled('div')(() => ({
+export const TimelineContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '10px',
 }))

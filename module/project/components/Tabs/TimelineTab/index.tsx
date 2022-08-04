@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import HeaderButtonTab from '../components/HeaderButtonTab'
-import TimeLine from './components/TimeLine'
+import Timeline from './components/Timeline'
 import { TabContainer } from './styled'
 
-export default function TimeLineTab() {
+export default function TimelineTab() {
   const [onOpen, setOnOpen] = useState(false)
   return (
     <TabContainer>
@@ -12,7 +12,7 @@ export default function TimeLineTab() {
         onOpen={onOpen}
         setOnOpen={setOnOpen}
       />
-      {onOpen ? <TimeLine /> : null}
+      {onOpen ? <Timeline /> : null}
     </TabContainer>
   )
 }

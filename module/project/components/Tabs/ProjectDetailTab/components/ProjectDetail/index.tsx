@@ -1,6 +1,6 @@
-import { Typography } from '@mui/material'
 import ProjectDetailDataShow from './components/ProjectDetailDataShow'
 import { ProjectDetailsContainer } from './styled'
+import { motion } from 'framer-motion'
 
 export default function ProjectDetail() {
   const projectDetails = [
@@ -12,14 +12,20 @@ export default function ProjectDetail() {
     { title: 'อื่นๆ', data: 'demo' },
   ]
   return (
-    <ProjectDetailsContainer>
-      {projectDetails.map(projectDetail => (
-        <ProjectDetailDataShow
-          key={projectDetail.title}
-          title={projectDetail.title}
-          data={projectDetail.data}
-        />
-      ))}
-    </ProjectDetailsContainer>
+    <motion.div
+      initial={{ opacity: -2, y: '-80%' }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      <ProjectDetailsContainer>
+        {projectDetails.map(projectDetail => (
+          <ProjectDetailDataShow
+            key={projectDetail.title}
+            title={projectDetail.title}
+            data={projectDetail.data}
+          />
+        ))}
+      </ProjectDetailsContainer>
+    </motion.div>
   )
 }

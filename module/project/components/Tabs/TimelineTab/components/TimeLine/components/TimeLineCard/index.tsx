@@ -1,13 +1,14 @@
-import { Typography } from '@mui/material'
-import TimelineDateCard from './components/TimeLineDateCard'
-import { TimeLineCardContainer } from './styled'
-import { TimeLineCardProps } from './types'
+import TimelineCardDetail from './components/TimelineCardDetail'
+import TimelineDateCard from './components/TimelineDateCard'
+import { TimelineCardContainer } from './styled'
+import { TimelineCardProps } from './types'
 
-export default function TimeLineCard(props: TimeLineCardProps) {
+export default function TimelineCard(props: TimelineCardProps) {
   const { date, title, desc } = props
   return (
-    <TimeLineCardContainer>
+    <TimelineCardContainer>
       <TimelineDateCard date={date} />
-    </TimeLineCardContainer>
+      <TimelineCardDetail title={title} desc={desc} />
+    </TimelineCardContainer>
   )
 }

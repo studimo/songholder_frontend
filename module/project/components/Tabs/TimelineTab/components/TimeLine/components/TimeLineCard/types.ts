@@ -1,4 +1,4 @@
-export type TimeLineCardProps = {
+export type TimelineCardProps = {
   date: Date
   title: string
   desc: string

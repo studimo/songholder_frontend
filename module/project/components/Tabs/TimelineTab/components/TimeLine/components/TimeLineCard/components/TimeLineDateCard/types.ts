@@ -1,3 +1,3 @@
-export type TimeLineDateCardProps = {
+export type TimelineDateCardProps = {
   date: Date
 }

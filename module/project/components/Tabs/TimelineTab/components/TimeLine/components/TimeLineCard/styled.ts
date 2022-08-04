@@ -1,7 +1,7 @@
 import { styled } from '@mui/system'
 
-export const TimeLineCardContainer = styled('div')(() => ({
-  display: 'block',
+export const TimelineCardContainer = styled('div')(() => ({
+  display: 'flex',
   flexDirection: 'row',
   paddingLeft: '25px',
   height: 'auto',

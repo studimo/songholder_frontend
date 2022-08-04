@@ -1,12 +1,13 @@
-import TimeLineCard from './components/TimeLineCard'
-import { TimeLineContainer } from './styled'
+import TimelineCard from './components/TimelineCard'
+import { TimelineContainer } from './styled'
+import { motion } from 'framer-motion'
 
-export default function TimeLine() {
-  const timeLineDatas = [
+export default function Timeline() {
+  const TimelineDatas = [
     {
       date: new Date('2023-04-10'),
       title: 'เปิดระดมทุน',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
+      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssavldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
     },
     {
       date: new Date('2023-05-10'),
@@ -45,14 +46,21 @@ export default function TimeLine() {
     },
   ]
   return (
-    <TimeLineContainer>
-      {timeLineDatas.map(timeLineData => (
-        <TimeLineCard
-          date={timeLineData.date}
-          title={timeLineData.title}
-          desc={timeLineData.desc}
-        />
-      ))}
-    </TimeLineContainer>
+    <motion.div
+      initial={{ opacity: -2, y: '-80%' }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      <TimelineContainer>
+        {TimelineDatas.map(TimelineData => (
+          <TimelineCard
+            key={TimelineData.date.getDate() + TimelineData.title}
+            date={TimelineData.date}
+            title={TimelineData.title}
+            desc={TimelineData.desc}
+          />
+        ))}
+      </TimelineContainer>
+    </motion.div>
   )
 }
