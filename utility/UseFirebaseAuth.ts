@@ -31,7 +31,7 @@ const formatIdTokenResult = (token: any, claims: CustomClaims) => ({
 export interface CustomAuthUser {
   uid: string | null
   email: string | null
-  name: string | null
+  displayName: string | null
   photoURL: string | null
   token: string | null
   claims: CustomClaims | null
@@ -44,7 +44,7 @@ const formatUser = (
 ): CustomAuthUser => ({
   uid: authUser.uid || null,
   email: authUser.email || null,
-  name: authUser.displayName || null,
+  displayName: authUser.displayName || null,
   photoURL: authUser.photoURL || null,
   token: token || null,
   claims: claims || null,

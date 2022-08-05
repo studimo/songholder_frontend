@@ -490,7 +490,9 @@ function ResponsiveAppBar(props: AppBarProps) {
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar
                       alt='Remy Sharp'
-                      src={authUser.photoURL || '/static/images/avatar/2.jpg'}
+                      src={
+                        authUser.photoURL || '/assets/images/dummyProfile.png'
+                      }
                     />
                   </IconButton>
                 </Tooltip>
@@ -508,7 +510,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                     color: '#FFFFFF',
                   }}
                 >
-                  {authUser.email || ''}
+                  {authUser.displayName || authUser.email}
                 </Typography>
               </Stack>
               <Menu
