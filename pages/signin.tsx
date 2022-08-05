@@ -1,14 +1,8 @@
 import SigninVer2ForDesktop from 'components/Signin/SigninVer2ForDesktop'
 import SigninVer2ForMobile from 'components/Signin/SigninVer2ForMobile'
+import Signin from 'module/Signin'
 import { useEffect, useState } from 'react'
 
 export default function signin() {
-  const [screenWidth, setScreenWidth] = useState(0)
-  useEffect(() => {
-    setScreenWidth(window.innerWidth)
-  }, [])
-  if (screenWidth <= 550) {
-    return <SigninVer2ForMobile />
-  }
-  return <SigninVer2ForDesktop />
+  return <Signin />
 }

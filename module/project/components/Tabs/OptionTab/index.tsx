@@ -8,12 +8,14 @@ export default function OptionTab() {
       title: 'Option1',
       desc: '-Digital Download ของเพลง\n-Thankyou on website',
       price: 100,
+      descPrice: '',
       pictures: [],
     },
     {
       title: 'Option2',
       desc: '-Digital Download ของเพลง\n-Thankyou on website\n-CD พร้อมลายเซ็น',
       price: 500,
+      descPrice: '',
       pictures: [
         'https://pbs.twimg.com/media/EaVuUNeUMAA1twM.jpg:large',
         'https://i.pinimg.com/736x/e0/b5/05/e0b5052f9898193e8ef859624a33a4b5.jpg',
@@ -24,12 +26,14 @@ export default function OptionTab() {
       title: 'Option3',
       desc: '-ได้ไฟล์เพลงระดับสูง\n-CD พร้อมลายเซ็น\n-Credit ชื่อท้ายอัลบัม\n-NFT ของอัลบัม\n-บัตร Song Holder',
       price: 1000,
+      descPrice: '',
       pictures: [],
     },
     {
       title: 'Option4',
       desc: '-ได้ไฟล์เพลงระดับสูง\n-CD พร้อมลายเซ็น\n-Credit ชื่อท้ายเพลง\n-Vinyl อัลบัม ทำเฉพาะ Songholder เท่านั้น\n-ได้เดโมทุกฉบับ\n-ได้ไฟล์ ทำเพลง (Logic Pro)\n-NFT ของอัลบัม\n-Contact ติดต่อสำหรับอนาคต\n-รับจ้างไปเล่นงานเลี้ยงฟรี 1 งาน\n-เชิญมางานเลี้ยงขอบคุณ\n-บัตร Song Holder',
       price: 5000,
+      descPrice: '***จำกัดเพียง 500 หน่วย',
       pictures: [],
     },
   ]
@@ -42,13 +46,15 @@ export default function OptionTab() {
       <TabContainer>
         <HeaderTabText>ตัวเลือกการระดมทุน</HeaderTabText>
         <OptionsContainer>
-          {options.map(option => (
+          {options.map((option, inx) => (
             <OptionCard
               key={option.title + option.price}
               title={option.title}
               desc={option.desc}
               price={option.price}
+              descPrice={option.descPrice}
               pictures={option.pictures}
+              inx={inx}
             />
           ))}
         </OptionsContainer>

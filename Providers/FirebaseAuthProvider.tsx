@@ -16,6 +16,7 @@ interface UserContextInterface {
   ) => Promise<UserCredential | void>
   signInWithFacebook: () => Promise<UserCredential | void>
   signInWithTwitter: () => Promise<UserCredential | void>
+  signInWithGoogle: () => Promise<UserCredential | void>
   signOut: () => void
 }
 
@@ -28,6 +29,7 @@ const userContext: UserContextInterface = {
     new Promise(() => {}),
   signInWithFacebook: (): Promise<UserCredential> => new Promise(() => {}),
   signInWithTwitter: (): Promise<UserCredential> => new Promise(() => {}),
+  signInWithGoogle: (): Promise<UserCredential> => new Promise(() => {}),
   signOut: () => {},
 }
 

@@ -52,12 +52,19 @@ export default function Timeline() {
       transition={{ duration: 0.35 }}
     >
       <TimelineContainer>
-        {TimelineDatas.map(TimelineData => (
+        {TimelineDatas.map((TimelineData, inx) => (
           <TimelineCard
             key={TimelineData.date.getDate() + TimelineData.title}
             date={TimelineData.date}
             title={TimelineData.title}
             desc={TimelineData.desc}
+            isFirstOrLast={
+              inx == 0
+                ? 'first'
+                : inx == TimelineDatas.length - 1
+                ? 'last'
+                : 'none'
+            }
           />
         ))}
       </TimelineContainer>

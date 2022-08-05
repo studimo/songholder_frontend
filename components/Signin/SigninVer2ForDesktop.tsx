@@ -184,14 +184,6 @@ export default function SigninVer2ForDesktop() {
             flexDirection: 'row',
           }}
         >
-          {/* <Box
-            sx={{
-              width: '250px',
-              height: '1px',
-              background:
-                'linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',
-            }}
-          /> */}
           <Typography
             fontSize='25px'
             color='white'
@@ -203,14 +195,6 @@ export default function SigninVer2ForDesktop() {
           >
             SIGN IN
           </Typography>
-          {/* <Box
-            sx={{
-              width: '250px',
-              height: '1px',
-              background:
-                'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',
-            }}
-          /> */}
         </Stack>
         <CssOutlinedInput
           type='email'

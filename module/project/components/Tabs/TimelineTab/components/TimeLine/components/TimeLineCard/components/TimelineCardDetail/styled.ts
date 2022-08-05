@@ -16,7 +16,6 @@ export const TitleTimelineText = styled(Typography)(() => ({
   fontWeight: 400,
   fontSize: '15px',
   lineHeight: '24px',
-  color: '#335380',
 }))
 
 export const DescTimelineText = styled(Typography)(() => ({
@@ -25,6 +24,5 @@ export const DescTimelineText = styled(Typography)(() => ({
   fontWeight: 300,
   fontSize: '10px',
   lineHeight: '16px',
-  color: '#227AAB',
   paddingLeft: '10px',
 }))

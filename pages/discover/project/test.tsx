@@ -1,4 +1,4 @@
-import Project from 'module/project'
+import Project from 'module/Project'
 
 export default function TestProject() {
   return <Project />

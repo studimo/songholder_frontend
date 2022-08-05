@@ -13,8 +13,6 @@ export const CircleDate = styled('div')(() => ({
   width: '50px',
   height: '50px',
   borderRadius: '50%',
-  // border: '2px solid #227AAB',
-  border: '2px solid #45C1C1',
   justifyContent: 'center',
 }))
 export const DayDateText = styled(Typography)(() => ({
@@ -26,8 +24,6 @@ export const DayDateText = styled(Typography)(() => ({
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
-
-  color: '#335380',
 
   marginLeft: 'auto',
   marginRight: 'auto',
@@ -41,8 +37,6 @@ export const MonthDateText = styled(Typography)(() => ({
   display: 'flex',
   alignItems: 'center',
   textAlign: 'center',
-
-  color: '#335380',
 
   marginLeft: 'auto',
   marginRight: 'auto',

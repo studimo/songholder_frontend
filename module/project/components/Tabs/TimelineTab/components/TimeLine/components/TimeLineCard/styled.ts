@@ -5,4 +5,5 @@ export const TimelineCardContainer = styled('div')(() => ({
   flexDirection: 'row',
   paddingLeft: '25px',
   height: 'auto',
+  minHeight: '60px',
 }))

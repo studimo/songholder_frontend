@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import app from "utility/firebase"; 
+import { useState, useEffect } from 'react'
+import app from 'utility/firebase'
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -9,117 +9,121 @@ import {
   signInWithPopup,
   signOut,
   ParsedToken,
-  User
-} from "firebase/auth";
-import Axios from "axios";
+  User,
+  GoogleAuthProvider,
+} from 'firebase/auth'
+import Axios from 'axios'
 
-const auth = getAuth(app);
+const auth = getAuth(app)
 
 interface CustomClaims extends ParsedToken {
-  permission?: string;
+  permission?: string
 }
 
-const formatIdTokenResult = (
-  token: any,
-  claims: CustomClaims
-) => ({
+const formatIdTokenResult = (token: any, claims: CustomClaims) => ({
   uid: claims.user_id,
   email: claims.email,
   name: claims.name,
   token: token,
   permission: claims.permission,
-});
+})
 
 export interface CustomAuthUser {
-  uid: string | null;
-  email: string | null;
-  name: string | null;
-  photoURL: string | null;
-  token: string | null;
-  claims: CustomClaims| null;
+  uid: string | null
+  email: string | null
+  name: string | null
+  photoURL: string | null
+  token: string | null
+  claims: CustomClaims | null
 }
 
-const formatUser = (authUser: User, claims: CustomClaims, token: string): CustomAuthUser => ({
+const formatUser = (
+  authUser: User,
+  claims: CustomClaims,
+  token: string,
+): CustomAuthUser => ({
   uid: authUser.uid || null,
-  email: authUser.email|| null,
-  name: authUser.displayName|| null,
-  photoURL: authUser.photoURL|| null,
-  token: token|| null,
-  claims: claims || null
+  email: authUser.email || null,
+  name: authUser.displayName || null,
+  photoURL: authUser.photoURL || null,
+  token: token || null,
+  claims: claims || null,
 })
 
 export default function useFirebaseAuth() {
-  const [authUser, setAuthUser] = useState<CustomAuthUser | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [authUser, setAuthUser] = useState<CustomAuthUser | null>(null)
+  const [loading, setLoading] = useState(true)
 
   const authStateChanged = async (authUser: User | null) => {
     if (!authUser) {
-      setAuthUser(null);
-      setLoading(false);
-      return;
+      setAuthUser(null)
+      setLoading(false)
+      return
     }
 
-    setLoading(true);
+    setLoading(true)
     // const formattedUser2 = await authState.auth.currentUser.getAdditionalUserInfo();
-    const {claims, token} = await authUser.getIdTokenResult();
-    console.log('dfdf',authUser)
+    const { claims, token } = await authUser.getIdTokenResult()
+    console.log('dfdf', authUser)
     // var formattedUser = formatIdTokenResult(
     //   formatIdToken.token,
     //   formatIdToken.claims
     // );
-    const formattedUser = formatUser(authUser, claims, token);
+    const formattedUser = formatUser(authUser, claims, token)
     // console.log(await authState.auth.currentUser.getIdTokenResult())
     // console.log(formattedUser)
-    setAuthUser(formattedUser);
-    setLoading(false);
-  };
+    setAuthUser(formattedUser)
+    setLoading(false)
+  }
 
   const IdTokenChanged = async (authUser: User | null) => {
     if (!authUser) {
-      setAuthUser(null);
-      setLoading(false);
-      return;
+      setAuthUser(null)
+      setLoading(false)
+      return
     }
-    const {claims, token} = await authUser.getIdTokenResult();
-    Axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_ENDPOINT;
-    Axios.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${token}`;
-    Axios.defaults.headers.common["Content-Type"] = "application/json";
-    Axios.defaults.headers.common["Accept"] = "application/json";
-    Axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+    const { claims, token } = await authUser.getIdTokenResult()
+    Axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_ENDPOINT
+    Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    Axios.defaults.headers.common['Content-Type'] = 'application/json'
+    Axios.defaults.headers.common['Accept'] = 'application/json'
+    Axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
-    setLoading(true);
-    const formatIdToken = await authUser.getIdTokenResult();
-    const formattedUser = formatUser(authUser, claims, token);
-    setAuthUser(formattedUser);
-    setLoading(false);
-  };
+    setLoading(true)
+    const formatIdToken = await authUser.getIdTokenResult()
+    const formattedUser = formatUser(authUser, claims, token)
+    setAuthUser(formattedUser)
+    setLoading(false)
+  }
 
   // listen for Firebase state change
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(authStateChanged);
-    return () => unsubscribe();
-  }, []);
+    const unsubscribe = auth.onAuthStateChanged(authStateChanged)
+    return () => unsubscribe()
+  }, [])
 
   useEffect(() => {
-    const unsubscribe = auth.onIdTokenChanged(IdTokenChanged);
-    return () => unsubscribe();
-  }, []);
+    const unsubscribe = auth.onIdTokenChanged(IdTokenChanged)
+    return () => unsubscribe()
+  }, [])
   const signInWithEmail = (email: string, password: string) =>
-    signInWithEmailAndPassword(auth, email, password);
+    signInWithEmailAndPassword(auth, email, password)
 
   const signUpWithEmail = (email: string, password: string) =>
-    createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password)
 
-  const signInWithFacebook = () => signInWithPopup(auth, new FacebookAuthProvider())
-  const signInWithTwitter = () => signInWithPopup(auth, new TwitterAuthProvider())
+  const signInWithFacebook = () =>
+    signInWithPopup(auth, new FacebookAuthProvider())
+  const signInWithTwitter = () =>
+    signInWithPopup(auth, new TwitterAuthProvider())
+
+  const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider())
 
   const logout = () => {
-    signOut(auth);
-    setAuthUser(null);
-    setLoading(true);
-  };
+    signOut(auth)
+    setAuthUser(null)
+    setLoading(true)
+  }
 
   return {
     authUser,
@@ -128,6 +132,7 @@ export default function useFirebaseAuth() {
     signUpWithEmail,
     signInWithFacebook,
     signInWithTwitter,
+    signInWithGoogle,
     signOut: logout,
-  };
+  }
 }

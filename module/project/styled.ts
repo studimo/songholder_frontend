@@ -10,8 +10,7 @@ export const RootContainer = styled(Container)(() => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  overflowX: 'hidden',
-  overflowY: 'hidden',
+  overflow: 'hidden',
 
   paddingTop: '60px',
   gap: '20px',
