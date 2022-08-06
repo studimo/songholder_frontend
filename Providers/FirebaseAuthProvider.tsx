@@ -18,6 +18,7 @@ interface UserContextInterface {
   signInWithTwitter: () => Promise<UserCredential | void>
   signInWithGoogle: () => Promise<UserCredential | void>
   signOut: () => void
+  resetPassword: (email: string) => Promise<UserCredential | void>
 }
 
 const userContext: UserContextInterface = {
@@ -31,6 +32,8 @@ const userContext: UserContextInterface = {
   signInWithTwitter: (): Promise<UserCredential> => new Promise(() => {}),
   signInWithGoogle: (): Promise<UserCredential> => new Promise(() => {}),
   signOut: () => {},
+  resetPassword: (email: string): Promise<UserCredential> =>
+    new Promise(() => {}),
 }
 
 const authUserContext = createContext(userContext)

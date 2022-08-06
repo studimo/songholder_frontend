@@ -1,10 +1,10 @@
 import { Box, Button, Stack, Typography } from '@mui/material'
 
 import { ArrowForward } from '@mui/icons-material'
-import { BelowSigninBoxContainer, TypographyWithFont } from './styled'
+import { BelowResetPasswordBoxContainer, TypographyWithFont } from './styled'
 export default function BelowSigninBox() {
   return (
-    <BelowSigninBoxContainer>
+    <BelowResetPasswordBoxContainer>
       <Stack
         sx={{
           flexDirection: 'row',
@@ -23,10 +23,10 @@ export default function BelowSigninBox() {
             mr: '10px',
           }}
         >
-          Not reigistered?
+          Return to
         </TypographyWithFont>
         <Button
-          onClick={() => (location.href = '/register')}
+          onClick={() => (location.href = '/signin')}
           sx={{
             color: 'white',
             '&:hover': {
@@ -38,7 +38,7 @@ export default function BelowSigninBox() {
           <TypographyWithFont
             sx={{ color: 'white', fontSize: '17px', textTransform: 'none' }}
           >
-            Created an Account
+            Sign in
           </TypographyWithFont>
           <ArrowForward sx={{ fontSize: '15px', ml: '5px' }} />
         </Button>
@@ -61,6 +61,6 @@ export default function BelowSigninBox() {
           />
         </Button>
       </Stack>
-    </BelowSigninBoxContainer>
+    </BelowResetPasswordBoxContainer>
   )
 }

@@ -11,6 +11,7 @@ import {
   ParsedToken,
   User,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from 'firebase/auth'
 import Axios from 'axios'
 
@@ -119,6 +120,8 @@ export default function useFirebaseAuth() {
 
   const signInWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider())
 
+  const resetPassword = (email: string) => sendPasswordResetEmail(auth, email)
+
   const logout = () => {
     signOut(auth)
     setAuthUser(null)
@@ -134,5 +137,6 @@ export default function useFirebaseAuth() {
     signInWithTwitter,
     signInWithGoogle,
     signOut: logout,
+    resetPassword,
   }
 }

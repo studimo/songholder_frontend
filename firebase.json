@@ -4,21 +4,10 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "/discover",
-        "destination": "/discover.html"
-      },
-      {
-        "source": "/signin",
-        "destination": "/signin.html"
-      },
-      {
-        "source": "/invested",
-        "destination": "/invested.html"
-      },
-      {
         "source": "/home",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "cleanUrls": true
   }
 }
