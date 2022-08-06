@@ -1,6 +1,6 @@
 import { styled } from '@mui/system'
 
-export const ProjectDetailsContainer = styled('div')(() => ({
+export const ProjectInfoContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
   alignContent: 'center',

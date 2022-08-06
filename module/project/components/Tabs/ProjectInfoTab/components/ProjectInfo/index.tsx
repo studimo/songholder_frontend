@@ -1,8 +1,8 @@
-import ProjectDetailDataShow from './components/ProjectDetailDataShow'
-import { ProjectDetailsContainer } from './styled'
+import ProjectInfoDataShow from './components/ProjectInfoDataShow'
+import { ProjectInfoContainer } from './styled'
 import { motion } from 'framer-motion'
 
-export default function ProjectDetail() {
+export default function ProjectInfo() {
   const projectDetails = [
     { title: 'ศิลปิน', data: 'DRG' },
     { title: 'ประเภท', data: 'Single เพลง' },
@@ -17,15 +17,15 @@ export default function ProjectDetail() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35 }}
     >
-      <ProjectDetailsContainer>
+      <ProjectInfoContainer>
         {projectDetails.map(projectDetail => (
-          <ProjectDetailDataShow
+          <ProjectInfoDataShow
             key={projectDetail.title}
             title={projectDetail.title}
             data={projectDetail.data}
           />
         ))}
-      </ProjectDetailsContainer>
+      </ProjectInfoContainer>
     </motion.div>
   )
 }

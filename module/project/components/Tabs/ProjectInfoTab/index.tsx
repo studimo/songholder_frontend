@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import HeaderButtonTab from '../components/HeaderButtonTab'
-import ProjectDetail from './components/ProjectDetail'
+import ProjectInfo from './components/ProjectInfo'
 import { TabContainer } from './styled'
 
-export default function ProjectDetailTab() {
+export default function ProjectInfoTab() {
   const [onOpen, setOnOpen] = useState(false)
   return (
     <TabContainer>
@@ -12,7 +12,7 @@ export default function ProjectDetailTab() {
         onOpen={onOpen}
         setOnOpen={setOnOpen}
       />
-      {onOpen ? <ProjectDetail /> : null}
+      {onOpen ? <ProjectInfo /> : null}
     </TabContainer>
   )
 }

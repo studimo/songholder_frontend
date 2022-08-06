@@ -6,7 +6,7 @@ export default function OrDivider() {
     <OrDividerContainer>
       <Box
         sx={{
-          width: '150px',
+          width: { xs: '120px', md: '150px' },
           height: '1px',
           background:
             'linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',
@@ -15,7 +15,7 @@ export default function OrDivider() {
       <OrText>or</OrText>
       <Box
         sx={{
-          width: '150px',
+          width: { xs: '120px', md: '150px' },
           height: '1px',
           background:
             'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)',

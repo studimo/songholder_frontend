@@ -1,10 +1,8 @@
 import { Typography } from '@mui/material'
 import { DataShowContainer, DataShowText } from './styled'
-import { ProjectDetailDataShowProps } from './types'
+import { ProjectInfoDataShowProps as ProjectInfoDataShowProps } from './types'
 
-export default function ProjectDetailDataShow(
-  props: ProjectDetailDataShowProps,
-) {
+export default function ProjectInfoDataShow(props: ProjectInfoDataShowProps) {
   const { title, data } = props
   return (
     <DataShowContainer>

@@ -4,7 +4,7 @@ import ProjectDetails from './components/ProjectDetails'
 import TrackBar from './components/ProjectDetails/TrackBar'
 import DescribtionTab from './components/Tabs/DescribtionTab'
 import OptionTab from './components/Tabs/OptionTab'
-import ProjectDetailTab from './components/Tabs/ProjectDetailTab'
+import ProjectInfoTab from './components/Tabs/ProjectInfoTab'
 import TimelineTab from './components/Tabs/TimelineTab'
 import {
   HeaderDetailsContainer,
@@ -16,13 +16,13 @@ import {
 export default function Project() {
   return (
     <RootContainer maxWidth={false} disableGutters>
-      <ResponsiveAppBar background={'gradient'} page={'PROJECT'} />
+      <ResponsiveAppBar background={'gradient'} page={'DISCOVER'} />
       <HeaderDetailsContainer>
         <ProjectDetails />
         <TrackBar />
       </HeaderDetailsContainer>
       <TabsContainer>
-        <ProjectDetailTab />
+        <ProjectInfoTab />
         <TabDivider />
         <DescribtionTab />
         <TabDivider />

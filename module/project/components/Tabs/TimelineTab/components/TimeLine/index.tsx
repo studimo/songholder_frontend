@@ -3,7 +3,7 @@ import { TimelineContainer } from './styled'
 import { motion } from 'framer-motion'
 
 export default function Timeline() {
-  const TimelineDatas = [
+  const timelineDatas = [
     {
       date: new Date('2023-04-10'),
       title: 'เปิดระดมทุน',
@@ -52,7 +52,7 @@ export default function Timeline() {
       transition={{ duration: 0.35 }}
     >
       <TimelineContainer>
-        {TimelineDatas.map((TimelineData, inx) => (
+        {timelineDatas.map((TimelineData, inx) => (
           <TimelineCard
             key={TimelineData.date.getDate() + TimelineData.title}
             date={TimelineData.date}
@@ -61,7 +61,7 @@ export default function Timeline() {
             isFirstOrLast={
               inx == 0
                 ? 'first'
-                : inx == TimelineDatas.length - 1
+                : inx == timelineDatas.length - 1
                 ? 'last'
                 : 'none'
             }

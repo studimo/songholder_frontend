@@ -16,5 +16,5 @@ export const OrDividerContainer = styled(Stack)(() => ({
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'row',
-  marginTop: '25px',
+  marginTop: '30px',
 }))
