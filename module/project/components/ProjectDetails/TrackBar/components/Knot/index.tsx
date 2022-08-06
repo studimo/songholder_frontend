@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { KnotContainer, KnotText, StyledKnotImage } from './styled'
 import { KnotProps } from './types'
 
@@ -25,8 +25,8 @@ export default function Knot(props: KnotProps) {
               ? '/assets/images/project/successKnot.svg'
               : '/assets/images/project/knot.svg'
           }
-          layout='fill'
-          objectFit='cover'
+          fill
+          // width="100%"
         />
       </StyledKnotImage>
       <KnotText>{knotValue}</KnotText>

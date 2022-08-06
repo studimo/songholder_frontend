@@ -1,7 +1,8 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import { StyledCoverImage } from './styled'
 
 export default function CoverImage() {
+  const css = { width: '100%', height: 'auto' }
   return (
     <StyledCoverImage
       sx={{
@@ -10,8 +11,17 @@ export default function CoverImage() {
     >
       <Image
         src={'/assets/images/project/projectDetail/coverImage.svg'}
-        layout='fill'
-        objectFit='cover'
+        fill
+        style={{ objectFit: 'cover' }}
+        // style={{ width: '100%' }}
+        // style={{ width: '100%', height: 'auto' }}
+        // sizes='100vw'
+        // style={css}
+        // width={100}
+        // height={100}
+
+        // layout='fill'
+        // objectFit='cover'
       />
     </StyledCoverImage>
   )

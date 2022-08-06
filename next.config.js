@@ -13,6 +13,7 @@ const nextConfig = {
       'https://ga.jspm.io/',
       'https://jspm.dev/',
     ],
+    images: { allowFutureImage: true, unoptimized: true },
   },
 }
 

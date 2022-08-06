@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import {
   ArtistContainer,
   BackgroundArtistImage,
@@ -11,8 +11,7 @@ export default function ArtistImage() {
       <StyledArtistImage>
         <Image
           src={'/assets/images/project/projectDetail/artistImage.svg'}
-          layout='fill'
-          objectFit='cover'
+          fill
         />
       </StyledArtistImage>
       <BackgroundArtistImage />
