@@ -4,7 +4,7 @@ import { styled } from '@mui/system'
 export const RootContainer = styled(Container)(() => ({
   // paddingTop: "80px",
   backgroundImage:
-    'linear-gradient(111.53deg, rgba(35, 186, 186, 0.7) 20.73%, rgba(77, 36, 147, 0.7) 87.16%),url(./assets/images/LandingPageBackground_1.jpeg)',
+    'linear-gradient(111.53deg, rgba(35, 186, 186, 0.7) 20.73%, rgba(77, 36, 147, 0.7) 87.16%),url(/assets/images/landingPage/LandingPageBackground_1.jpeg)',
   backgroundSize: 'cover',
   backgroundPosition: 'center 100%',
   // backdropFilter: "blur(8px)",

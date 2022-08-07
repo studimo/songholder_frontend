@@ -172,7 +172,9 @@ export default function EmailPasswordSignin(props: EmailPasswordSigninProps) {
           )
         })}
 
-        <ForgotPasswordButton disabled>
+        <ForgotPasswordButton
+          onClick={() => (location.href = '/passwordReset')}
+        >
           <TypographyWithFont
             sx={{ color: 'white', fontSize: '15px', textTransform: 'none' }}
           >
