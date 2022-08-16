@@ -160,18 +160,17 @@ export default function MediaControlCardForMobile({
             color: '#474747',
 
             wordBreak: 'break-word',
+            width: '300px',
+
+            '&:hover': {
+              textDecoration: 'underline',
+            },
             // overflow: 'hidden',
             // textOverflow: 'ellipsis',
             // whiteSpace: 'nowrap',
           }}
         >
-          {showButton
-            ? content.name.length > 7
-              ? content.name.substring(0, 7) + '...'
-              : content.name
-            : content.name.length > 12
-            ? content.name.substring(0, 12) + '...'
-            : content.name}
+          <a href='discover/project/test'>{content.name}</a>
         </Typography>
         <Stack flexDirection='row' sx={{ mt: '1px' }}>
           <Typography

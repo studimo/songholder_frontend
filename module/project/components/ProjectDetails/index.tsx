@@ -36,7 +36,7 @@ export default function ProjectDetails() {
         >
           อัลบัมที่เปรียบเสมือนชีวิตคนคนหนึ่ง
           <br />
-          กับเรื่องราวความรักที่ถูกบรรจุลงไปในเพลง
+          กับเรื่องราวความรักที่ถูกบรรจุลงไปในเพลง (Beta Version only for test.)
         </Typography>
       </TitleContainer>
     </ProjectDetailContainer>

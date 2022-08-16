@@ -156,12 +156,16 @@ export default function MediaControlCard({
             color: '#474747',
 
             wordBreak: 'break-word',
+
+            '&:hover': {
+              textDecoration: 'underline',
+            },
             // overflow: 'hidden',
             // textOverflow: 'ellipsis',
             // whiteSpace: 'nowrap',
           }}
         >
-          {content.name}
+          <a href='discover/project/test'>{content.name}</a>
         </Typography>
         <Stack flexDirection='row' sx={{ mt: '8px' }}>
           <Typography
