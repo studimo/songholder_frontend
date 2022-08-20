@@ -1,5 +1,5 @@
 import { Divider } from '@mui/material'
-import ResponsiveAppBar from 'components/Layout/Appbar/ResponsiveAppBar'
+import ResponsiveAppBar from 'module/components/ResponsiveAppBar'
 import ProjectDetails from './components/ProjectDetails'
 import TrackBar from './components/ProjectDetails/TrackBar'
 import DescribtionTab from './components/Tabs/DescribtionTab'

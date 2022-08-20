@@ -1,5 +1,11 @@
 import { Box, Divider, IconButton, Stack, Typography } from '@mui/material'
-import { FacebookRounded, Twitter, MailRounded } from '@mui/icons-material'
+import {
+  FacebookRounded,
+  Twitter,
+  MailRounded,
+  Height,
+} from '@mui/icons-material'
+import Image from 'next/future/image'
 // import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 // import TwitterIcon from '@mui/icons-material/Twitter'
 // import MailRoundedIcon from '@mui/icons-material/MailRounded'
@@ -10,7 +16,7 @@ export default function Footer() {
       id='footer'
       sx={{
         width: '100%',
-        height: '180px',
+        height: { xs: '90px', md: '180px' },
         background: 'linear-gradient(92.42deg, #66C2C2 0%, #805FB6 100%)',
       }}
     >
@@ -29,12 +35,13 @@ export default function Footer() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            marginTop: { xs: '-20px', md: '0px' },
           }}
         >
           <Box sx={{ width: '1000px', height: '1px', bgcolor: 'white' }} />
           <Stack
             sx={{
-              width: { xs: '190px', sm: '220px', md: '250px', lg: '280px' },
+              width: { xs: '110px', md: '250px', lg: '280px' },
               height: '3px',
               flexDirection: 'row',
               display: 'flex',
@@ -42,17 +49,17 @@ export default function Footer() {
               alignItems: 'center',
             }}
           >
-            <Typography sx={{ ml: 3, mr: 0.75 }}>
+            <Typography sx={{ ml: 4, mr: 3 }}>
               <Box
                 component='img'
                 sx={{
-                  height: { xs: '70px', sm: '80px', md: '90px', lg: '100px' },
+                  height: { xs: '45px', md: '90px', lg: '100px' },
                   width: 'auto',
                   // maxHeight: { xs: 233, md: 167 },
                   // maxWidth: { xs: 350, md: 250 },
                 }}
                 alt='LOGO'
-                src='./assets/images/logo/logoForFooter.png'
+                src='/assets/images/logo/logoForFooter.png'
               />
             </Typography>
           </Stack>
@@ -65,7 +72,7 @@ export default function Footer() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            mt: '50px',
+            marginTop: { xs: '13px', md: '50px' },
           }}
           spacing='20px'
         >
@@ -125,30 +132,42 @@ export default function Footer() {
             // spacing={7}
             spacing={{ xs: '25px', sm: '40px', md: '30px', lg: '40px' }}
           >
-            <IconButton href='https://www.facebook.com/Songholder-104864228867080'>
-              <FacebookRounded sx={{ color: 'white', fontSize: '30px' }} />
+            <IconButton href='https://www.facebook.com/songholder.official/'>
+              <FacebookRounded
+                sx={{ color: 'white', fontSize: { xs: '19px', md: '30px' } }}
+              />
             </IconButton>
-            <IconButton disabled>
+            <IconButton href='https://www.instagram.com/songholder.co/'>
               <Typography
                 sx={{
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  width: { xs: '3px', md: '15px' },
+                  height: { xs: '3px', md: '15px' },
                 }}
               >
-                <img
-                  src='./assets/images/logo/logoInstagram.png'
+                <Image
+                  src='/assets/images/logo/logoInstagram.png'
                   alt='Logo_IG'
-                  style={{ height: '30px', marginLeft: 0 }}
+                  fill
                 />
               </Typography>
             </IconButton>
             <IconButton disabled>
-              <Twitter sx={{ color: 'white', fontSize: '30px' }} />
+              <Twitter
+                sx={{ color: 'white', fontSize: { xs: '19px', md: '30px' } }}
+              />
             </IconButton>
 
             <IconButton disabled>
-              <MailRounded sx={{ color: 'white', fontSize: '30px' }} />
+              <MailRounded
+                sx={{
+                  color: 'white',
+                  fontSize: { xs: '19px', md: '30px' },
+                  ml: { xs: '-10px' },
+                }}
+              />
             </IconButton>
           </Stack>
           <Divider

@@ -8,8 +8,8 @@ import {
 } from '@mui/material'
 import LandingpageCard from 'components/LandingPage/LandingpageCard'
 import KeyboardDoubleArrowRightRoundedIcon from '@mui/icons-material/KeyboardDoubleArrowRightRounded'
-import Footer from 'components/Layout/Footer/Footer'
-import ResponsiveAppBar from 'components/Layout/Appbar/ResponsiveAppBar'
+import Footer from 'module/components/Footer'
+import ResponsiveAppBar from 'module/components/ResponsiveAppBar'
 import FooterMobile from 'components/Layout/Footer/FooterMobile'
 export default function LandingPageForMobile() {
   return (
