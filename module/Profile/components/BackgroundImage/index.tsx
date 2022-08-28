@@ -1,7 +1,17 @@
+import { IconButton } from '@mui/material'
 import Image from 'next/future/image'
-import { StyledCoverImage } from './styled'
+import {
+  BackgroundCameraIcon,
+  CameraIconButton,
+  StyledCameraIconImage,
+  StyledCoverImage,
+} from './styled'
+import { BackgroundImageProps } from './types'
 
-export default function BackgroundImage() {
+export default function BackgroundImage(
+  backgroundImageProps: BackgroundImageProps,
+) {
+  const { editMode } = backgroundImageProps
   return (
     <StyledCoverImage
       sx={{
@@ -13,6 +23,18 @@ export default function BackgroundImage() {
         fill
         style={{ objectFit: 'cover' }}
       />
+      {editMode && <BackgroundCameraIcon />}
+      {editMode && (
+        <CameraIconButton>
+          <StyledCameraIconImage>
+            <Image
+              src={'/assets/images/user/cameraIcon.svg'}
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </StyledCameraIconImage>
+        </CameraIconButton>
+      )}
     </StyledCoverImage>
   )
 }

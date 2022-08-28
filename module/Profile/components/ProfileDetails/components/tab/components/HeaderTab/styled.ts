@@ -1,28 +1,22 @@
 import { IconButton, Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
-export const ProfileBasicInfoTabContainer = styled('div')(() => ({
+export const HeaderTabContainer = styled('div')(() => ({
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
   width: '100vw',
   height: 'auto',
-  alignItems: 'center',
+  paddingLeft: '30px',
+  paddingRight: '30px',
+  paddingTop: '20px',
 }))
 export const TypographyWithFont = styled(Typography)(() => ({
   fontFamily: 'Mitr',
   fontStyle: 'normal',
-  fontWeight: 400,
-  fontSize: '22px',
-  lineHeight: '25px',
-  color: '#615190',
-}))
-
-export const ProfileNameContainer = styled('div')(() => ({
-  display: 'flex',
-  flexDirection: 'row',
-  width: '100vw',
-  height: '50px',
-  justifyContent: 'center',
+  fontWeight: 500,
+  fontSize: '14px',
+  lineHeight: '22px',
+  // color: '#335380',
 }))
 
 export const StyledEditIconImage = styled('div')(() => ({
@@ -47,18 +41,4 @@ export const EditIconButton = styled(IconButton)(() => ({
   // zIndex: 2,
   borderRadius: '5px',
   color: 'black',
-}))
-
-export const BalanceCenterBox = styled('div')(() => ({
-  display: 'flex',
-  width: '30px',
-}))
-
-export const ProfileDescContainer = styled('div')(() => ({
-  display: 'flex',
-  flexDirection: 'row',
-  width: '100vw',
-  height: 'auto',
-  justifyContent: 'center',
-  marginTop: '-25px',
 }))

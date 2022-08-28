@@ -1,7 +1,15 @@
 import Image from 'next/future/image'
-import { ProfileContainer, StyledProfileImage } from './styled'
+import {
+  BackgroundCameraIcon,
+  CameraIconButton,
+  ProfileContainer,
+  StyledCameraIconImage,
+  StyledProfileImage,
+} from './styled'
+import { ProfileImageProps } from './types'
 
-export default function ProfileImage() {
+export default function ProfileImage(profileImageProps: ProfileImageProps) {
+  const { editMode } = profileImageProps
   return (
     <ProfileContainer>
       <StyledProfileImage>
@@ -9,6 +17,18 @@ export default function ProfileImage() {
           src={'/assets/images/project/projectDetail/artistImage.svg'}
           fill
         />
+        {editMode && <BackgroundCameraIcon />}
+        {editMode && (
+          <CameraIconButton>
+            <StyledCameraIconImage>
+              <Image
+                src={'/assets/images/user/cameraIcon.svg'}
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </StyledCameraIconImage>
+          </CameraIconButton>
+        )}
       </StyledProfileImage>
     </ProfileContainer>
   )

@@ -1,13 +1,18 @@
 import HeaderTab from '../components/HeaderTab'
 import { MusicExperienceTabContainer } from './styled'
+import { MusicExperienceTabProps } from './types'
 
-export default function MusicExperienceTab() {
+export default function MusicExperienceTab(
+  musicExperienceTabProps: MusicExperienceTabProps,
+) {
+  const { editMode } = musicExperienceTabProps
   return (
     <MusicExperienceTabContainer>
       <HeaderTab
         tabName={'music experience'}
         tabColor={'rgba(142, 95, 171, 1)'}
         href={''}
+        editMode={editMode}
       />
       <div
         style={{
