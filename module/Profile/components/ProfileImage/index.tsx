@@ -1,6 +1,7 @@
 import Image from 'next/future/image'
 import {
   BackgroundCameraIcon,
+  BackgroundProfileImage,
   CameraIconButton,
   ProfileContainer,
   StyledCameraIconImage,
@@ -12,6 +13,7 @@ export default function ProfileImage(profileImageProps: ProfileImageProps) {
   const { editMode, userPhotoURL } = profileImageProps
   return (
     <ProfileContainer>
+      <BackgroundProfileImage />
       <StyledProfileImage>
         <Image
           src={
@@ -19,6 +21,7 @@ export default function ProfileImage(profileImageProps: ProfileImageProps) {
             '/assets/images/project/projectDetail/artistImage.svg'
           }
           fill
+          style={{ objectFit: 'cover' }}
           referrerPolicy='no-referrer'
         />
         {editMode && <BackgroundCameraIcon />}

@@ -4,5 +4,6 @@ export type ProfileBasicInfoTabProps = {
     userId: number
     desc: string
     displayName: string
+    email: string
   }
 }

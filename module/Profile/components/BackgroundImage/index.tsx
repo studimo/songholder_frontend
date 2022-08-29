@@ -11,7 +11,7 @@ import { BackgroundImageProps } from './types'
 export default function BackgroundImage(
   backgroundImageProps: BackgroundImageProps,
 ) {
-  const { editMode } = backgroundImageProps
+  const { editMode, backgroundPhotoURL } = backgroundImageProps
   return (
     <StyledCoverImage
       sx={{
@@ -19,7 +19,10 @@ export default function BackgroundImage(
       }}
     >
       <Image
-        src={'/assets/images/project/projectDetail/coverImage.svg'}
+        src={
+          backgroundPhotoURL ||
+          '/assets/images/project/projectDetail/coverImage.svg'
+        }
         fill
         style={{ objectFit: 'cover' }}
       />

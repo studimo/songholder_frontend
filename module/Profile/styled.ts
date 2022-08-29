@@ -10,6 +10,6 @@ export const RootContainer = styled(Container)(() => ({
   alignItems: 'center',
   overflow: 'hidden',
 
-  paddingTop: '60px',
+  paddingTop: '55px',
   gap: '20px',
 }))

@@ -4,5 +4,6 @@ export type ProfileDetailsProps = {
     userId: number
     desc: string
     displayName: string
+    email: string
   }
 }

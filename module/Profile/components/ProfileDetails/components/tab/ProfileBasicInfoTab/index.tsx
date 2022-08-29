@@ -17,14 +17,14 @@ export default function ProfileBasicInfoTab(
   profileBasicInfoTabProps: ProfileBasicInfoTabProps,
 ) {
   const { editMode, user } = profileBasicInfoTabProps
-  console.log('user')
-  console.log(user)
+  // console.log('user')
+  // console.log(user)
   return (
     <ProfileBasicInfoTabContainer>
       <ProfileNameContainer>
         {editMode && <BalanceCenterBox />}
         <TypographyWithFont sx={{ fontSize: '22px', fontWeight: 600 }}>
-          {user.displayName || '~'}
+          {user.displayName || user.email || '~'}
         </TypographyWithFont>
         {editMode && (
           <EditIconButton>

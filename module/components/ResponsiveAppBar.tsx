@@ -25,6 +25,8 @@ import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward, Menu as MenuIcon } from '@mui/icons-material'
 import { AppbarButton } from 'components/Layout/Appbar/AppbarButton'
+import axios from 'axios'
+const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
 // import "components/navbar.css";
 
 const pages = [
@@ -129,6 +131,15 @@ function ResponsiveAppBar(props: AppBarProps) {
   const variant = {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: '-100%' },
+  }
+
+  const handleProfileButton = async () => {
+    if (authUser) {
+      const res = await axios.get(
+        `${baseURL}/users/findByEmail/${authUser.email}`,
+      )
+      location.href = `/profile/${res.data.userId}`
+    }
   }
   return (
     <AppBar
@@ -529,8 +540,8 @@ function ResponsiveAppBar(props: AppBarProps) {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                <MenuItem key='account' onClick={handleCloseUserMenu} disabled>
-                  <Typography textAlign='center'>account</Typography>
+                <MenuItem key='profile' onClick={handleProfileButton}>
+                  <Typography textAlign='center'>Profile</Typography>
                 </MenuItem>
 
                 <MenuItem

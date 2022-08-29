@@ -22,9 +22,12 @@ export const StyledProfileImage = styled('div')(() => ({
   overflow: 'hidden',
   zIndex: 2,
   borderRadius: '50%',
-  outlineStyle: 'solid',
-  outlineWidth: '5px',
-  outlineColor: 'white',
+  // borderStyle: 'solid',
+  // borderWidth: '5px',
+  // borderColor: 'white',
+  // outlineStyle: 'solid',
+  // outlineWidth: '5px',
+  // outlineColor: 'white',
 }))
 
 export const StyledCameraIconImage = styled('div')(() => ({
@@ -60,4 +63,16 @@ export const CameraIconButton = styled(IconButton)(() => ({
   borderRadius: '5px',
   color: 'white',
   transform: 'translate(50%, 0%)',
+}))
+
+export const BackgroundProfileImage = styled('div')(() => ({
+  display: 'flex',
+  position: 'absolute',
+  left: '50%',
+  top: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '153px',
+  height: '153px',
+  borderRadius: '50%',
+  backgroundColor: 'white',
 }))

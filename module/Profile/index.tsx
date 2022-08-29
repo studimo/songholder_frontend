@@ -21,24 +21,26 @@ export default function Profile(profileProps: ProfileProps) {
     desc: '',
     displayName: '',
     userPhotoURL: '',
+    backgroundPhotoURL: '',
   })
 
   useEffect(() => {
     async function loadUserData() {
-      const res = await axios.get(`${baseURL}/users/${1}`)
+      const res = await axios.get(`${baseURL}/users/${userId}`)
       if (authUser)
         setUser({
           ...res.data,
-          displayName: authUser.displayName,
-          userPhotoURL: authUser.photoURL,
         })
     }
-    loadUserData()
-  }, [authUser])
+    if (userId) loadUserData()
+  }, [userId, authUser])
   return (
     <RootContainer maxWidth={false} disableGutters>
       <ResponsiveAppBar background={'gradient'} page={'DISCOVER'} />
-      <BackgroundImage editMode={editMode} />
+      <BackgroundImage
+        editMode={editMode}
+        backgroundPhotoURL={user.backgroundPhotoURL}
+      />
       <ProfileImage editMode={editMode} userPhotoURL={user.userPhotoURL} />
       <ProfileDetails editMode={editMode} user={user} />
       <Footer />
