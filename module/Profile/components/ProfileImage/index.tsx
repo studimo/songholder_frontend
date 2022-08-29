@@ -9,13 +9,17 @@ import {
 import { ProfileImageProps } from './types'
 
 export default function ProfileImage(profileImageProps: ProfileImageProps) {
-  const { editMode } = profileImageProps
+  const { editMode, userPhotoURL } = profileImageProps
   return (
     <ProfileContainer>
       <StyledProfileImage>
         <Image
-          src={'/assets/images/project/projectDetail/artistImage.svg'}
+          src={
+            userPhotoURL ||
+            '/assets/images/project/projectDetail/artistImage.svg'
+          }
           fill
+          referrerPolicy='no-referrer'
         />
         {editMode && <BackgroundCameraIcon />}
         {editMode && (

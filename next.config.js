@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     // loader: 'cloudinary',
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com', 'https://lh3.googleusercontent.com/'],
     // path: '',
   },
   experimental: {

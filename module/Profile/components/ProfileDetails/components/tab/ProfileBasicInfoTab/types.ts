@@ -1,4 +1,4 @@
-export type ProfileDetailsProps = {
+export type ProfileBasicInfoTabProps = {
   editMode: boolean
   user: {
     userId: number

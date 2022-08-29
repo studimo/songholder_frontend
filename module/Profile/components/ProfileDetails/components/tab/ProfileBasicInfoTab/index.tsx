@@ -1,7 +1,7 @@
 import Image from 'next/future/image'
 import FollowerAndLike from './components/FollowerAndLike'
-import MusicExperienceTab from '../tab/MusicExperienceTab'
-import MusicPersonalityTab from '../tab/MusicPersonalityTab'
+import MusicExperienceTab from '../MusicExperienceTab'
+import MusicPersonalityTab from '../MusicPersonalityTab'
 import {
   BalanceCenterBox,
   EditIconButton,
@@ -16,13 +16,15 @@ import { ProfileBasicInfoTabProps } from './types'
 export default function ProfileBasicInfoTab(
   profileBasicInfoTabProps: ProfileBasicInfoTabProps,
 ) {
-  const { editMode } = profileBasicInfoTabProps
+  const { editMode, user } = profileBasicInfoTabProps
+  console.log('user')
+  console.log(user)
   return (
     <ProfileBasicInfoTabContainer>
       <ProfileNameContainer>
         {editMode && <BalanceCenterBox />}
         <TypographyWithFont sx={{ fontSize: '22px', fontWeight: 600 }}>
-          Army
+          {user.displayName || '~'}
         </TypographyWithFont>
         {editMode && (
           <EditIconButton>
@@ -41,7 +43,7 @@ export default function ProfileBasicInfoTab(
         <TypographyWithFont
           sx={{ fontSize: '13px', fontWeight: 400, color: '#A278BC' }}
         >
-          acoustic is my worlddd {'>'}
+          {user.desc || '~'} {'>'}
         </TypographyWithFont>
         {editMode && (
           <EditIconButton sx={{ mt: '-2px' }}>
