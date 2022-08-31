@@ -1,4 +1,4 @@
-import ResetPassword from 'module/ResetPassword'
+import ResetPassword from 'src/module/ResetPassword'
 
 export default function PasswordReset() {
   return <ResetPassword />

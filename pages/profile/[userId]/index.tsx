@@ -1,4 +1,4 @@
-import Profile from 'module/Profile'
+import Profile from 'src/module/Profile'
 import { useRouter } from 'next/router'
 
 export default function ProfileTest() {

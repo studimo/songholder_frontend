@@ -6,8 +6,8 @@ import MediaControlCardDuo from 'components/MediaCard/MediaControlCardDuo'
 import MusicPlayer from 'components/MusicPlayer/MusicPlayer'
 import RecommendedCard from 'components/Discover/RecommendedCard'
 import { gql, useQuery } from '@apollo/client'
-import Footer from 'module/components/Footer'
-import ResponsiveAppBar from 'module/components/ResponsiveAppBar'
+import Footer from 'src/common/components/Footer'
+import ResponsiveAppBar from 'src/common/components/ResponsiveAppBar'
 
 const AllQuery = gql`
   query {

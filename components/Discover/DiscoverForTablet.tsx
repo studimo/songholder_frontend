@@ -7,7 +7,7 @@ import MusicPlayerMobile from 'components/MusicPlayer/MusicPlayerMobile'
 import RecommendedCard from 'components/Discover/RecommendedCard'
 import { gql, useQuery } from '@apollo/client'
 import FooterMobile from 'components/Layout/Footer/FooterMobile'
-import ResponsiveAppBar from 'module/components/ResponsiveAppBar'
+import ResponsiveAppBar from 'src/common/components/ResponsiveAppBar'
 import RecommendedCardForMobile from 'components/Discover/RecommendedCardForMobile'
 import MediaControlCardDuoForTablet from 'components/MediaCard/MediaControlCardDuoForTablet'
 

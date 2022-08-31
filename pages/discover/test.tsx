@@ -1,4 +1,4 @@
-import Discover from 'module/Discover'
+import Discover from 'src/module/Discover'
 
 export default function Test() {
   return <Discover />

@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@mui/material'
-import ResponsiveAppBar from 'module/components/ResponsiveAppBar'
+import ResponsiveAppBar from 'src/common/components/ResponsiveAppBar'
 
 export default function ProjectDetails() {
   const projectDetails = [

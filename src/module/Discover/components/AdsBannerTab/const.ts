@@ -1,0 +1,26 @@
+export const Banners = [
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+  {
+    bannerPhotoURL:
+      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+  },
+]

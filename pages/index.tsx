@@ -1,4 +1,4 @@
-import LandingPage from 'module/LandingPage'
+import LandingPage from 'src/module/LandingPage'
 
 export default function Index() {
   return <LandingPage />
