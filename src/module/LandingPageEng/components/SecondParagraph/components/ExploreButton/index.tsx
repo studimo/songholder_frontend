@@ -8,7 +8,7 @@ export default function ExploreButton() {
         color: 'white',
         borderRadius: '10px',
         ml: 'auto',
-        mr: { xs: '80px', sm: '210px', md: '410px', lg: '550px' },
+        mr: { xs: '140px', sm: '210px', md: '410px', lg: '550px' },
         mt: '-320px',
         width: 'auto',
       }}

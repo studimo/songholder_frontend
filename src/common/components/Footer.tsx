@@ -49,7 +49,7 @@ export default function Footer() {
               alignItems: 'center',
             }}
           >
-            <Typography sx={{ ml: 4, mr: 3 }}>
+            <Typography sx={{ ml: 6, mr: 5.5 }}>
               <Box
                 component='img'
                 sx={{
@@ -59,7 +59,7 @@ export default function Footer() {
                   // maxWidth: { xs: 350, md: 250 },
                 }}
                 alt='LOGO'
-                src='/assets/images/logo/logoForFooter.png'
+                src='/assets/images/logo/logoForFooter.PNG'
               />
             </Typography>
           </Stack>

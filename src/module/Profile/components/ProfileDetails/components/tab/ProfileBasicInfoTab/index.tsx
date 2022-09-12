@@ -24,7 +24,7 @@ export default function ProfileBasicInfoTab(
       <ProfileNameContainer>
         {editMode && <BalanceCenterBox />}
         <TypographyWithFont sx={{ fontSize: '22px', fontWeight: 600 }}>
-          {user.displayName || user.email || '~'}
+          {user.Profile.displayName || user.email || '~'}
         </TypographyWithFont>
         {editMode && (
           <EditIconButton>
@@ -43,7 +43,7 @@ export default function ProfileBasicInfoTab(
         <TypographyWithFont
           sx={{ fontSize: '13px', fontWeight: 400, color: '#A278BC' }}
         >
-          {user.desc || '~'} {'>'}
+          {user.Profile.desc || '~'} {'>'}
         </TypographyWithFont>
         {editMode && (
           <EditIconButton sx={{ mt: '-2px' }}>

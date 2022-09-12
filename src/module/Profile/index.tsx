@@ -18,10 +18,12 @@ export default function Profile(profileProps: ProfileProps) {
     userId: 0,
     role: '',
     email: '',
-    desc: '',
-    displayName: '',
-    userPhotoURL: '',
-    backgroundPhotoURL: '',
+    Profile: {
+      desc: '',
+      displayName: '',
+      userPhotoURL: '',
+      backgroundPhotoURL: '',
+    },
   })
 
   useEffect(() => {
@@ -39,9 +41,12 @@ export default function Profile(profileProps: ProfileProps) {
       <ResponsiveAppBar background={'gradient'} page={'DISCOVER'} />
       <BackgroundImage
         editMode={editMode}
-        backgroundPhotoURL={user.backgroundPhotoURL}
+        backgroundPhotoURL={user.Profile.backgroundPhotoURL}
       />
-      <ProfileImage editMode={editMode} userPhotoURL={user.userPhotoURL} />
+      <ProfileImage
+        editMode={editMode}
+        userPhotoURL={user.Profile.userPhotoURL}
+      />
       <ProfileDetails editMode={editMode} user={user} />
       <Footer />
     </RootContainer>

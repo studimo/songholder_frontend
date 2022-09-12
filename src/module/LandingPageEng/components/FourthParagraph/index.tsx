@@ -54,7 +54,7 @@ export default function FourthParagraph() {
               width: '160px',
               height: '160px',
               marginLeft: '30px',
-              marginTop: { xs: '-40px', sm: '0px' },
+              marginTop: { xs: '-40px', sm: '20px' },
               position: 'relative',
             }}
           >
@@ -66,19 +66,18 @@ export default function FourthParagraph() {
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 200,
-              fontSize: { xs: '13px', sm: '18px', md: '22px', lg: '28px' },
-              lineHeight: { xs: '20px', sm: '44px' },
+              fontSize: { xs: '15px', sm: '20px', md: '24px', lg: '30px' },
+              lineHeight: { xs: '30px', sm: '44px' },
 
               color: '#FFFFFF',
-              letterSpacing: { xs: '0.07em', sm: '0.1em' },
 
-              width: { sm: '340px', md: '360px', lg: '500px' },
-              mt: { xs: '15px', sm: '20px' },
+              width: { sm: '340px', md: '360px', lg: '400px' },
+              mt: { xs: '15px', sm: '50px' },
               ml: { xs: '-10px', sm: '0px', md: '20px', lg: '40px' },
               mr: { xs: '20px', sm: '0px' },
             }}
           >
-            เป็นพื้นที่ให้ศิลปินได้แสดงผลงานและสามารถหาเลี้ยงชีพได้ด้วยการเป็นศิลปินเพียงอย่างเดียว
+            To be an exhibition space for the artist's work
           </Typography>
         </Stack>
         <Stack
@@ -92,19 +91,18 @@ export default function FourthParagraph() {
               fontFamily: 'Mitr',
               fontStyle: 'normal',
               fontWeight: 200,
-              fontSize: { xs: '13px', sm: '18px', md: '22px', lg: '28px' },
-              lineHeight: { xs: '20px', sm: '44px' },
+              fontSize: { xs: '15px', sm: '20px', md: '24px', lg: '30px' },
+              lineHeight: { xs: '30px', sm: '44px' },
 
               color: '#FFFFFF',
-              letterSpacing: { xs: '0.07em', sm: '0.1em' },
 
-              width: { sm: '340px', md: '360px', lg: '500px' },
+              width: { sm: '340px', md: '360px', lg: '440px' },
               textAlign: 'right',
               ml: { xs: '35px', sm: '30px' },
               mt: { xs: '20px', sm: '0px' },
             }}
           >
-            ให้ศิลปินได้โฟกัสกับการทำเพลงเต็มที่โดยไม่ต้องกังวลเรื่องอื่นๆ
+            To create quality new songs to the music industry
           </Typography>
           <Box
             sx={{

@@ -20,7 +20,7 @@ export default function SecondParagraph() {
         <Box
           sx={{
             mt: { xs: '-330px', sm: '-330px', md: '-350px', lg: '-370px' },
-            mr: { xs: '-750px', sm: '-620px', md: '-440px', lg: '-300px' },
+            mr: { xs: '-720px', sm: '-620px', md: '-440px', lg: '-300px' },
             ml: 'auto',
             width: '900px',
           }}

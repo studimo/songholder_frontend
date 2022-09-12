@@ -59,7 +59,7 @@ export default class MyDocument extends Document {
             crossOrigin='anonymous'
           />
           <link
-            href='https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600&family=Mitr:wght@200;300;400;500;600;700&family=NTR&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600&family=Mitr:wght@100;200;300;400;500;600;700&family=NTR&display=swap'
             rel='stylesheet'
           />
 

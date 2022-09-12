@@ -62,7 +62,7 @@ export default function FifthParagraph() {
               color: '#387E87',
             }}
           >
-            ~
+            500
           </Typography>
         </Stack>
         <Stack>
@@ -82,7 +82,7 @@ export default function FifthParagraph() {
               color: '#496389',
             }}
           >
-            ~
+            300
           </Typography>
         </Stack>
 
@@ -103,7 +103,7 @@ export default function FifthParagraph() {
               color: '#615191',
             }}
           >
-            ~
+            1000
           </Typography>
         </Stack>
       </Stack>
