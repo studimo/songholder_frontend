@@ -1,3 +1,4 @@
+import Footer from 'src/common/components/Footer'
 import ResponsiveAppBar from 'src/common/components/ResponsiveAppBar'
 import AdsBannerTab from './components/AdsBannerTab'
 import ProjectListTab from './components/ProjectListTab'
@@ -11,6 +12,7 @@ export default function Discover() {
       <AdsBannerTab />
       <RecommendedTab />
       <ProjectListTab />
+      <Footer />
     </RootContainer>
   )
 }

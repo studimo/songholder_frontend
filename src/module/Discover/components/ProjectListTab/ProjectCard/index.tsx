@@ -1,27 +1,28 @@
-import Image from 'next/future/image'
-import { ProjectMainCard } from './styled'
+import CountdownTime from './components/CountdownTime'
+import ProjectCardDetail from './components/ProjectCardDetail'
+import ProjectImageCover from './components/ProjectImageCover'
+import { ProjectMainCard, TypographyWithFont } from './styled'
 
 export default function ProjectCard() {
   return (
     <ProjectMainCard>
-      <div
-        style={{
+      <ProjectImageCover />
+      <ProjectCardDetail />
+      <CountdownTime />
+      <TypographyWithFont
+        sx={{
           display: 'flex',
           position: 'absolute',
-          left: '0%',
-          width: '100px',
-          height: '100%',
-          overflow: 'hidden',
-          backgroundColor: 'yellowgreen',
+          right: '8px',
+          bottom: '0px',
+          padding: '8px',
+          background: 'linear-gradient(90deg, #927EBC 12.84%, #34A0B8 86.49%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
         }}
       >
-        <Image
-          src='/assets/images/project/projectDetail/artistImage.svg'
-          alt='Logo_IG'
-          fill
-          style={{ objectFit: 'cover' }}
-        />
-      </div>
+        79% funded
+      </TypographyWithFont>
     </ProjectMainCard>
   )
 }
