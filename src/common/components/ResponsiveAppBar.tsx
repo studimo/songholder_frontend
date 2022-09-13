@@ -87,6 +87,19 @@ function ResponsiveAppBar(props: AppBarProps) {
   //   console.log(scrollY.current > 550);
   // }, [scrollYProgress]);
   const { authUser, loading, signOut } = useAuth()
+  const [displayName, setDisplayName] = React.useState('')
+  React.useEffect(() => {
+    async function loadUserData() {
+      if (authUser) {
+        const res = await axios.get(
+          `${baseURL}/users/findByUid/${authUser.uid}`,
+        )
+        console.log(res.data)
+        setDisplayName(res.data.Profile.displayName)
+      }
+    }
+    loadUserData()
+  }, [authUser])
   // console.log(authUser)
   const router = useRouter()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
@@ -134,12 +147,13 @@ function ResponsiveAppBar(props: AppBarProps) {
   }
 
   const handleProfileButton = async () => {
-    if (authUser) {
-      const res = await axios.get(
-        `${baseURL}/users/findByEmail/${authUser.email}`,
-      )
-      location.href = `/profile/${res.data.userId}`
-    }
+    // if (authUser) {
+    //   const res = await axios.get(
+    //     `${baseURL}/users/findByEmail/${authUser.email}`,
+    //   )
+    //   location.href = `/profile/${res.data.userId}`
+    // }
+    location.href = `/profile/me`
   }
   return (
     <AppBar
@@ -521,7 +535,7 @@ function ResponsiveAppBar(props: AppBarProps) {
                     color: '#FFFFFF',
                   }}
                 >
-                  {authUser.displayName || authUser.email}
+                  {displayName || authUser.email}
                 </Typography>
               </Stack>
               <Menu

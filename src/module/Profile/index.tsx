@@ -11,8 +11,7 @@ const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 
 export default function Profile(profileProps: ProfileProps) {
-  const { userId } = profileProps
-  const [editMode, setEditMode] = useState(false)
+  const { userId, editMode } = profileProps
   const { authUser, loading } = useAuth()
   const [user, setUser] = useState({
     userId: 0,

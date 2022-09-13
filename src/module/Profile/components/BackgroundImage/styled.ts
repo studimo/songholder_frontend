@@ -1,5 +1,7 @@
 import { Box, IconButton, styled } from '@mui/material'
 
+export const BackgroundImageContainer = styled('div')(() => ({}))
+
 export const StyledCoverImage = styled(Box)(() => ({
   display: 'flex',
   position: 'relative',
