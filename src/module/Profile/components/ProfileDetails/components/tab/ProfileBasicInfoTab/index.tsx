@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '@mui/material'
 import axios from 'axios'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
+import { baseURL } from 'src/common/const/URL'
 
 export default function ProfileBasicInfoTab(
   profileBasicInfoTabProps: ProfileBasicInfoTabProps,

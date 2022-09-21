@@ -1,15 +1,21 @@
 import ProjectInfoDataShow from './components/ProjectInfoDataShow'
 import { ProjectInfoContainer } from './styled'
 import { motion } from 'framer-motion'
+import { ProjectInfoProps } from './types'
 
-export default function ProjectInfo() {
+export default function ProjectInfo(projectInfoProps: ProjectInfoProps) {
+  const { projectInfo, artistName } = projectInfoProps
+  const date = new Date(projectInfo.deadLine)
   const projectDetails = [
-    { title: 'ศิลปิน', data: 'DRG' },
-    { title: 'ประเภท', data: 'Single เพลง' },
-    { title: 'วันสิ้นสุดการระดมทุน', data: '27/03/2023' },
-    { title: 'สถานะ', data: 'Draft' },
-    { title: 'ผู้รับผิดชอบ', data: 'บริษัทXXXX' },
-    { title: 'อื่นๆ', data: 'demo' },
+    { title: 'ศิลปิน', data: artistName },
+    // { title: 'ประเภท', data: projectInfo. },
+    {
+      title: 'วันสิ้นสุดการระดมทุน',
+      data: `${date.toLocaleDateString()}`,
+    },
+    { title: 'สถานะ', data: projectInfo.status },
+    { title: 'ผู้รับผิดชอบ', data: projectInfo.responsiblePerson },
+    { title: 'อื่นๆ', data: projectInfo.other },
   ]
   return (
     <motion.div

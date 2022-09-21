@@ -10,6 +10,7 @@ import {
 import Image from 'next/future/image'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { useEffect, useState } from 'react'
+import { baseURL } from 'src/common/const/URL'
 import {
   BackgroundCameraIcon,
   BackgroundImageContainer,
@@ -18,8 +19,6 @@ import {
   StyledCoverImage,
 } from './styled'
 import { BackgroundImageProps } from './types'
-
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
 
 export default function BackgroundImage(
   backgroundImageProps: BackgroundImageProps,

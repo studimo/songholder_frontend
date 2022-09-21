@@ -1,22 +1,20 @@
 import Knot from './components/Knot'
 import { KnotsContainer, ProgressBar, TrackBarContainer } from './styled'
+import { TrackBarProps } from './types'
 
-export default function TrackBar() {
-  const knotDetails = [
-    { knotPosition: 25, knotValue: '1,000' },
-    { knotPosition: 50, knotValue: '2,000' },
-    { knotPosition: 100, knotValue: '4,000' },
-  ]
-  const currentPercentage = 50
+export default function TrackBar(trackBarProps: TrackBarProps) {
+  const { knotDetails, currentBudget, targetBudget } = trackBarProps
+  const currentPercentage = (currentBudget / targetBudget) * 100
   return (
     <TrackBarContainer>
       <KnotsContainer>
         {knotDetails.map(knotDetail => (
           <Knot
-            key={knotDetail.knotPosition}
-            knotPosition={knotDetail.knotPosition}
-            currentPercentage={currentPercentage}
+            key={'knot at ' + knotDetail.knotValue}
             knotValue={knotDetail.knotValue}
+            knotName={knotDetail.knotName}
+            currentPercentage={currentPercentage}
+            targetBudget={targetBudget}
           />
         ))}
       </KnotsContainer>

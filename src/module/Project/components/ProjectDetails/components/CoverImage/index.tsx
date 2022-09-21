@@ -1,7 +1,9 @@
 import Image from 'next/future/image'
 import { StyledCoverImage } from './styled'
+import { CoverImageProps } from './types'
 
-export default function CoverImage() {
+export default function CoverImage(coverImageProps: CoverImageProps) {
+  const { coverImageUrl } = coverImageProps
   const css = { width: '100%', height: 'auto' }
   return (
     <StyledCoverImage
@@ -10,7 +12,7 @@ export default function CoverImage() {
       }}
     >
       <Image
-        src={'/assets/images/project/projectDetail/coverImage.svg'}
+        src={coverImageUrl}
         fill
         style={{ objectFit: 'cover' }}
         // style={{ width: '100%' }}

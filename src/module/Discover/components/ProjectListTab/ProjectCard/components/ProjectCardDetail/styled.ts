@@ -10,3 +10,13 @@ export const TypographyWithFont = styled(Typography)(() => ({
 
   color: '#000000',
 }))
+export const ProjectCardDetailContainer = styled('div')(() => ({
+  display: 'flex',
+  width: '100%',
+  height: '100%',
+  // backgroundColor: 'red',
+  padding: '5px 10px',
+  marginLeft: '100px',
+  paddingRight: '30px',
+  flexDirection: 'column',
+}))

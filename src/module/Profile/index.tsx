@@ -7,23 +7,14 @@ import ProfileDetails from './components/ProfileDetails'
 import ProfileImage from './components/ProfileImage'
 import { RootContainer } from './styled'
 import { ProfileProps } from './types'
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
 import { useAuth } from 'Providers/FirebaseAuthProvider'
+import { baseURL } from 'src/common/const/URL'
+import { initUserValue } from './const'
 
 export default function Profile(profileProps: ProfileProps) {
   const { userId, editMode } = profileProps
   const { authUser, loading } = useAuth()
-  const [user, setUser] = useState({
-    userId: 0,
-    role: '',
-    email: '',
-    Profile: {
-      desc: '',
-      displayName: '',
-      userPhotoURL: '',
-      backgroundPhotoURL: '',
-    },
-  })
+  const [user, setUser] = useState(initUserValue)
 
   useEffect(() => {
     async function loadUserData() {

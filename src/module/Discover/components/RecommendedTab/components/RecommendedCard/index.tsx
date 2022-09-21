@@ -13,10 +13,9 @@ import { RecommendedCardProps } from './types'
 export default function RecommendedCard(
   recommendedCardProps: RecommendedCardProps,
 ) {
-  const [showButton, setShowButton] = useState(false)
-  const audioUrl = 'Upv7-MN3kjw'
+  // const [showButton, setShowButton] = useState(false)
   const onPlay = true
-  const { name, youtubeId } = recommendedCardProps
+  const { name, youtubeId, playerControl } = recommendedCardProps
   return (
     <RecommendedCardContainer>
       <RecommendedCardMainCard>
@@ -27,15 +26,19 @@ export default function RecommendedCard(
             },
             backgroundImage: `url(https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg)`,
           }}
-          onMouseOver={() => {
-            setShowButton(true)
-          }}
-          onMouseLeave={() => {
-            setShowButton(false)
-          }}
+          // onMouseOver={() => {
+          //   setShowButton(true)
+          // }}
+          // onMouseLeave={() => {
+          //   setShowButton(false)
+          // }}
         >
           <RecommendedCardActionArea
             onClick={() => {
+              playerControl.changeSong({ url: youtubeId, songName: name })
+              // console.log('click')
+              // console.log(youtubeId)
+              // console.log(name)
               //   setAudioUrl(content.youtubeId)
               //   setSongName(content.name)
               //   setMusicId(musicId)
@@ -53,8 +56,8 @@ export default function RecommendedCard(
               //   }
             }}
           >
-            {showButton ? (
-              onPlay && audioUrl == youtubeId ? (
+            {/* {showButton ? (
+              playerControl.onPlay && playerControl.audioUrl == youtubeId ? (
                 <PauseIcon
                   sx={{
                     fontSize: 50,
@@ -71,7 +74,23 @@ export default function RecommendedCard(
               )
             ) : (
               <></>
-            )}
+            )} */}
+            {playerControl.audioUrl == youtubeId &&
+              (playerControl.onPlay ? (
+                <PauseIcon
+                  sx={{
+                    fontSize: 50,
+                    color: 'white',
+                  }}
+                />
+              ) : (
+                <PlayArrowOutlinedIcon
+                  sx={{
+                    fontSize: 50,
+                    color: 'white',
+                  }}
+                />
+              ))}
           </RecommendedCardActionArea>
         </RecommendedCardMedia>
       </RecommendedCardMainCard>

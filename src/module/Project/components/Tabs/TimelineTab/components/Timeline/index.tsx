@@ -1,50 +1,10 @@
 import TimelineCard from './components/TimelineCard'
 import { TimelineContainer } from './styled'
 import { motion } from 'framer-motion'
+import { TimelineProps } from './types'
 
-export default function Timeline() {
-  const timelineDatas = [
-    {
-      date: new Date('2023-04-10'),
-      title: 'เปิดระดมทุน',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssavldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-10'),
-      title: 'finalize เพลง',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-15'),
-      title: 'finalize คนทำ mv',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-18'),
-      title: 'เริ่มถ่ายทำ mv',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-25'),
-      title: 'สิ้นสุดการถ่ายทำ mv',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-26'),
-      title: 'วางแผนการตลาด',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-30'),
-      title: 'เริ่มโปรโมท',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfldjfldsjlfjasdlfjdsalfjldjfljfsdjfadfadservsdvasdvdsfvdsfvadsdssav',
-    },
-    {
-      date: new Date('2023-05-30'),
-      title: 'สิ้นสุดการระดมทุน',
-      desc: 'ldkfjojfdjflasdfjladjfldkjfl',
-    },
-  ]
+export default function Timeline(timelineProps: TimelineProps) {
+  const { timelineDatas } = timelineProps
   return (
     <motion.div
       initial={{ opacity: -2, y: '-80%' }}
@@ -54,8 +14,8 @@ export default function Timeline() {
       <TimelineContainer>
         {timelineDatas.map((TimelineData, inx) => (
           <TimelineCard
-            key={TimelineData.date.getDate() + TimelineData.title}
-            date={TimelineData.date}
+            key={'Timeline Data ' + inx + TimelineData.title}
+            date={new Date(TimelineData.date)}
             title={TimelineData.title}
             desc={TimelineData.desc}
             isFirstOrLast={

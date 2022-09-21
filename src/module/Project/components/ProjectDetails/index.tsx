@@ -3,12 +3,16 @@ import Image from 'next/image'
 import ArtistImage from './components/ArtistImage'
 import CoverImage from './components/CoverImage'
 import { ProjectDetailContainer, TitleContainer } from './styled'
+import { ProjectDetailsProps } from './types'
 
-export default function ProjectDetails() {
+export default function ProjectDetails(
+  projectDetailsProps: ProjectDetailsProps,
+) {
+  const { name, desc, coverImageUrl, userPhotoURL } = projectDetailsProps
   return (
     <ProjectDetailContainer>
-      <CoverImage />
-      <ArtistImage />
+      <CoverImage coverImageUrl={coverImageUrl} />
+      <ArtistImage userPhotoURL={userPhotoURL} />
       <TitleContainer>
         <Typography
           sx={{
@@ -20,7 +24,7 @@ export default function ProjectDetails() {
             color: '#335380',
           }}
         >
-          DRG’s Project
+          {name}
         </Typography>
         <Typography
           sx={{
@@ -34,9 +38,7 @@ export default function ProjectDetails() {
             mt: '5px',
           }}
         >
-          อัลบัมที่เปรียบเสมือนชีวิตคนคนหนึ่ง
-          <br />
-          กับเรื่องราวความรักที่ถูกบรรจุลงไปในเพลง (Beta Version only for test.)
+          {desc}
         </Typography>
       </TitleContainer>
     </ProjectDetailContainer>

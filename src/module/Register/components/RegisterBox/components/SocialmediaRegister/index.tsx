@@ -13,6 +13,7 @@ import { SocialmediaRegisterProps } from './types'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { registerErrorHandle } from '../registerErrorHandle'
 import Image from 'next/image'
+import { createAccountHandle } from 'src/common/function/createAccoutHandle'
 
 export default function SocialmediaRegister(props: SocialmediaRegisterProps) {
   const { loading, setLoading, resFromSubmit, setResFromSubmit } = props
@@ -63,7 +64,7 @@ export default function SocialmediaRegister(props: SocialmediaRegisterProps) {
             try {
               const user = await signInWithGoogle()
               setLoading(false)
-              location.href = '/discover'
+              createAccountHandle(user)
             } catch (err: any) {
               let errMessage = registerErrorHandle(err.message)
               errMessage = errMessage ? errMessage : 'Unknown error'

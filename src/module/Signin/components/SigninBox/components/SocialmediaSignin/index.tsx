@@ -13,6 +13,7 @@ import { SocialmediaSigninProps } from './types'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { SignInErrorHandle } from '../ErrorLoginHandle'
 import Image from 'next/image'
+import { createAccountHandle } from 'src/common/function/createAccoutHandle'
 
 export default function SocialmediaSignin(props: SocialmediaSigninProps) {
   const { loading, setLoading, resFromSubmit, setResFromSubmit } = props
@@ -24,7 +25,7 @@ export default function SocialmediaSignin(props: SocialmediaSigninProps) {
           async function signInFacebook() {
             try {
               const user = await signInWithFacebook()
-              location.href = '/discover'
+              createAccountHandle(user)
               setLoading(false)
             } catch (err: any) {
               let errMessage = SignInErrorHandle(err.message)
@@ -63,7 +64,7 @@ export default function SocialmediaSignin(props: SocialmediaSigninProps) {
             try {
               const user = await signInWithGoogle()
               setLoading(false)
-              location.href = '/discover'
+              createAccountHandle(user)
             } catch (err: any) {
               let errMessage = SignInErrorHandle(err.message)
               errMessage = errMessage ? errMessage : 'Unknown error'

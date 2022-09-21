@@ -4,15 +4,14 @@ import {
   BackgroundArtistImage,
   StyledArtistImage,
 } from './styled'
+import { ArtistImageProps } from './types'
 
-export default function ArtistImage() {
+export default function ArtistImage(artistImageProps: ArtistImageProps) {
+  const { userPhotoURL } = artistImageProps
   return (
     <ArtistContainer>
       <StyledArtistImage>
-        <Image
-          src={'/assets/images/project/projectDetail/artistImage.svg'}
-          fill
-        />
+        <Image src={userPhotoURL} fill />
       </StyledArtistImage>
       <BackgroundArtistImage />
     </ArtistContainer>

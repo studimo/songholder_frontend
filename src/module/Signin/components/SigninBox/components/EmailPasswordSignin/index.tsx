@@ -16,6 +16,7 @@ import { AuthErrorCodes } from 'firebase/auth'
 import { Console } from 'console'
 import { SignInErrorHandle } from '../ErrorLoginHandle'
 import { EmailPasswordSigninProps } from './types'
+import { createAccountHandle } from 'src/common/function/createAccoutHandle'
 
 export default function EmailPasswordSignin(props: EmailPasswordSigninProps) {
   const { loading, setLoading, resFromSubmit, setResFromSubmit } = props
@@ -54,7 +55,7 @@ export default function EmailPasswordSignin(props: EmailPasswordSigninProps) {
           formValues.email,
           formValues.password,
         )
-        location.href = '/discover'
+        createAccountHandle(user)
         setLoading(false)
       } catch (err: any) {
         let errMessage = SignInErrorHandle(err.message)

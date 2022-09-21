@@ -26,7 +26,7 @@ import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { ArrowForward, Menu as MenuIcon } from '@mui/icons-material'
 import { AppbarButton } from 'components/Layout/Appbar/AppbarButton'
 import axios from 'axios'
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
+import { baseURL } from '../const/URL'
 // import "components/navbar.css";
 
 const pages = [

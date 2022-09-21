@@ -4,12 +4,12 @@ import { KnotContainer, KnotText, StyledKnotImage } from './styled'
 import { KnotProps } from './types'
 
 export default function Knot(props: KnotProps) {
-  const { currentPercentage, knotPosition, knotValue } = props
-  const successKnot = currentPercentage >= knotPosition
+  const { currentPercentage, knotName, knotValue, targetBudget } = props
+  const successKnot = currentPercentage >= (knotValue / targetBudget) * 100
   return (
     <KnotContainer
       style={{
-        left: `${knotPosition}%`,
+        left: `${(knotValue / targetBudget) * 100}%`,
       }}
     >
       <StyledKnotImage
@@ -29,7 +29,7 @@ export default function Knot(props: KnotProps) {
           // width="100%"
         />
       </StyledKnotImage>
-      <KnotText>{knotValue}</KnotText>
+      <KnotText>{knotName}</KnotText>
     </KnotContainer>
   )
 }

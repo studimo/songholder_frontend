@@ -1,5 +1,6 @@
 export type KnotProps = {
-  knotPosition: number
+  knotValue: number
   currentPercentage: number
-  knotValue: string
+  knotName: string
+  targetBudget: number
 }

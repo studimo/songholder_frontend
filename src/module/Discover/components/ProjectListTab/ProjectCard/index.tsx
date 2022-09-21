@@ -1,28 +1,31 @@
 import CountdownTime from './components/CountdownTime'
 import ProjectCardDetail from './components/ProjectCardDetail'
 import ProjectImageCover from './components/ProjectImageCover'
-import { ProjectMainCard, TypographyWithFont } from './styled'
+import { ProjectMainCard, TypographyWithGradientFont } from './styled'
+import { ProjectCardProps } from './types'
 
-export default function ProjectCard() {
+export default function ProjectCard(projectCardProps: ProjectCardProps) {
+  const { project, playerControl } = projectCardProps
+  const percent = Math.round(
+    (project.currentBudget / project.targetBudget) * 1000,
+  )
   return (
     <ProjectMainCard>
-      <ProjectImageCover />
-      <ProjectCardDetail />
+      <ProjectImageCover
+        name={project.name}
+        youtubeId={project.song.youtubeId}
+        playerControl={playerControl}
+      />
+      <ProjectCardDetail
+        name={project.name}
+        desc={project.desc}
+        disPlayName={project.song.artist.Profile.displayName}
+        projectId={project.projectId}
+      />
       <CountdownTime />
-      <TypographyWithFont
-        sx={{
-          display: 'flex',
-          position: 'absolute',
-          right: '8px',
-          bottom: '0px',
-          padding: '8px',
-          background: 'linear-gradient(90deg, #927EBC 12.84%, #34A0B8 86.49%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }}
-      >
-        79% funded
-      </TypographyWithFont>
+      <TypographyWithGradientFont>
+        {percent / 10}% funded
+      </TypographyWithGradientFont>
     </ProjectMainCard>
   )
 }

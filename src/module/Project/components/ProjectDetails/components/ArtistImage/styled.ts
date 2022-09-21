@@ -5,6 +5,7 @@ export const StyledArtistImage = styled('div')(() => ({
   width: '100px',
   height: '100px',
   overflow: 'hidden',
+  borderRadius: '50%',
   zIndex: 2,
 }))
 export const BackgroundArtistImage = styled('div')(() => ({

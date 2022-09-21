@@ -16,6 +16,7 @@ import { AuthErrorCodes } from 'firebase/auth'
 import { Console } from 'console'
 import { registerErrorHandle } from '../registerErrorHandle'
 import { EmailPasswordRegisterProps } from './types'
+import { createAccountHandle } from 'src/common/function/createAccoutHandle'
 
 export default function EmailPasswordRegister(
   props: EmailPasswordRegisterProps,
@@ -58,7 +59,7 @@ export default function EmailPasswordRegister(
           formValues.email,
           formValues.password,
         )
-        location.href = '/discover'
+        createAccountHandle(user)
         setLoading(false)
       } catch (err: any) {
         let errMessage = registerErrorHandle(err.message)

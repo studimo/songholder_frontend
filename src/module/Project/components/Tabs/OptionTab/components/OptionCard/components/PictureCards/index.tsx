@@ -11,7 +11,7 @@ export default function PictureCard(props: PictureCardsProps) {
         {pictures.map((picture, i) => (
           <StyledPicture key={picture + i}>
             <Image
-              src={`https://res.cloudinary.com/demo/image/fetch/${picture}`}
+              src={`${picture}`}
               fill
               // layout='fill'
               // // objectFit='contain'

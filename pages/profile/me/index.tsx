@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useAuth } from 'Providers/FirebaseAuthProvider'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
+import { baseURL } from 'src/common/const/URL'
 
 export default function ProfileTest() {
   const { authUser } = useAuth()

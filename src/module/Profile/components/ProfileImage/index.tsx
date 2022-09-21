@@ -20,8 +20,7 @@ import {
   uploadBytes,
   uploadBytesResumable,
 } from 'firebase/storage'
-
-const baseURL = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
+import { baseURL } from 'src/common/const/URL'
 
 export default function ProfileImage(profileImageProps: ProfileImageProps) {
   const { authUser } = useAuth()
