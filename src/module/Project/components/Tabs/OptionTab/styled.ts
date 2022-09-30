@@ -2,11 +2,12 @@ import { Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
 export const TabContainer = styled('div')(() => ({
+  position: 'relative',
   width: '100vw',
   paddingLeft: '50px',
   paddingRight: '50px',
-  paddingTop: '5px',
-  marginBottom: '20px',
+  paddingTop: '20px',
+  paddingBottom: '50px',
 }))
 
 export const HeaderTabText = styled(Typography)(() => ({
@@ -18,6 +19,16 @@ export const HeaderTabText = styled(Typography)(() => ({
   color: '#335380',
   textTransform: 'none',
   paddingLeft: '8px',
+  textAlign: 'center',
+  marginBottom: '5px',
+}))
+export const TypographyWithFont = styled(Typography)(() => ({
+  fontFamily: 'Mitr',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '13px',
+  lineHeight: '20px',
+  color: '#335380',
 }))
 
 export const OptionsContainer = styled('div')(() => ({

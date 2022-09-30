@@ -1,6 +1,7 @@
 import { Divider } from '@mui/material'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import Footer from 'src/common/components/Footer'
 import ResponsiveAppBar from 'src/common/components/ResponsiveAppBar'
 import { baseURL } from 'src/common/const/URL'
 import ProjectDetails from './components/ProjectDetails'
@@ -58,6 +59,7 @@ export default function Project(projectProps: ProjectProps) {
         <TabDivider />
         <OptionTab options={project.projectDetails.options} />
       </TabsContainer>
+      <Footer />
     </RootContainer>
   )
 }

@@ -52,6 +52,7 @@ export default function OptionCard(props: OptionCardProps) {
       <DescOptionCardText
         sx={{
           color: colorPalette[inxColor].textColor,
+          wordBreak: 'break-all',
         }}
       >
         {descResult}

@@ -6,6 +6,14 @@
       {
         "source": "/home",
         "destination": "/index.html"
+      },
+      {
+        "source": "/profile/**",
+        "destination": "/profile/[userId]/index.html"
+      },
+      {
+        "source": "/discover/project/**",
+        "destination": "/discover/project/[projectId]/index.html"
       }
     ],
     "cleanUrls": true
