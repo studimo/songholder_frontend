@@ -27,7 +27,6 @@ export default function Project(projectProps: ProjectProps) {
     async function loadProjectData() {
       const res = await axios.get(`${baseURL}/project/${projectId}`)
       setProject(res.data)
-      console.log(project)
     }
     if (projectId) loadProjectData()
   }, [projectId])

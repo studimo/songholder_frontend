@@ -4,6 +4,7 @@ import {
   OptionsContainer,
   TabContainer,
   TypographyWithFont,
+  useStyles,
 } from './styled'
 import { motion } from 'framer-motion'
 import { OptionTabProps } from './types'
@@ -12,7 +13,7 @@ import { height } from '@mui/system'
 import { Button, Typography } from '@mui/material'
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded'
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/future/image'
 import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded'
 
@@ -21,6 +22,9 @@ export default function OptionTab(optionTabProps: OptionTabProps) {
   const [option, setOption] = useState(options[0])
   const [currentSelect, setCurrentSelect] = useState(0)
   const [currentPaymentSelect, setCurrentPaymentSelect] = useState<any>(null)
+
+  const { classes } = useStyles()
+
   useEffect(() => {
     setOption(options[0])
   }, [options])
@@ -34,6 +38,7 @@ export default function OptionTab(optionTabProps: OptionTabProps) {
       <TabContainer>
         <HeaderTabText>ตัวเลือกการระดมทุน</HeaderTabText>
         <Carousel
+          classNames={classes}
           align='start'
           slideGap='md'
           controlsOffset={-1000}

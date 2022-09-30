@@ -1,3 +1,4 @@
+import { createStyles } from '@mantine/core'
 import { Typography } from '@mui/material'
 import { styled } from '@mui/system'
 
@@ -39,4 +40,20 @@ export const OptionsContainer = styled('div')(() => ({
   paddingLeft: '15px',
   gap: '14px',
   marginTop: '5px',
+}))
+
+export const useStyles = createStyles((_theme, _params, getRef) => ({
+  controls: {
+    ref: getRef('controls'),
+    transition: 'opacity 150ms ease',
+    opacity: 0,
+  },
+
+  root: {
+    '&:hover': {
+      [`& .${getRef('controls')}`]: {
+        opacity: 1,
+      },
+    },
+  },
 }))
