@@ -15,7 +15,7 @@ export default function ProjectCardDetail(
           },
         }}
       >
-        <a href={`discover/project/${projectId}`}>{name}</a>
+        <a href={`discover/project/1`}>{name}</a>
       </TypographyWithFont>
       <TypographyWithFont
         sx={{
