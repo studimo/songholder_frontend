@@ -36,7 +36,7 @@ export default function RecommendedTab(
         slideGap={-10}
         controlsOffset='xl'
         slidesToScroll={1}
-        // dragFree
+        dragFree
       >
         {recommendedProjectList.map((recommendedProject, index) => (
           <Carousel.Slide key={'recommendedProject' + index}>
