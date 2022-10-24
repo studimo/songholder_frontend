@@ -19,8 +19,8 @@ import ShareRoundedIcon from '@mui/icons-material/ShareRounded'
 import Footer from 'src/common/components/Footer'
 import { FileInput } from '@mantine/core'
 import AddRoundedIcon from '@mui/icons-material/AddRounded'
-import GradientButtonBackground from './components/gradientButtonBackground'
 import { Button } from '@mui/material'
+// import GradientButtonBackground from './components/GradientButtonBackground'
 
 export default function ConfirmPurchase(
   ConfirmPurchaseProps: ConfirmPurchaseProps,
@@ -195,7 +195,7 @@ export default function ConfirmPurchase(
                   paddingLeft: '4px',
                 }}
               >
-                <GradientButtonBackground />
+                {/* <GradientButtonBackground /> */}
               </div>
             </Button>
           </div>
