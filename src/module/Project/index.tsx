@@ -24,7 +24,6 @@ import { ProjectProps } from './types'
 export default function Project(projectProps: ProjectProps) {
   const { projectId } = projectProps
   const [project, setProject] = useState(initProjectValue)
-  console.log(project)
 
   useEffect(() => {
     async function loadProjectData() {
