@@ -6,6 +6,8 @@ export type ProjectInfoProps = {
     // status: string
     responsiblePerson: string
     other: string
+    artist: string
+    type: string
   }
   artistName: string
 }

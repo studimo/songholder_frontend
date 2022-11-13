@@ -34,8 +34,16 @@ export const initProjectValue = {
       // status: 'Draft',
       responsiblePerson: '',
       other: '',
+      artist: '',
+      type: '',
     },
-    toListener: '',
+    toListenerTitle1: '',
+    toListener1: '',
+    toListenerTitle2: '',
+    toListener2: '',
+    toListenerEnding: '',
+    toListenerPhotoURL: '',
+    aboutProjectPhotoURL: '',
     timelineDatas: [
       {
         timeLineDataId: 1,

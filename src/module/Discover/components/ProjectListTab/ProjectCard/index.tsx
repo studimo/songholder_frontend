@@ -22,7 +22,7 @@ export default function ProjectCard(projectCardProps: ProjectCardProps) {
         disPlayName={project.song.artist.Profile.displayName}
         projectId={project.projectId}
       />
-      <CountdownTime />
+      <CountdownTime deadline={project.projectDetails?.projectInfo.deadLine} />
       <TypographyWithGradientFont>
         {percent / 10}% funded
       </TypographyWithGradientFont>

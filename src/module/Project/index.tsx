@@ -8,8 +8,10 @@ import ProjectDetails from './components/ProjectDetails'
 import TrackBar from './components/ProjectDetails/TrackBar'
 import DescribtionTab from './components/Tabs/DescribtionTab'
 import OptionTab from './components/Tabs/OptionTab'
+import PolicyTab from './components/Tabs/PolicyTab'
 import ProjectInfoTab from './components/Tabs/ProjectInfoTab'
 import TimelineTab from './components/Tabs/TimelineTab'
+import TolistenerTab from './components/Tabs/ToListener'
 import { initProjectValue } from './const'
 import {
   HeaderDetailsContainer,
@@ -22,6 +24,7 @@ import { ProjectProps } from './types'
 export default function Project(projectProps: ProjectProps) {
   const { projectId } = projectProps
   const [project, setProject] = useState(initProjectValue)
+  console.log(project)
 
   useEffect(() => {
     async function loadProjectData() {
@@ -52,9 +55,19 @@ export default function Project(projectProps: ProjectProps) {
           artistName={project.owner.Profile.displayName}
         />
         <TabDivider />
-        <DescribtionTab toListener={project.projectDetails.toListener} />
+        <TolistenerTab
+          desc1={project.projectDetails.toListener1}
+          desc2={project.projectDetails.toListener2}
+          title1={project.projectDetails.toListenerTitle1}
+          title2={project.projectDetails.toListenerTitle2}
+          endingDesc={project.projectDetails.toListenerEnding}
+          toListenerPhotoURL={project.projectDetails.toListenerPhotoURL}
+          aboutProjectPhotoURL={project.projectDetails.aboutProjectPhotoURL}
+        />
         <TabDivider />
-        <TimelineTab timelineDatas={project.projectDetails.timelineDatas} />
+        {/* <TimelineTab timelineDatas={project.projectDetails.timelineDatas} />
+        <TabDivider /> */}
+        <PolicyTab />
         <TabDivider />
         <OptionTab options={project.projectDetails.options} />
       </TabsContainer>

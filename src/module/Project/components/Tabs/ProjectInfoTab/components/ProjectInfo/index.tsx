@@ -8,14 +8,14 @@ export default function ProjectInfo(projectInfoProps: ProjectInfoProps) {
   const date = new Date(projectInfo.deadLine)
   const projectDetails = [
     { title: 'ศิลปิน', data: artistName },
-    // { title: 'ประเภท', data: projectInfo. },
+    { title: 'ประเภท', data: projectInfo.type },
     {
       title: 'วันสิ้นสุดการระดมทุน',
       data: `${date.toLocaleDateString()}`,
     },
     { title: 'สถานะ', data: projectInfo.status },
-    { title: 'ผู้รับผิดชอบ', data: projectInfo.responsiblePerson },
-    { title: 'อื่นๆ', data: projectInfo.other },
+    // { title: 'ผู้รับผิดชอบ', data: projectInfo.responsiblePerson },
+    // { title: 'อื่นๆ', data: projectInfo.other },
   ]
   return (
     <motion.div
