@@ -68,7 +68,10 @@ export default function Project(projectProps: ProjectProps) {
         <TabDivider /> */}
         <PolicyTab />
         <TabDivider />
-        <OptionTab options={project.projectDetails.options} />
+        <OptionTab
+          options={project.projectDetails.options}
+          projectId={projectId}
+        />
       </TabsContainer>
       <Footer />
     </RootContainer>

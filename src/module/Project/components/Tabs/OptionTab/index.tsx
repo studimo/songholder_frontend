@@ -18,7 +18,7 @@ import Image from 'next/future/image'
 import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded'
 
 export default function OptionTab(optionTabProps: OptionTabProps) {
-  const { options } = optionTabProps
+  const { options, projectId } = optionTabProps
   const [option, setOption] = useState(options[0])
   const [currentSelect, setCurrentSelect] = useState(0)
   const [currentPaymentSelect, setCurrentPaymentSelect] = useState<any>(null)
@@ -26,7 +26,7 @@ export default function OptionTab(optionTabProps: OptionTabProps) {
   const { classes } = useStyles()
 
   useEffect(() => {
-    setOption(options[0])
+    setOption(options[currentSelect])
   }, [options])
 
   return (
@@ -144,9 +144,14 @@ export default function OptionTab(optionTabProps: OptionTabProps) {
             }}
           >
             <TypographyWithFont sx={{ color: '#A2B6D2' }}>
-              1,000 บาท |&nbsp;
+              {options[currentSelect].price} |&nbsp;
             </TypographyWithFont>
-            <Button sx={{ height: '20px', color: '#335381' }}>
+            <Button
+              sx={{ height: '20px', color: '#335381' }}
+              onClick={() => {
+                location.href = `/discover/project/${projectId}/${currentSelect}`
+              }}
+            >
               <TypographyWithFont> รับ QR</TypographyWithFont>
               <ArrowRightAltRoundedIcon sx={{ color: '#67C1C2' }} />
             </Button>

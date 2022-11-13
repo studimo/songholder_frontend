@@ -20,6 +20,7 @@ import Footer from 'src/common/components/Footer'
 import { FileInput } from '@mantine/core'
 import AddRoundedIcon from '@mui/icons-material/AddRounded'
 import { Button } from '@mui/material'
+import GradientButtonBackground from './components/GradientButtonBackground'
 // import GradientButtonBackground from './components/GradientButtonBackground'
 
 export default function ConfirmPurchase(
@@ -128,13 +129,13 @@ export default function ConfirmPurchase(
             >
               <Image
                 src={
-                  'https://scontent.fbkk8-4.fna.fbcdn.net/v/t1.6435-9/90342099_2624042397811606_4595632650445651968_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=lmthQ6A_LXsAX-o3SUM&_nc_ht=scontent.fbkk8-4.fna&oh=00_AT8qB54vbDU6u448Bmxixwf-Usdejvx3StqHZnuUw05pLQ&oe=635AC96F'
+                  'https://www.blognone.com/sites/default/files/externals/f66bf4f89896f0cc4802b76120a363c3.jpg'
                 }
                 fill
                 style={{ objectFit: 'cover' }}
               />
             </StyledEditIconImage>
-            <div
+            {/* <div
               style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -146,7 +147,7 @@ export default function ConfirmPurchase(
               <EditIconButton>
                 <ShareRoundedIcon sx={{ color: 'rgba(0, 0, 0, 0.54)' }} />
               </EditIconButton>
-            </div>
+            </div> */}
           </div>
           <div
             style={{
@@ -195,7 +196,7 @@ export default function ConfirmPurchase(
                   paddingLeft: '4px',
                 }}
               >
-                {/* <GradientButtonBackground /> */}
+                <GradientButtonBackground />
               </div>
             </Button>
           </div>

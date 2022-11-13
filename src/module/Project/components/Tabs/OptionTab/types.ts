@@ -7,4 +7,5 @@ export type OptionTabProps = {
     descPrice: string
     picture: string[]
   }[]
+  projectId: number
 }
