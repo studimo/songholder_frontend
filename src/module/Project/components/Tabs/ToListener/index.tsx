@@ -37,24 +37,30 @@ export default function TolistenerTab(describtionTabProps: TolistenerProps) {
           <DescriptionText sx={{ fontWeight: 500 }}>{title1}</DescriptionText>
           <DescriptionText>{desc1}</DescriptionText>
 
-          <StyledEditIconImage>
-            <Image
-              src={toListenerPhotoURL}
-              fill
-              style={{ objectFit: 'contain' }}
-            />
-          </StyledEditIconImage>
+          {toListenerPhotoURL && (
+            <StyledEditIconImage>
+              <Image
+                src={toListenerPhotoURL}
+                alt='toListenerPhoto'
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </StyledEditIconImage>
+          )}
 
           <DescriptionText sx={{ fontWeight: 500 }}>{title2}</DescriptionText>
           <DescriptionText>{desc2}</DescriptionText>
 
-          <StyledEditIconImage>
-            <Image
-              src={aboutProjectPhotoURL}
-              fill
-              style={{ objectFit: 'contain' }}
-            />
-          </StyledEditIconImage>
+          {aboutProjectPhotoURL && (
+            <StyledEditIconImage>
+              <Image
+                src={aboutProjectPhotoURL}
+                alt='toListenerPhoto2'
+                fill
+                style={{ objectFit: 'contain' }}
+              />
+            </StyledEditIconImage>
+          )}
 
           <DescriptionText>{endingDesc}</DescriptionText>
         </motion.div>
