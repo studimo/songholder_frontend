@@ -11,7 +11,14 @@ export default function ArtistImage(artistImageProps: ArtistImageProps) {
   return (
     <ArtistContainer>
       <StyledArtistImage>
-        <Image src={userPhotoURL} fill />
+        <Image
+          src={userPhotoURL}
+          alt='artist image'
+          fill
+          style={{
+            objectFit: 'cover',
+          }}
+        />
       </StyledArtistImage>
       <BackgroundArtistImage />
     </ArtistContainer>

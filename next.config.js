@@ -8,6 +8,7 @@ const nextConfig = {
       'https://lh3.googleusercontent.com/',
       'sixads.net',
       'img.youtube.com',
+      'firebasestorage.googleapis.com',
     ],
     // path: '',
   },
