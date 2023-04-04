@@ -1,26 +1,26 @@
 export const Banners = [
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
   {
     bannerPhotoURL:
-      'https://sixads.net/blog/advertisement-examples/?gen=twitterjpg',
+      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
   },
 ]
