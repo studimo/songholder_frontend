@@ -1,26 +1,26 @@
 export const Banners = [
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
   {
     bannerPhotoURL:
-      'https://www.feedough.com/wp-content/uploads/2018/04/ADVERTISING-07-1200x675.webp',
+      'https://static.vecteezy.com/system/resources/previews/004/664/959/original/advertising-web-banner-business-card-template-marketing-company-contact-page-with-phone-email-linear-icons-print-display-online-ads-presentation-web-page-idea-corporate-design-layout-vector.jpg',
   },
 ]
